@@ -40,26 +40,7 @@ Designing…Manufacturing…Marketing…Distributing Garments
 						<p class="stext-113 cl6 p-b-26">
 Specializing in comfort wear, we delve into the fashion realm of the everyday woman, offering a astonishing clothing collection for those who believe they cannot wear such styles.
 						</p>
-						<p class="stext-113 cl6 p-b-26">
-Empowering everyone through fashion, we believe that wearing the right dress enhances confidence. Experience this transformation affordably with our budget-friendly options.
-						</p>
-						<p class="stext-113 cl6 p-b-26">
-With our in-house stitching unit, bespoke designs, and punctual delivery, we ensure a seamless and tailored experience for our valued customers.
-						</p>
-						<p class="stext-113 cl6 p-b-26">
-Your comfort is our utmost priority. Catering to all ages, we offer a range of comfortable attire designed to embrace every stage of life.
-						</p>
-						<p class="stext-113 cl6 p-b-26">
-There's a certain magic woven that creates an unparalleled sense of comfort and ease…..DON’S MAGIC
-						</p>
 
-						<!-- <p class="stext-113 cl6 p-b-26">
-							Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. 
-						</p>
-
-						<p class="stext-113 cl6 p-b-26">
-							Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
-						</p> -->
 					</div>
 				</div>
 
@@ -80,19 +61,22 @@ There's a certain magic woven that creates an unparalleled sense of comfort and 
 						</h3>
 
 						<p class="stext-113 cl6 p-b-26">
-							Mauris non lacinia magna. Sed nec lobortis dolor. Vestibulum rhoncus dignissim risus, sed consectetur erat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nullam maximus mauris sit amet odio convallis, in pharetra magna gravida. Praesent sed nunc fermentum mi molestie tempor. Morbi vitae viverra odio. Pellentesque ac velit egestas, luctus arcu non, laoreet mauris. Sed in ipsum tempor, consequat odio in, porttitor ante. Ut mauris ligula, volutpat in sodales in, porta non odio. Pellentesque tempor urna vitae mi vestibulum, nec venenatis nulla lobortis. Proin at gravida ante. Mauris auctor purus at lacus maximus euismod. Pellentesque vulputate massa ut nisl hendrerit, eget elementum libero iaculis.
+						With our in-house stitching unit, bespoke designs, and punctual delivery, we ensure a seamless and tailored experience for our valued customers.
 						</p>
 
-						<div class="bor16 p-l-29 p-b-9 m-t-22">
-							<p class="stext-114 cl6 p-r-40 p-b-11">
-								Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
-							</p>
+						<p class="stext-113 cl6 p-b-26">
+						Your comfort is our utmost priority. Catering to all ages, we offer a range of comfortable attire designed to embrace every stage of life.
+						</p>
 
-							<span class="stext-111 cl8">
-								- Steve Job’s 
-							</span>
-						</div>
-					</div>
+						<p class="stext-113 cl6 p-b-26">
+						There's a certain magic woven that creates an unparalleled sense of comfort and ease…..DON’S MAGIC
+						</p>
+
+						<p class="stext-113 cl6 p-b-26">
+						Empowering everyone through fashion, we believe that wearing the right dress enhances confidence. Experience this transformation affordably with our budget-friendly options.
+						</p>
+
+											</div>
 				</div>
 
 				<div class="order-md-1 col-11 col-md-5 col-lg-4 m-lr-auto p-b-30">
