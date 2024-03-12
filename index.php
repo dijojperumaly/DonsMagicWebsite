@@ -9,12 +9,12 @@ include('header.php');
 				<div class="col-md-6 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/banner-04.jpg" alt="IMG-BANNER">
+						<img src="images/HomePage/cat1.png" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="ComfortAndHome.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Women
+									Home Wear
 								</span>
 
 								<span class="block1-info stext-102 trans-04">
@@ -34,12 +34,12 @@ include('header.php');
 				<div class="col-md-6 p-b-30 m-lr-auto">
 					<!-- Block1 -->
 					<div class="block1 wrap-pic-w">
-						<img src="images/banner-05.jpg" alt="IMG-BANNER">
+						<img src="images/HomePage/cat2.png" alt="IMG-BANNER">
 
-						<a href="product.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="MaternityAndNursing.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-									Men
+								Maternity Wear
 								</span>
 
 								<span class="block1-info stext-102 trans-04">
@@ -81,24 +81,24 @@ include('header.php');
 						All Products
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-						Outdoor Wear
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+					Outdoor Wear
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-						Comfort Wear
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+					Comfort Wear
 					</button>
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
 						Maternity Wear
 					</button>
 
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+					<!-- <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
 						Body Positive Collection
-					</button>
+					</button> -->
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-						Discounts
+						Best Seller
 					</button>
 				</div>
 
@@ -322,7 +322,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0 label-new" data-label="New">
-							<img src="images/product-01.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p1.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -354,7 +354,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-02.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p2.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -418,7 +418,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-04.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p3.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -446,11 +446,11 @@ include('header.php');
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-05.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p4.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -482,7 +482,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-06.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p3.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -514,7 +514,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-07.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p5.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -546,7 +546,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-08.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p6.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -606,11 +606,11 @@ include('header.php');
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-10.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p7.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -702,11 +702,11 @@ include('header.php');
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-13.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p8.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -734,8 +734,8 @@ include('header.php');
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
+				<!-- <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
+					
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="images/product-14.jpg" alt="IMG-PRODUCT">
@@ -764,13 +764,13 @@ include('header.php');
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
-					<!-- Block2 -->
+					
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/product-15.jpg" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p7.png" alt="IMG-PRODUCT">
 
 							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
 								Quick View
@@ -798,8 +798,8 @@ include('header.php');
 					</div>
 				</div>
 
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
-					<!-- Block2 -->
+				<!-- <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
+					
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="images/product-16.jpg" alt="IMG-PRODUCT">
@@ -828,7 +828,7 @@ include('header.php');
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 			</div>
 
 			<!-- Pagination -->
