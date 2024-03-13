@@ -111,13 +111,17 @@
 							</li>
 
 							<li>
+								<a href="ComfortWear.php">OUR AREAS</a>
+							</li>
+							
+							<!-- <li>
 								<a href="index.php">OUR AREAS</a>
 								<ul class="sub-menu">
 								<li><a href="ComfortWear.php">COMFORT WEAR</a></li>
 									<li><a href="CustomDesign.php">CUSTOM DESIGN</a></li>
 									<li><a href="StichingUnit.php">STICHING UNIT</a></li>
 								</ul>
-							</li>
+							</li> -->
 
 							<li>
 								<a href="contact.php">CONTACT</a>
@@ -238,6 +242,10 @@
 							</li>
 
 							<li>
+								<a href="ComfortWear.php">OUR AREAS</a>
+							</li>
+
+							<!-- <li>
 								<a href="index.php">OUR AREAS</a>
 								<ul class="sub-menu-m">
 								<li><a href="ComfortWear.php">COMFORT WEAR</a></li>
@@ -247,7 +255,7 @@
 								<span class="arrow-main-menu-m">
 									<i class="fa fa-angle-right" aria-hidden="true"></i>
 								</span>
-							</li>
+							</li> -->
 
 							<li>
 								<a href="contact.php">CONTACT</a>

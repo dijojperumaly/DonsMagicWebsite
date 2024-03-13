@@ -47,7 +47,13 @@ include('headerWhite.php');
 							</span>
 
 							<p class="stext-115 cl6 size-213 p-t-18">
-								Coza Store Center 8th floor, 379 Hudson St, New York, NY 10018 US
+							Don's Magic <br/>
+
+							C/o Mariyan Stitching Centre <br/>
+Paingottoor <br/>
+Pin 686671 <br/>
+Ernakulam <br/>
+
 							</p>
 						</div>
 					</div>
@@ -63,7 +69,7 @@ include('headerWhite.php');
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								+1 800 1236879
+							+91 9744187391 <br/> +91 9846366246
 							</p>
 						</div>
 					</div>
@@ -79,7 +85,8 @@ include('headerWhite.php');
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-								contact@example.com
+							doniajo.12@gmail.com
+
 							</p>
 						</div>
 					</div>
