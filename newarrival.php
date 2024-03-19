@@ -256,7 +256,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0 label-new" data-label="New">
 							<img src="images/Comfort/p1.png" alt="IMG-PRODUCT">
 
-							<a href="product-detail.php" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+							<a class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal2">
 								Quick View
 							</a>
 						</div>
@@ -1178,6 +1178,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 			</div>
 		</div>
 	</div>
+	<!-- Model 2 -->
+
 
 <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
