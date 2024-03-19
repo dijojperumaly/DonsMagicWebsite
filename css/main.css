@@ -39,6 +39,33 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
+.floatWatsapp{
+  position: fixed;
+      width: 40px;
+      height: 40px;
+      bottom: 30px;
+      left: 30px;
+      color: #fff;
+      border-radius: 50px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 2px 2px 3px #999;
+      z-index:100;
+}
+.floatCallbutton{
+  position: fixed;
+      width: 40px;
+      height: 40px;
+      bottom: 90px;
+      left: 30px;
+      color: #fff;
+      border-radius: 50px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 2px 2px 3px #999;
+      z-index:100;
+}
+
 @font-face {
   font-family: Poppins-Regular;
   src: url('../fonts/Poppins/Poppins-Regular.ttf'); 

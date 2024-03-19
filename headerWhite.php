@@ -41,6 +41,21 @@
 </head>
 <body class="animsition">
 	
+<!-- WHATS APP SHARE BUTTON STARTING -->
+<a
+      href="https://wa.me/919620395870?text=Hi%20There!" target="_blank"
+      class="floatWatsapp">
+      <img src="images/whatsapp.png"  alt="" height="50px" width="50px" />
+    </a>
+    <!-- WHATS APP SHARE BUTTON ENDING -->
+    <!--Floating Call BUTTON STARTING -->
+    <a
+      href="tel:+919620395870"
+      class="floatCallbutton">
+      <img src="images/call.png" alt="" height="50px" width="50px" />
+    </a>
+    <!-- Floating Call BUTTON ENDING -->
+	
 	<!-- Header -->
 	<header class="header-v4">
 		<!-- Header desktop -->
