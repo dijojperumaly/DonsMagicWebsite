@@ -12,12 +12,12 @@ include('header.php');
 						<img src="images/HomePage/cat1.png" alt="IMG-BANNER">
 
 						<a href="comfortAndHome.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
-							<div class="block1-txt-child1 flex-col-l">
-								<span class="block1-name ltext-102 trans-04 p-b-8">
+							<div class="block1-txt-child1 flex-col-l" >
+								<span class="block1-name ltext-102 trans-04 p-b-8" style="color: white;">
 									Home Wear
 								</span>
 
-								<span class="block1-info stext-102 trans-04">
+								<span class="block1-info stext-102 trans-04" style="color: white;">
 									New Trend
 								</span>
 							</div>
@@ -36,10 +36,10 @@ include('header.php');
 					<div class="block1 wrap-pic-w">
 						<img src="images/HomePage/cat2.png" alt="IMG-BANNER">
 
-						<a href="MaternityAndNursing.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
+						<a href="outDoorCasual.php" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 							<div class="block1-txt-child1 flex-col-l">
 								<span class="block1-name ltext-102 trans-04 p-b-8">
-								Maternity Wear
+								Outdoor Casual
 								</span>
 
 								<span class="block1-info stext-102 trans-04">
@@ -98,7 +98,7 @@ include('header.php');
 					</button> -->
 
 					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-						Best Seller
+						Kaftans
 					</button>
 				</div>
 
@@ -322,7 +322,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0 label-new" data-label="New">
-							<img src="images/Comfort/p1.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/comfort/c7.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0312 "
 							style="background-color: #075e54; color: white;" 
@@ -359,7 +359,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p2.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/comfort/c11.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0315 "
 							style="background-color: #075e54; color: white;" 
@@ -396,7 +396,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p9.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p9.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0203 "
 							style="background-color: #075e54; color: white;" 
@@ -429,11 +429,48 @@ include('header.php');
 					</div>
 				</div>
 
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="images/Comfort/Kaftan/k1.jpg" alt="IMG-PRODUCT">
+
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0109 "
+							style="background-color: #075e54; color: white;" 
+							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+								Contact Us
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+								Kaftan
+								</a>
+
+								<span class="stext-105 cl3">
+								Product ID : KF0109
+								</span>
+								<span class="stext-105 cl3">
+								₹ 399/-
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p3.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/comfort/c3.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0319 "
 							style="background-color: #075e54; color: white;" 
@@ -470,9 +507,9 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p4.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/Maternity/m3.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0101 "
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0103 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -486,44 +523,7 @@ include('header.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : MW0101
-								</span>
-								<span class="stext-105 cl3">
-								₹ 399/-
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
-					<!-- Block2 -->
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p3.png" alt="IMG-PRODUCT">
-
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0319 "
-							style="background-color: #075e54; color: white;" 
-							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
-								Contact Us
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-								Comfort Wear
-								</a>
-
-								<span class="stext-105 cl3">
-								Product ID : CW0319
+								Product ID : MW0103
 								</span>
 								<span class="stext-105 cl3">
 								₹ 399/-
@@ -544,7 +544,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p5.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/comfort/c10.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0329 "
 							style="background-color: #075e54; color: white;" 
@@ -581,7 +581,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p6.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/comfort/c17.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0331 "
 							style="background-color: #075e54; color: white;" 
@@ -618,7 +618,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p10.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p10.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0207 "
 							style="background-color: #075e54; color: white;" 
@@ -655,7 +655,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p6.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p6.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0211 "
 							style="background-color: #075e54; color: white;" 
@@ -692,7 +692,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p7.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p7.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0214 "
 							style="background-color: #075e54; color: white;" 
@@ -729,7 +729,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p1.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p1.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0217 "
 							style="background-color: #075e54; color: white;" 
@@ -766,9 +766,9 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p7.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/Maternity/m7.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0102 "
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0107 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -782,7 +782,7 @@ include('header.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : MW0102
+								Product ID : MW0107
 								</span>
 								<span class="stext-105 cl3">
 								₹ 399/-
@@ -803,7 +803,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p5.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p5.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0220 "
 							style="background-color: #075e54; color: white;" 
@@ -840,7 +840,7 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p8.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p8.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0221 "
 							style="background-color: #075e54; color: white;" 
@@ -877,9 +877,9 @@ include('header.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p8.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/Maternity/m9.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0105 "
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0109 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -893,7 +893,7 @@ include('header.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : MW0105
+								Product ID : MW0109
 								</span>
 								<span class="stext-105 cl3">
 								₹ 399/-
@@ -910,45 +910,13 @@ include('header.php');
 					</div>
 				</div>
 
-				<!-- <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
-					
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-14.jpg" alt="IMG-PRODUCT">
-
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
-
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Pretty Little Thing
-								</a>
-
-								<span class="stext-105 cl3">
-									$54.79
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
 					
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p7.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/Kaftan/k2.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0334 "
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0112 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -962,7 +930,7 @@ include('header.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : CW0334
+								Product ID : KF0112
 								</span>
 								<span class="stext-105 cl3">
 								₹ 399/-
@@ -979,37 +947,8 @@ include('header.php');
 					</div>
 				</div>
 
-				<!-- <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item bag">
-					
-					<div class="block2">
-						<div class="block2-pic hov-img0">
-							<img src="images/product-16.jpg" alt="IMG-PRODUCT">
 
-							<a href="#" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
-								Quick View
-							</a>
-						</div>
 
-						<div class="block2-txt flex-w flex-t p-t-14">
-							<div class="block2-txt-child1 flex-col-l ">
-								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									Square Neck Back
-								</a>
-
-								<span class="stext-105 cl3">
-									$29.64
-								</span>
-							</div>
-
-							<div class="block2-txt-child2 flex-r p-t-3">
-								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
-									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
-									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-								</a>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 
 			<!-- Pagination -->
