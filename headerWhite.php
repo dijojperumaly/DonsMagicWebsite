@@ -76,7 +76,7 @@
 							My Account
 						</a> -->
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<a href="https://www.facebook.com/profile.php?id=61555030816084&mibextid=ZbWKwL" class="flex-c-m trans-04 p-lr-25">
 						<i class="fa fa-facebook"></i>
 						</a>
 
@@ -213,11 +213,11 @@
 							My Account
 						</a> -->
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="https://www.facebook.com/profile.php?id=61555030816084&mibextid=ZbWKwL" class="flex-c-m p-lr-10 trans-04">
 						<i class="fa fa-facebook"></i>
 						</a>
 
-						<a href="#" class="flex-c-m p-lr-10 trans-04">
+						<a href="https://www.instagram.com/donsmagic?igsh=Mzc0OGR1cWdkamcx" class="flex-c-m p-lr-10 trans-04">
 						<i class="fa fa-instagram"></i>
 						</a>
 					</div>
