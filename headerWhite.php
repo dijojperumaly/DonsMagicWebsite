@@ -64,24 +64,24 @@
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping for standard order over $100
+						Free shipping on orders above ₹ 599 | All over Kerala.
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
+						<!-- <a href="#" class="flex-c-m trans-04 p-lr-25">
 							Help & FAQs
 						</a>
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
 							My Account
-						</a>
+						</a> -->
 
 						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							EN
+						<i class="fa fa-facebook"></i>
 						</a>
 
-						<a href="#" class="flex-c-m trans-04 p-lr-25">
-							USD
+						<a href="https://www.instagram.com/donsmagic?igsh=Mzc0OGR1cWdkamcx" target="_blank" class="flex-c-m trans-04 p-lr-25">
+						<i class="fa fa-instagram"></i>
 						</a>
 					</div>
 				</div>
