@@ -347,7 +347,7 @@ include('headerWhite.php');
 								Product ID : OW0203
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 590/-
 								</span>
 							</div>
 
@@ -441,7 +441,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m3.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0101 "
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0103 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -455,7 +455,7 @@ include('headerWhite.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : MW0101
+								Product ID : MW0103
 								</span>
 								<span class="stext-105 cl3">
 								₹ 399/-
@@ -569,7 +569,7 @@ include('headerWhite.php');
 								Product ID : OW0207
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 730/-
 								</span>
 							</div>
 
@@ -606,7 +606,7 @@ include('headerWhite.php');
 								Product ID : OW0211
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 620/-
 								</span>
 							</div>
 
@@ -643,7 +643,7 @@ include('headerWhite.php');
 								Product ID : OW0214
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 730/-
 								</span>
 							</div>
 
@@ -680,7 +680,7 @@ include('headerWhite.php');
 								Product ID : OW0217
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 630/-
 								</span>
 							</div>
 
@@ -700,7 +700,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m7.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0102 "
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0107 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -714,7 +714,7 @@ include('headerWhite.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : MW0102
+								Product ID : MW0107
 								</span>
 								<span class="stext-105 cl3">
 								₹ 399/-
@@ -754,7 +754,7 @@ include('headerWhite.php');
 								Product ID : OW0220
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 650/-
 								</span>
 							</div>
 
@@ -791,7 +791,7 @@ include('headerWhite.php');
 								Product ID : OW0221
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 730/-
 								</span>
 							</div>
 
@@ -811,7 +811,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m9.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0105 "
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0109 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -825,7 +825,7 @@ include('headerWhite.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : MW0105
+								Product ID : MW0109
 								</span>
 								<span class="stext-105 cl3">
 								₹ 399/-
@@ -843,6 +843,7 @@ include('headerWhite.php');
 				</div>
 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
+					
 					<div class="block2">
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Kaftan/k2.jpg" alt="IMG-PRODUCT">
@@ -876,7 +877,9 @@ include('headerWhite.php');
 							</div>
 						</div>
 					</div>
-					</div>
+				</div>
+
+				
 			</div>
 
 			<!-- Pagination -->

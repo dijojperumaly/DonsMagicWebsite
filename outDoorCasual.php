@@ -267,7 +267,7 @@ include('headerWhite.php');
 								Product ID : OW0203
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 590/-
 								</span>
 							</div>
 
@@ -304,7 +304,7 @@ include('headerWhite.php');
 								Product ID : OW0207
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 730/-
 								</span>
 							</div>
 
@@ -341,7 +341,7 @@ include('headerWhite.php');
 								Product ID : OW0211
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 620/-
 								</span>
 							</div>
 
@@ -378,7 +378,7 @@ include('headerWhite.php');
 								Product ID : OW0214
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 730/-
 								</span>
 							</div>
 
@@ -415,7 +415,7 @@ include('headerWhite.php');
 								Product ID : OW0217
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 630/-
 								</span>
 							</div>
 
@@ -452,7 +452,7 @@ include('headerWhite.php');
 								Product ID : OW0220
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 650/-
 								</span>
 							</div>
 
@@ -489,7 +489,7 @@ include('headerWhite.php');
 								Product ID : OW0221
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 730/-
 								</span>
 							</div>
 
@@ -526,7 +526,7 @@ include('headerWhite.php');
 								Product ID : OW0222
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 650/-
 								</span>
 							</div>
 
@@ -563,7 +563,7 @@ include('headerWhite.php');
 								Product ID : OW0223
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 650/-
 								</span>
 							</div>
 
@@ -600,7 +600,7 @@ include('headerWhite.php');
 								Product ID : OW0224
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 640/-
 								</span>
 							</div>
 
@@ -637,7 +637,7 @@ include('headerWhite.php');
 								Product ID : OW0225
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 630/-
 								</span>
 							</div>
 
@@ -674,7 +674,7 @@ include('headerWhite.php');
 								Product ID : OW0226
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								₹ 730/-
 								</span>
 							</div>
 
