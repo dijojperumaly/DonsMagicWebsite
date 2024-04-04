@@ -83,7 +83,7 @@ Ernakulam
 							<i class="fa fa-facebook"></i>
 						</a>
 
-						<a href="" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+						<a href="https://www.instagram.com/donsmagic?igsh=Mzc0OGR1cWdkamcx" target="_blank" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
 							<i class="fa fa-instagram"></i>
 						</a>
 
