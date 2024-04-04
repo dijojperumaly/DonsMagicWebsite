@@ -254,7 +254,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0 label-new" data-label="New">
-							<img src="images/Comfort/p1.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p1.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0312 "
 							style="background-color: #075e54; color: white;" 
@@ -291,7 +291,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p2.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p2.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0315 "
 							style="background-color: #075e54; color: white;" 
@@ -365,7 +365,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p3.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p3.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0319 "
 							style="background-color: #075e54; color: white;" 
@@ -402,7 +402,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p4.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p4.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0101 "
 							style="background-color: #075e54; color: white;" 
@@ -439,7 +439,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p3.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p3.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0319 "
 							style="background-color: #075e54; color: white;" 
@@ -476,7 +476,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p5.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p5.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0329 "
 							style="background-color: #075e54; color: white;" 
@@ -513,7 +513,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p6.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p6.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0331 "
 							style="background-color: #075e54; color: white;" 
@@ -550,7 +550,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p10.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p10.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0207 "
 							style="background-color: #075e54; color: white;" 
@@ -587,7 +587,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p6.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p6.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0211 "
 							style="background-color: #075e54; color: white;" 
@@ -624,7 +624,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p7.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p7.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0214 "
 							style="background-color: #075e54; color: white;" 
@@ -661,7 +661,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p1.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p1.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0217 "
 							style="background-color: #075e54; color: white;" 
@@ -698,7 +698,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p7.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p7.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0102 "
 							style="background-color: #075e54; color: white;" 
@@ -735,7 +735,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p5.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p5.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0220 "
 							style="background-color: #075e54; color: white;" 
@@ -772,7 +772,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Outdoor/p8.png" alt="IMG-PRODUCT">
+							<img src="images/Outdoor/p8.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0221 "
 							style="background-color: #075e54; color: white;" 
@@ -809,7 +809,7 @@ include('headerWhite.php');
 					<!-- Block2 -->
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p8.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p8.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0105 "
 							style="background-color: #075e54; color: white;" 
@@ -878,7 +878,7 @@ include('headerWhite.php');
 					
 					<div class="block2">
 						<div class="block2-pic hov-img0">
-							<img src="images/Comfort/p7.png" alt="IMG-PRODUCT">
+							<img src="images/Comfort/p7.jpg" alt="IMG-PRODUCT">
 
 							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0334 "
 							style="background-color: #075e54; color: white;" 
