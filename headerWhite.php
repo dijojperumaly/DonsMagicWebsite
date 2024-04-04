@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Product</title>
+	<title>Dons Magic</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -43,7 +43,7 @@
 	
 <!-- WHATS APP SHARE BUTTON STARTING -->
 <a
-      href="https://wa.me/919620395870?text=Hi%20There!" target="_blank"
+      href="https://maps.app.goo.gl/HbEKxLZuqc51WUV18" target="_blank"
       class="floatWatsapp">
       <img src="images/whatsapp.png"  alt="" height="50px" width="50px" />
     </a>
