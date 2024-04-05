@@ -7,7 +7,7 @@
 
 	<link rel="stylesheet" href="popupStyle/popupstyle.css">
 <!--===============================================================================================-->
-<link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'>
+<!-- <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'> -->
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
 <!--===============================================================================================-->
