@@ -48,7 +48,7 @@
     <!-- WHATS APP SHARE BUTTON ENDING -->
     <!--Floating Call BUTTON STARTING -->
     <a
-      href="tel:+919620395870"
+      href="tel:+919744187391"
       class="floatCallbutton">
       <img src="images/call.png" alt="" height="50px" width="50px" />
     </a>
