@@ -62,7 +62,7 @@
 				<nav class="limiter-menu-desktop p-l-45">
 					
 					<!-- Logo desktop -->		
-					<a href="index.php" class="logo" style="font-family: 'Gugi'; color: White; font-size: 24px;">
+					<a href="." class="logo" style="font-family: 'Gugi'; color: White; font-size: 24px;">
 						DONS MAGIC
 						<!-- <img src="images/icons/logo-02.png" alt="IMG-LOGO"> -->
 					</a>
@@ -71,7 +71,7 @@
 					<div class="menu-desktop">
 						<ul class="main-menu">
 							<li>
-								<a href="index.php">HOME</a>
+								<a href=".">HOME</a>
 							</li>
 
 							<li>
@@ -136,7 +136,7 @@
 					
 			<div class="logo-mobile">
 				<!-- <a href="index.php"><img src="images/icons/logo-01.png" alt="IMG-LOGO"></a> -->
-				<a href="index.php" class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
+				<a href="." class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
 						DONS MAGIC
 					</a>
 			</div>
@@ -163,7 +163,7 @@
 		<div class="menu-mobile">
 		<ul class="main-menu-m">
 							<li>
-								<a href="index.php">HOME</a>
+								<a href=".">HOME</a>
 							</li>
 
 							<li>
@@ -247,7 +247,7 @@
 			<div class="sidebar-content flex-w w-full p-lr-65 js-pscroll">
 				<ul class="sidebar-link w-full">
 					<li class="p-b-13">
-						<a href="index.php" class="stext-102 cl2 hov-cl1 trans-04">
+						<a href="." class="stext-102 cl2 hov-cl1 trans-04">
 							Home
 						</a>
 					</li>

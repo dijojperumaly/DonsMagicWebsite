@@ -92,7 +92,7 @@
 					
 					<!-- Logo desktop -->		
 					
-					<a href="index.php" class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
+					<a href="." class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
 						DONS MAGIC
 					</a>
 
@@ -100,7 +100,7 @@
 					<div class="menu-desktop">
 					<ul class="main-menu">
 							<li>
-								<a href="index.php">HOME</a>
+								<a href=".">HOME</a>
 							</li>
 
 							<li>
@@ -165,7 +165,7 @@
 		<div class="wrap-header-mobile">
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-			<a href="index.php" class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
+			<a href="." class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
 						DONS MAGIC
 					</a>
 			</div>
@@ -227,7 +227,7 @@
 			<div class="menu-mobile">
 		<ul class="main-menu-m">
 							<li>
-								<a href="index.php">HOME</a>
+								<a href=".">HOME</a>
 							</li>
 
 							<li>
