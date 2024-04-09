@@ -3358,3 +3358,8 @@ input.num-product::-webkit-inner-spin-button {
   }
 
 }
+.soldout{
+  color: red;
+  padding-left: 5px;
+  font-weight: 700;
+}

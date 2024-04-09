@@ -391,6 +391,190 @@ include('header.php');
 						</div>
 					</div>
 				</div>
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0 label-new" data-label="New"">
+							<img src="images/Outdoor/p16.jpg" alt="IMG-PRODUCT">
+
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0204 "
+							style="background-color: #075e54; color: white;" 
+							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+								Contact Us
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Outdoor Casual
+								</a>
+
+								<span class="stext-105 cl3">
+								Product ID : OW0204
+								</span>
+								<span class="stext-105 cl3">
+								₹ 590/-
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0 label-new" data-label="New">
+							<img src="images/Outdoor/p17.jpg" alt="IMG-PRODUCT">
+
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0222 "
+							style="background-color: #075e54; color: white;" 
+							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+								Contact Us
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Outdoor Casual
+								</a>
+
+								<span class="stext-105 cl3">
+								Product ID : OW0222
+								</span>
+								<span class="stext-105 cl3">
+								₹ 590/-
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="images/Outdoor/p18.jpg" alt="IMG-PRODUCT">
+
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0223 "
+							style="background-color: #075e54; color: white;" 
+							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+								Contact Us
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Outdoor Casual
+								</a>
+
+								<span class="stext-105 cl3">
+								Product ID : OW0223
+								</span>
+								<span class="stext-105 cl3">
+								₹ 590/-
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="images/Outdoor/p19.jpg" alt="IMG-PRODUCT">
+
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0224 "
+							style="background-color: #075e54; color: white;" 
+							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+								Contact Us
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Outdoor Casual
+								</a>
+
+								<span class="stext-105 cl3">
+								Product ID : OW0224
+								</span>
+								<span class="stext-105 cl3">
+								₹ 590/-
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src="images/Outdoor/p20.jpg" alt="IMG-PRODUCT">
+
+							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20OW0225 "
+							style="background-color: #075e54; color: white;" 
+							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+								Contact Us
+							</a>
+						</div>
+
+						<div class="block2-txt flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Outdoor Casual
+								</a>
+
+								<span class="stext-105 cl3">
+								Product ID : OW0225
+								</span>
+								<span class="stext-105 cl3">
+								₹ 590/-
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item men">
 					<!-- Block2 -->
@@ -428,6 +612,8 @@ include('header.php');
 						</div>
 					</div>
 				</div>
+
+				
 
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item watches">
 					<!-- Block2 -->
@@ -637,7 +823,7 @@ include('header.php');
 								Product ID : OW0207
 								</span>
 								<span class="stext-105 cl3">
-								₹ 730/-
+									<s>₹ 730/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -711,7 +897,7 @@ include('header.php');
 								Product ID : OW0214
 								</span>
 								<span class="stext-105 cl3">
-								₹ 730/-
+									<s>₹ 730/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -859,7 +1045,7 @@ include('header.php');
 								Product ID : OW0221
 								</span>
 								<span class="stext-105 cl3">
-								₹ 730/-
+									<s>₹ 730/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -896,7 +1082,7 @@ include('header.php');
 								Product ID : MW0109
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+									<s>₹ 399/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
