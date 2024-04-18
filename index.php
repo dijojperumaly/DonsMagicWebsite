@@ -448,7 +448,7 @@ include('header.php');
 								</a>
 
 								<span class="stext-105 cl3">
-								Product ID : OW0222
+								Product ID : OW0229
 								</span>
 								<span class="stext-105 cl3">
 								₹ 590/-
@@ -599,7 +599,7 @@ include('header.php');
 								Product ID : OW0203
 								</span>
 								<span class="stext-105 cl3">
-								₹ 590/-
+								<s>₹ 590/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -638,7 +638,7 @@ include('header.php');
 								Product ID : KF0109
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								<s>₹ 399/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -934,7 +934,7 @@ include('header.php');
 								Product ID : OW0217
 								</span>
 								<span class="stext-105 cl3">
-								₹ 630/-
+								<s>₹ 630/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -971,7 +971,7 @@ include('header.php');
 								Product ID : MW0107
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								<s>₹ 399/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -1119,7 +1119,7 @@ include('header.php');
 								Product ID : KF0112
 								</span>
 								<span class="stext-105 cl3">
-								₹ 399/-
+								<s>₹ 399/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 

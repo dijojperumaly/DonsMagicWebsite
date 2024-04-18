@@ -267,7 +267,7 @@ include('headerWhite.php');
 								Product ID : OW0203
 								</span>
 								<span class="stext-105 cl3">
-								₹ 590/-
+								<s>₹ 590/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -415,7 +415,7 @@ include('headerWhite.php');
 								Product ID : OW0217
 								</span>
 								<span class="stext-105 cl3">
-								₹ 630/-
+								<s>₹ 630/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -526,7 +526,7 @@ include('headerWhite.php');
 								Product ID : OW0222
 								</span>
 								<span class="stext-105 cl3">
-								₹ 650/-
+								<s>₹ 650/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
@@ -674,7 +674,7 @@ include('headerWhite.php');
 								Product ID : OW0226
 								</span>
 								<span class="stext-105 cl3">
-								₹ 730/-
+								<s>₹ 730/-</s> <span class="soldout">Sold Out</span>
 								</span>
 							</div>
 
