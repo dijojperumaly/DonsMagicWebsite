@@ -1,0 +1,114 @@
+.image_placeholder {
+    position: relative;  
+    text-align: center;
+    margin:1px;
+    border-style: solid;
+    text-align: center;
+    border-width: 1px;
+  }
+  
+  .image_place {
+    opacity: 1;
+    display: block;  
+    transition: .5s ease;
+    backface-visibility: hidden;  
+    max-width: 100%;
+    object-fit: contain;
+    margin:2px auto;
+  }
+  
+  .middle {
+    transition: .5s ease;
+    opacity: 0;
+    position: relative;
+    /*top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);*/
+    text-align: center;
+    cursor:pointer;
+  }
+  
+  .image_placeholder:hover .image_place {
+    opacity: 0.3;
+  }
+  
+  .image_placeholder:hover .middle {
+    opacity: 1;
+  }
+  
+  .image_text {
+    background-color: #d11a2a;
+    color: white;
+    font-size: 16px;
+    padding: 2px 2px;
+    font-weight: 500;
+  }
+  .form-group-demmi{
+    width:100%; 
+    height:37px; 
+    padding:14px 12px;
+    margin-bottom:15px;
+    font-size:14px;
+  }
+  .pointer_link{
+    cursor: pointer;
+  }
+  .pointer_link_red{
+    cursor: pointer;
+    color: #f05050;
+    font-weight: bold;
+  }
+  .pointer_link_blue{
+    cursor: pointer;
+    color: #007ee5;
+    font-weight: bold;
+  }
+  .disable_text{      
+    pointer-events: none; 
+  }
+  .disable_text_highlight{
+    background-color: #dddddd;
+    pointer-events: none;
+  }
+
+  /* select option style start */
+  .select_box {
+    width: 100%;
+    height: 34px;
+    border: 1px solid lightgray;
+    font-size: 18px;
+    color: black;
+    background-color: #eee;
+    border-radius: 5px;
+    /*box-shadow: 4px 4px #ccc;*/
+    padding: 4px;
+  }
+
+  /* date time style */
+
+  /*input[type="date"]:before {
+    content: 'DD-MM-YYYY';
+  }
+  input[type="date"]:focus:before {
+    width: 0;
+    content: '';
+  }*/
+
+  input[type="time"]:before {
+    content: 'HH:MM';
+  }
+  /*input[type="time"]:focus:before {
+    width: 0;
+    content: '';
+  }*/
+  /* select option style end */
+ 
+  .se-pre-con {
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url(../images/Preloader.gif) center no-repeat #fff; }
