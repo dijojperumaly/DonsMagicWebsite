@@ -10,6 +10,8 @@ define("PEDDING",0);
 define("WAITING",1);
 define("CONFIRMED",2);
 define("CANCELED",3);
+
+$statusarray=array("Active","Draft","SoldOut");
 //local server
 $servername = "localhost";
 $username = "root";

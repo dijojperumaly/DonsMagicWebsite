@@ -1,5 +1,12 @@
 <?php 
-//require_once("adminsession.php")
+require_once("adminsession.php");
+//$OrderID = (int)date('ym').substr(time(), -5) . substr(microtime(), 2, 5) . sprintf('%02d', rand(1000, 9999));
+//echo $OrderID;
+//echo strtotime('today')*100+rand(1000,9999);
+//echo srand ((double) microtime() * 1000000);
+//echo floor(((double) microtime() * 10000));
+//$random5 = rand(10000,99999);
+//echo $random5;
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,7 +34,7 @@
                     <tr>
                     <th></th>
                     <th>Product</th>
-                    <th>About</th>
+                    <th>Product Code</th>
                     <th>Price</th>
                     <th>Featured</th>
                     <th>Order</th>
@@ -69,7 +76,7 @@
                                 html += "<thead><tr>" +
                                     "<th>#</th>" +
                                     "<th>Product</th>" +
-                                    "<th>About</th>" +
+                                    "<th>Product_Code</th>" +
                                     "<th>Price</th>" +
                                     "<th>Featured</th>" +                                    
                                     "<th>Order</th>" +
@@ -86,8 +93,8 @@
                                         let doc_icon="";                                      
                                         html += "<tr>" +
                                             "<td width='10%'><img src='../images/products/" + value.image_1 + "' /></td>" +
-                                            "<td width='20%'><b>" + value.producttype + "</b><br><span style='font-size:10px;'>"+ value.title  +"</span></td>" +                                            
-                                            "<td width='25%'>" + value.aboutproduct + "</td>" +
+                                            "<td width='20%'><b>" + value.producttype + "</b><br><span style='font-size:12px;'>"+ value.title  +"</span></td>" +                                            
+                                            "<td width='25%'>" + value.product_code + "</td>" +
                                             "<td width='15%'>" + value.MRP + "<br><span style='font-size:10px;'>"+ value.offerprice  +"</span></td>" +
                                             "<td width='5%'>" + value.isfeatured + "</td>" +                                            
                                             "<td width='5%'>"+ value.orderno +"</td>" +

@@ -1,44 +1,47 @@
 <?php
 include_once("db_connection.php");
 include_once("adminsession.php");
+$id="";
 $title="";
-$sub_title="";
-$matter="";
-$news_date="";
-$start_date="";
-$end_date="";
+$producttype_id="";
+$product_code="";
+$aboutproduct="";
+$MRP="";
+$offerprice="";
 $isfeatured="";
-$document_file="";
+$orderno="";
 $image_1="";
+$status="";
 
 if(isset($_GET["id"])){
     $id=$_GET["id"];
     $sql = "SELECT  id, 
         IFNULL(title,'')title, 
-        IFNULL(sub_title,'') sub_title, 
-        matter, 
-        IFNULL(news_date,'') news_date, 
-        IFNULL(start_date,'') start_date, 
-        IFNULL(end_date,'') end_date, 
+        IFNULL(producttype_id,'') producttype_id, 
+        product_code, 
+        IFNULL(aboutproduct,'') aboutproduct, 
+        IFNULL(MRP,'') MRP, 
+        IFNULL(offerprice,'') offerprice, 
         CASE WHEN IFNULL(isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
-        IFNULL(document_file,'') document_file, image_1, 
+        IFNULL(orderno,0) orderno, 
+        image_1, 
         IFNULL(STATUS,'Active') status,
         IFNULL(orderno,0) orderno
-        FROM tbl_news WHERE IFNULL(isdeleted,0)=0 AND IFNULL(STATUS,'Active')='Active'  AND id=$id";
+        FROM tbl_product WHERE IFNULL(isdeleted,0)=0  AND id=$id";
         
     $results = $con->query($sql);    
   
     if($row=$results->fetch_array(MYSQLI_ASSOC)){        
         $title=$row["title"];
-        $sub_title=$row["sub_title"];
-        $matter=$row["matter"];
-        $news_date=$row["news_date"];
-        $start_date=$row["start_date"];
-        $end_date=$row["end_date"];
+        $producttype_id=$row["producttype_id"];
+        $product_code=$row["product_code"];
+        $aboutproduct=$row["aboutproduct"];
+        $MRP=$row["MRP"];
+        $offerprice=$row["offerprice"];
         $isfeatured=$row["isfeatured"];
-        $document_file=$row["document_file"];
-        $image_1=$row["image_1"];        
-        $orderno=$row["orderno"]; 
+        $orderno=$row["orderno"];
+        $status=$row["status"];     
+        $image_1=$row["image_1"];
     }
 }
 ?>
@@ -56,9 +59,9 @@ if(isset($_GET["id"])){
     <?php require_once("admin_header.php")?>
     
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card"><a href='news.php'><< back to list</a>
+        <div class="card"><a href='product.php'><< back to list</a>
             <div class="card-body">
-            <h4 class="card-title">ADD NEWS</h4>            
+            <h4 class="card-title">EDIT PRODUCT</h4>            
             </p>
             <div class="table-responsive">
               
@@ -67,74 +70,89 @@ if(isset($_GET["id"])){
                     <p></p>
                 </div>
                 <p>
-                    <form method="post" action="news_save" id="form_save" name="form_save" enctype="multipart/form-data">       
+                    <form method="post" action="product_save" id="form_save" name="form_save" enctype="multipart/form-data">       
                         <input type="hidden" name="hdid" id="hdid" value="<?php echo $id; ?>">                 
+                        <label for="producttype">Product Type &nbsp;
+                            <span class="at-required-highlight">*</span>
+                        </label>
+                        <div class="form-group">
+                        <?php 
+                            $sql_select = "SELECT  producttype_id, 
+                                producttype,typecode
+                                FROM tbl_producttype WHERE IFNULL(isdeleted,0)=0 AND IFNULL(STATUS,'Active')='Active'  ORDER BY orderno ASC";                        
+                            $select_results = $con->query($sql_select);    
+                            ?>
+                        
+                            <select name="producttype" id="producttype" class="form-control" required="true">
+                                <option value="">-----select-----</option>
+                                <?php
+                                while($row_select=$select_results->fetch_array(MYSQLI_ASSOC)){    
+                                    $typeid=$row_select["producttype_id"];
+                                    $producttype=$row_select["producttype"];
+                                    $typecode=$row_select["typecode"];
+                                ?>
+                                <option value="<?php echo $typeid; ?>" <?php if($typeid==$producttype_id){ ?> selected <?php }?>> <?php echo $producttype. " (".$typecode.")"; ?></option>
+                                <?php
+                                }
+                                $select_results->close();	
+                                ?>
+                            </select>
+                        </div>                  
                         <label for="cname">Title &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <input type="text" name="title" id="title" value="<?php echo $title; ?>" class="form-control">
+                        </div>
+
+                        <label for="housename">MRP &nbsp;
                             <span class="at-required-highlight">*</span>
                         </label>
                         <div class="form-group">
-                            <input type="text" name="title" id="title" required="true" class="form-control" value="<?php echo $title; ?>">
+                            <input type="text" name="mrp" id="mrp" value="<?php echo $MRP; ?>" class="form-control" required="true">
+                        </div>
+                        <label for="housename">Offer Price &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <input type="text" name="offerprice" id="offerprice" value="<?php echo $offerprice; ?>" class="form-control">
                         </div>
 
-                        <label for="housename">Sub Title &nbsp;
+                        <label for="contact1">About Product&nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="form-group">
-                            <input type="text" name="subtitle" id="subtitle" class="form-control" value="<?php echo $sub_title; ?>">
-                        </div>
-
-                        <label for="contact1">Matter&nbsp;
-                            <span class="at-required-highlight">*</span>
-                        </label>
-                        <div class="form-group">
-                            <textarea name="matter" id="matter" class="form-control" required="true"><?php echo $matter; ?></textarea>
-                        </div>
-                        <label for="field-1-3">Date&nbsp;
+                            <textarea name="aboutproduct" id="aboutproduct" class="form-control" rows="7"><?php echo $aboutproduct; ?></textarea>
+                        </div>                        
+                        <label for="email">Image&nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="form-group">
-                            <input type="date" name="date" id="date" class="form-control" value="<?php echo date('Y-m-d',strtotime($news_date)); ?>">
-                        </div>
-                        <label for="place">Start Date</label>
-                        <div class="form-group">
-                            <input type="date" name="startdate" id="startdate" class="form-control" value="<?php echo date('Y-m-d',strtotime($start_date)); ?>">
-                        </div>
-                        <label for="email">End date&nbsp;
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">
-                            <input type="date" class="form-control" name="enddate" id="enddate" value="<?php echo date('Y-m-d',strtotime($end_date)); ?>">
+                            <input type="hidden" id="hdimagefile" name="hdimagefile" value="<?php echo $image_1; ?>">
+                            <img src="../images/products/<?php echo $image_1; ?>" width="250px" /></br></br>
+                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg">
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>                        
-                        <label for="email">Banner&nbsp;
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">
-                            <input type="hidden" id="hdbanner" name="hdbanner" value="<?php echo $image_1; ?>">
-                            <img src="./assets/news/news_banner/<?php echo $image_1; ?>" width="250px" /></br></br>
-                            <input type="file" class="form-control" name="banner" id="banner" accept="image/x-png,image/gif,image/jpeg">
-                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        <label for="email">Document File&nbsp;
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">
-                            <?php
-                            $doc_icon="";
-                                if($document_file!=''){
-                                    $doc_icon="<a href='./assets/news/news_document/".$document_file."'><i class='fa fa-file-text-o' style='font-size:36px;'></i></a></br></br>";
-                                }
-                                echo $doc_icon;
-                            ?>
-                            <input type="hidden" id="hddocument" name="hddocument" value="<?php echo $document_file; ?>">
-                            <input type="file" class="form-control" name="document" id="document">
-                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>
                         <div class="form-group" style="text-align:left;float:left; margin:4px;">
                             <input type="checkbox" class="form-control" name="featured" id="featured" value="1" <?php if($isfeatured=="YES"){ echo "checked";} ?> >                            
                         </div>
                         <label for="featured"  style="text-align:left;float:left;margin:2px;">Is-Featured</label></br></br>
-                        <label for="email">Order No&nbsp;
+                        <label for="producttype">Status &nbsp;
+                            <span class="at-required-highlight">*</span>
+                        </label>
+                        <div class="col-lg-4 col-md-4 form-group">
+                            <select name="productstatus" id="productstatus" class="form-control" required="true">                                
+                                <?php
+                                foreach($statusarray as $prostatus){                                       
+                                ?>
+                                    <option value="<?php echo $prostatus; ?>" <?php if($prostatus==$status){ ?> selected <?php }?>><?php echo$prostatus; ?></option>
+                                <?php
+                                }
+                             
+                                ?>
+                            </select>
+                        </div> 
+                        <label for="orderno">Order No&nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="col-lg-4 col-md-4 form-group">
@@ -153,7 +171,7 @@ if(isset($_GET["id"])){
                         </div>
                     </form>
                 </p>
-
+                <a href='product.php'><< back to list</a>
             </div>
             </div>
         </div>
@@ -212,11 +230,8 @@ if(isset($_GET["id"])){
 						});
 
 						//File data
-						var file_data = $('input[name="banner"]')[0].files;
-						data.append("banner", file_data[0]); 
-
-                        var file_document = $('input[name="document"]')[0].files;
-						data.append("document", file_document[0]); 
+						var file_data = $('input[name="imagefile"]')[0].files;
+						data.append("imagefile", file_data[0]); 
 
 						//multifile upload
 						/*for (var i = 0; i < file_data.length; i++) {
@@ -247,6 +262,7 @@ if(isset($_GET["id"])){
 									if (json["status"] == "success") {
 										//resetForm();
 										//all();
+                                        //window.location.reload();
                                         
 										ShowAlert("", "Successfully Updated", "success");
 									}else if(json["status"] == "filetype_error") {

@@ -6,7 +6,7 @@ $status=array('status'=>'success');
 
 	if(isset($_GET["delid"])){		
 		$id=$_GET["delid"];
-		$stmt = $con->prepare("DELETE FROM tbl_news
+		$stmt = $con->prepare("UPDATE tbl_product SET isdeleted=1
 			WHERE 	id=?");
 		$stmt->bind_param("i", $id);
 	

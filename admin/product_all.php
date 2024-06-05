@@ -6,6 +6,7 @@ include_once("db_connection.php");
 // Set the INSERT SQL data
 $sql = "SELECT   p.id, 
         IFNULL(p.title,'')title, 
+        IFNULL(p.product_code,'')product_code, 
         IFNULL(p.aboutproduct,'') aboutproduct, 
         p.MRP, 
         IFNULL(p.offerprice,'') offerprice, 

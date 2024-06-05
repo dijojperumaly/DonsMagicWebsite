@@ -9,17 +9,16 @@ $edit_document="";
 $filename="";
 $documentfilename="";
 $folder = "../images/products/";
-$folder_document = "./assets/news/news_document/";
 
 if(isset($_POST["hdimagefile"])){
 	$edit_filename=$_POST["hdimagefile"];
 }
 $filename=$edit_filename;
-
+$producttype=0;
 $con->begin_transaction();
 //if (isset($_POST["submit"])) {
 
-	if (isset($_FILES["imagefile"]['name'])) {		
+	if (isset($_FILES["imagefile"]['name'])) {	
 		$fname = $_FILES['imagefile']['name'];
 		$ext = pathinfo($fname, PATHINFO_EXTENSION);
 		if (!in_array(strtolower($ext), $allowed_imagetype)) {
@@ -42,18 +41,20 @@ $con->begin_transaction();
 			}
 		}
 	}	
+	
 	if($status=="success"){		
 		$title=$_POST["title"];
 		$producttype=$_POST["producttype"];
 		$mrp =$_POST["mrp"];
 		$offerprice =$_POST["offerprice"];
 		$aboutproduct =$_POST["aboutproduct"];
-		$featured=$_POST["featured"];	
-		$orderno=$_POST["orderno"];					
+		$featured=isset($_POST["featured"])? $_POST["featured"]:0;	
+		$orderno=$_POST["orderno"];	
+		$productstatus=$_POST["productstatus"];	
 
 		$cid=0;
 		$stmt="";
-	//    $featured=1;
+		$smt_code="";
 		if(!isset($_POST["hdid"])){
 			$stmt = $con->prepare("INSERT INTO tbl_product (
 				producttype_id,
@@ -64,35 +65,52 @@ $con->begin_transaction();
 				isfeatured,
 				image_1,
 				orderno,
+				status,
 				createdby,
-				createdat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");		
-			$stmt->bind_param("issiiisiis", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $user_id, $present);		
+				createdat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");		
+			$stmt->bind_param("issiiisisis", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $user_id, $present);		
+
+			$smt_code=$con->prepare("UPDATE tbl_product SET product_code=CONCAT((SELECT typecode FROM tbl_producttype WHERE producttype_id=$producttype),?) WHERE id=?");
 		}
 		else{
+			
 			$id=$_POST["hdid"];
-			$stmt = $con->prepare("UPDATE tbl_news SET
+			$stmt = $con->prepare("UPDATE tbl_product SET
+				producttype_id=?,
 				title=?, 
-				sub_title=?,
-				matter=?,
-				news_date=?,		
-				start_date=?, 
-				end_date=?,
+				aboutproduct=?,
+				MRP=?,	
+				offerprice=?,	
 				isfeatured=?,
-				document_file=?,
 				image_1=?,
 				orderno=?,
+				status=?,
 				updatedby=?,
 				updatedat=? WHERE id=?");
-			$stmt->bind_param("ssssssissiisi", $title, $subtitle, $matter, $date,  $startdate, $enddate, $featured, $documentfilename, $filename, $orderno, $user_id,$present,$id);
+			$stmt->bind_param("issiiisisisi", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $user_id, $present,$id);
+			
 		}
-		if($stmt->execute()){
-				$status=[ 'status' => 'success'];	
-				$con->commit();			
-			}
-			else{
-				$status=[ 'status' => 'fail' ];
-				$con->rollback();
-			}
+		if($stmt->execute()){			
+			if($smt_code!=""){				
+				$lastid=$stmt->insert_id;
+				$procode=floor(((double) microtime() * 10000)).$lastid;
+				$smt_code->bind_param("si",$procode,$lastid);
+
+				if($smt_code->execute()){
+					$status=[ 'status' => 'success'];
+					$con->commit();	
+				}else{
+					$status=[ 'status' => 'fail, Product code error' ];
+					$con->rollback();
+				}
+			}	
+			$status=[ 'status' => 'success'];
+			$con->commit();		
+		}
+		else{
+			$status=[ 'status' => 'fail' ];
+			$con->rollback();
+		}
 		
 		$stmt->close();	
 	}	

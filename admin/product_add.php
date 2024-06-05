@@ -88,7 +88,21 @@
                             <input type="checkbox" class="form-control" name="featured" id="featured" value="1">                            
                         </div>
                         <label for="featured"  style="text-align:left;float:left;margin:2px;">Is-Featured</label><br><br>
-
+                        <label for="producttype">Status &nbsp;
+                            <span class="at-required-highlight">*</span>
+                        </label>
+                        <div class="col-lg-4 col-md-4 form-group">
+                            <select name="productstatus" id="productstatus" class="form-control" required="true">                                
+                                <?php
+                                foreach($statusarray as $prostatus){                                       
+                                ?>
+                                    <option value="<?php echo $prostatus; ?>"><?php echo$prostatus; ?></option>
+                                <?php
+                                }
+                             
+                                ?>
+                            </select>
+                        </div> 
                         <label for="orderno">Order No&nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
@@ -108,7 +122,7 @@
                         </div>
                     </form>
                 </p>
-
+                <a href='product.php'><< back to list</a>
             </div>
             </div>
         </div>
@@ -200,7 +214,7 @@
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								alert(response);												
+								//alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
