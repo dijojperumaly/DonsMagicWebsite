@@ -6,9 +6,9 @@ $status=array('status'=>'success');
 
 	if(isset($_GET["delid"])){		
 		$id=$_GET["delid"];
-		$stmt = $con->prepare("UPDATE tbl_retreattype SET
+		$stmt = $con->prepare("UPDATE tbl_contact SET
 			isdeleted=1
-			WHERE 	retreattype_id=?");
+			WHERE 	contact_id=?");
 		$stmt->bind_param("i", $id);
 	
 		if($stmt->execute()){

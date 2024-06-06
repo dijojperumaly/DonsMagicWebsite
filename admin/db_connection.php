@@ -6,12 +6,12 @@ function currentDateTime(){
   $present=date('Y-m-d H:i');
 }
 
-define("PEDDING",0);
-define("WAITING",1);
-define("CONFIRMED",2);
-define("CANCELED",3);
+define("PRIMARY_CONTACT",1);
+define("SECONDARY_CONTACT",2);
 
 $statusarray=array("Active","Draft","SoldOut");
+$contactarray=array("PRIMARY"=>"PRIMARY","SECONDARY"=>"SECONDARY");
+
 //local server
 $servername = "localhost";
 $username = "root";

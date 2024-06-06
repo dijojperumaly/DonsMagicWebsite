@@ -91,8 +91,9 @@ include_once("adminsession.php");
                   <p class="text-black">Settings</p>
                 </div>
                 <ul class="mt-4 pl-0">
-                <li><a class="dropdown-item" href="changepassword.php">Change Password</a></li>
-                <li><a class="dropdown-item" href="logout.php">Sign Out</a></li>
+                  <li><a class="dropdown-item" href="whatsappcontact.php">Contact</a></li>
+                  <li><a class="dropdown-item" href="changepassword.php">Change Password</a></li>
+                  <li><a class="dropdown-item" href="logout.php">Sign Out</a></li>
                 </ul>
               </div>
             </div>

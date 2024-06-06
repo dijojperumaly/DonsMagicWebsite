@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2024 at 09:55 PM
+-- Generation Time: Jun 06, 2024 at 09:11 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.4
 
@@ -21,6 +21,31 @@ SET time_zone = "+00:00";
 --
 -- Database: `db_donswebadmin`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_contact`
+--
+
+CREATE TABLE `tbl_contact` (
+  `contact_id` int(11) NOT NULL,
+  `contact` varchar(20) NOT NULL,
+  `type` varchar(50) NOT NULL DEFAULT '1',
+  `status` varchar(20) NOT NULL DEFAULT 'Active',
+  `isdeleted` int(11) NOT NULL DEFAULT '0',
+  `createdby` int(11) NOT NULL,
+  `createdat` datetime NOT NULL,
+  `updatedby` int(11) NOT NULL,
+  `updatedat` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_contact`
+--
+
+INSERT INTO `tbl_contact` (`contact_id`, `contact`, `type`, `status`, `isdeleted`, `createdby`, `createdat`, `updatedby`, `updatedat`) VALUES
+(3, '00919497326073', 'PRIMARY', 'Active', 0, 3, '2024-06-06 12:25:00', 3, '2024-06-06 12:41:00');
 
 -- --------------------------------------------------------
 
@@ -114,6 +139,12 @@ INSERT INTO `tbl_producttype` (`producttype_id`, `producttype`, `typecode`, `abo
 --
 
 --
+-- Indexes for table `tbl_contact`
+--
+ALTER TABLE `tbl_contact`
+  ADD PRIMARY KEY (`contact_id`);
+
+--
 -- Indexes for table `tbl_login`
 --
 ALTER TABLE `tbl_login`
@@ -134,6 +165,12 @@ ALTER TABLE `tbl_producttype`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `tbl_contact`
+--
+ALTER TABLE `tbl_contact`
+  MODIFY `contact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_login`

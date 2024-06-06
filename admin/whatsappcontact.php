@@ -17,7 +17,7 @@
             <div class="card-body">
             <h4 class="card-title">Retreat Type List</h4>
             <!--<p class="card-description"> ADD <code></code>-->
-            <a href="retreattype_add.php"><input type="button" name="btnRetreat" id="btnRetreat" value="New" class="btn btn-primary"></a>
+            <a href="whatsappcontact_add.php"><input type="button" name="btnNew" id="btnNew" value="New" class="btn btn-primary"></a>
             </p>
             <div class="alert alert-dismissible" role="alert" style="display:none;">
                 <strong>Warning!</strong>
@@ -28,26 +28,19 @@
                 <thead>
                     <tr>
                     <th></th>
-                    <th>Type</th>
-                    <th>About</th>
-                    <th>No Seats</th>                    
-                    <th>Order</th>
-                    <th>Doc</th>  
-                    <th>Status</th>
+                    <th>Contact</th>
+                    <th>Type</th>                    
                     <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
-                   
+                <tbody>                   
                 </tbody>
                 </table>
             </div>
             </div>
         </div>
         </div>
-
     <?php require_once("admin_fooder.php")?> 
-
     <script>
         $(document).ready(function() {
 
@@ -56,7 +49,7 @@
                         //alert("called all");
                         $.ajax({
                             type: "GET", //we are using GET method to get all record from the server
-                            url: 'retreattype_all.php', // get the route value
+                            url: 'whatsappcontact_all.php', // get the route value
                             beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click									
                                 //$(".se-pre-con").fadeIn("slow");									
                                 $("#table_div").html("<center><img src='images/loader.gif' width='50px'/></center>");
@@ -71,11 +64,8 @@
                
                                 html += "<thead><tr>" +
                                     "<th>#</th>" +
-                                    "<th>Type</th>" +
-                                    "<th>About</th>" +
-                                    "<th>No Seats</th>" +
-                                    "<th>Order</th>" +                                                                         
-                                    "<th>Status</th>" +
+                                    "<th>Contact</th>" +
+                                    "<th>Type</th>" + 
                                     "<th>Action</th>" +
                                     "</tr>" +
                                     "</thead>" +
@@ -90,15 +80,12 @@
                                             doc_icon="<i class='fa fa-file-text-o' style='font-size:36px;'></i>";
                                         }
                                         html += "<tr>" +
-                                            "<td width='10%'><img src='./assets/retreattype/type_banner/" + value.image + "' /></td>" +
-                                            "<td width='20%'><b>" + value.retreattype + "</b><br><span style='font-size:11px;'>"+ value.name  +"</span></td>" +                                            
-                                            "<td width='25%'>" + value.abouttype + "</td>" +
-                                            "<td width='15%'>" + value.noseats + "</td>" +
-                                            "<td width='5%'>" + value.orderno + "</td>" +                                                                               
-                                            "<td width='5%'>" + value.status + "</td>" +
+                                            "<td width='10%'>"+ (key+1) + "</td>" +
+                                            "<td width='20%'><b>" + value.contact + "</b></td>" +                                            
+                                            "<td width='25%'>" + value.type + "</td>" +        
                                             "<td width='10%'>" +                                            
-                                            "<a href='retreattype_edit.php?id="+value.retreattype_id+"'><i class='fa fa-pencil-square-o pointer_link_blue' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;" +
-                                            "<i class='fa fa-trash-o pointer_link_red' aria-hidden='true' onClick='deleteItem(" + value.retreattype_id + ",this)'></i>" +
+                                            "<a href='whatsappcontact_edit.php?id="+value.contact_id+"'><i class='fa fa-pencil-square-o pointer_link_blue' aria-hidden='true'></i></a>&nbsp;&nbsp;&nbsp;" +
+                                            "<i class='fa fa-trash-o pointer_link_red' aria-hidden='true' onClick='deleteItem(" + value.contact_id + ",this)'></i>" +
                                             "</td>" +
                                             "</tr>";
                                     });
@@ -155,7 +142,7 @@
 
 							$.ajax({
 								type: "GET", //we are using POST method to submit the data to the server side
-								url: "retreattype_delete.php?delid=" + id, // get the route value								
+								url: "whatsappcontact_delete.php?delid=" + id, // get the route value								
 								//data: JSON.stringify({delcid:id}), // our serialized array data for server side
 								timeout: 100,
 								async: false,

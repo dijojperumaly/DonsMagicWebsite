@@ -21,7 +21,7 @@ $housename="";
     <?php require_once("admin_header.php")?>
     
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card"><a href='retreattype.php'><< back to list</a>
+        <div class="card"><a href='whatsappcontact.php'><< back to list</a>
             <div class="card-body">
             <h4 class="card-title">ADD RETREAT TYPE</h4>            
             </p>
@@ -32,67 +32,28 @@ $housename="";
                     <p></p>
                 </div>
                 <p>
-                    <form method="post" action="retreattype_save" id="form_save" name="form_save" enctype="multipart/form-data">                        
-                        <label for="cname">Type &nbsp;
-                            <span class="at-required-highlight">*</span>
-                        </label>
-                        <div class="form-group">
-                            <input type="text" name="type" id="type" required="true" class="form-control">
-                        </div>                                               
-                        <label for="contact1">About Type&nbsp;
-                            <span class="at-required-highlight">*</span>
-                        </label>
-                        <div class="form-group">
-                            <textarea name="abouttype" id="abouttype" class="form-control" required="true" rows="7"></textarea>
-                        </div>                          
-                        <label for="housename">Number of Seats &nbsp;
+                    <form method="post" action="whatsappcontact_save" id="form_save" name="form_save" enctype="multipart/form-data">                                                    
+                        <label for="contact">Contact/WhatsApp Number&nbsp; (with country code)
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="form-group">
-                            <input type="text" name="noseats" id="noseats" class="form-control">
+                            <input type="text" name="contact" id="contact" class="form-control" required>
                         </div>  
-                        <label for="housename">Deligate &nbsp;
+                        <label for="type">Type &nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
-                        <div class="form-group">
-                        <?php 
-                            $sql_select = "SELECT  id, 
-                                name, 
-                                housename 
-                                FROM tbl_deligates WHERE IFNULL(isdeleted,0)=0 AND IFNULL(STATUS,'Active')='Active'  ORDER BY orderno ASC";                        
-                            $select_results = $con->query($sql_select);    
-                            ?>
-                        
-                            <select name="deligate" id="deligate" class="form-control">
+                        <div class="form-group">                        
+                            <select name="type" id="type" class="form-control" required>
                                 <option value="">-----select-----</option>
                                 <?php
-                                while($row_select=$select_results->fetch_array(MYSQLI_ASSOC)){    
-                                    $id=$row_select["id"];
-                                    $name=$row_select["name"];
-                                    $housename=$row_select["housename"];
+                                foreach($contactarray as $key=>$value){                                     
                                 ?>
-                                <option value="<?php echo $id; ?>" <?php if($id==$deligate_id){ ?> selected <?php }?>><?php echo $name." ".$housename; ?></option>
+                                    <option value="<?php echo $value; ?>"><?php echo $key; ?></option>
                                 <?php
-                                }
-                                $select_results->close();	
+                                }                                
                                 ?>
                             </select>
-                        </div>                     
-                        <label for="email">Banner&nbsp;
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">
-                            <input type="file" class="form-control" name="banner" id="banner" accept="image/x-png,image/gif,image/jpeg">
-                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        <label for="email">Order No&nbsp;
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="col-lg-4 col-md-4 form-group">
-                            <input type="number" class="form-control" name="orderno" id="orderno">
-                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        
+                        </div>                        
                         <div class="form-group" style="clear:both;text-align:center;margin:4px;">
                             <p>
                                 <input type="button" name="submit" id="submit" value="Submit" class="btn btn-primary">
@@ -104,7 +65,7 @@ $housename="";
                         </div>
                     </form>
                 </p>
-
+                <a href='whatsappcontact.php'><< back to list</a>
             </div>
             </div>
         </div>
@@ -126,28 +87,29 @@ $housename="";
 
                 $("#form_save").validate({
 					rules: {
+                        contact: {
+							required: true,
+                            number:true,
+                            minlength:13,
+                            maxlength:15,
+                        },    
 						type: {
 							required: true,
+                            
 						},
-						abouttype: {
-							required: true,
-                        },
-                        noseats:{
-                            number:true,
-                        }
-                        						
+						                    					
 					},
 
 					messages: {
-						type: {
-							required: "Please enter type",
+						contact: {
+							required: "Please enter contact",
+                            number:"Number only",
+                            minlength:"invalid mobile number",
+                            minlength:"invalid mobile number",
 						},
-						abouttype: {
+						type: {
 							required: "Please enter about retreat type",
-                        },
-                        noseats: {
-							number: "Enter valid number",
-						},					
+                        },                       				
 					},
 					errorPlacement: function(error, element) {
 						error.insertAfter(element);
@@ -168,18 +130,7 @@ $housename="";
                         $.each(formData, function(key, input) {
 							data.append(input.name, input.value);
 						});
-
-						//File data
-						var file_data = $('input[name="banner"]')[0].files;
-						data.append("banner", file_data[0]); 
-
-                        /*var file_document = $('input[name="document"]')[0].files;
-						data.append("document", file_document[0]); */
-
-						//multifile upload
-						/*for (var i = 0; i < file_data.length; i++) {
-						    data.append("banner[]", file_data[i]);
-						}*/
+				
 						formData = data;
 						// Ajax config
 
@@ -198,7 +149,7 @@ $housename="";
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								//alert(response);												
+								alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);

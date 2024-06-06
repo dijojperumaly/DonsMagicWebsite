@@ -3,32 +3,20 @@ include_once("adminsession.php");
 include_once("db_connection.php");
 $id=0;
 $type="";
-$aboutype="";
-$noseats="";
-$banner="";
-$deligate_id=0;
-$orderno=0;
+$contact="";
 if(isset($_GET["id"])){
     $id=$_GET["id"];
-    $sql = "SELECT  retreattype_id, 
-        IFNULL(retreattype,'')retreattype, 
-        IFNULL(abouttype,'') abouttype,    
-        IFNULL(noseats ,0)  noseats,
-        IFNULL(deligate_id,0) deligate_id,
-        image,   
-        IFNULL(orderno,0) orderno
-        FROM tbl_retreattype WHERE IFNULL(isdeleted,0)=0 AND IFNULL(STATUS,'Active')='Active'  AND retreattype_id=$id";
+    $sql = "SELECT  contact_id, 
+        IFNULL(contact,'')contact, 
+        IFNULL(type,'') type   
+        FROM tbl_contact WHERE IFNULL(isdeleted,0)=0 AND contact_id=$id";
         
     $results = $con->query($sql);    
   
     if($row=$results->fetch_array(MYSQLI_ASSOC)){  
-        $id=$row["retreattype_id"];
-        $type=$row["retreattype"];
-        $aboutype=$row["abouttype"];        
-        $noseats=$row["noseats"];        
-        $banner=$row["image"];        
-        $deligate_id=$row["deligate_id"];        
-        $orderno=$row["orderno"]; 
+        $contact_id=$row["contact_id"];
+        $contact=$row["contact"];
+        $type=$row["type"];              
     }
 }
 ?>
@@ -46,7 +34,7 @@ if(isset($_GET["id"])){
     <?php require_once("admin_header.php")?>
     
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card"><a href='retreattype.php'><< back to list</a>
+        <div class="card"><a href='whatsappcontact.php'><< back to list</a>
             <div class="card-body">
             <h4 class="card-title">Edit Retreat Type</h4>            
             </p>
@@ -57,69 +45,29 @@ if(isset($_GET["id"])){
                     <p></p>
                 </div>
                 <p>
-                <form method="post" action="retreattype_save" id="form_save" name="form_save" enctype="multipart/form-data">    
+                <form method="post" action="whatsappcontact_save" id="form_save" name="form_save" enctype="multipart/form-data">    
                     <input type="hidden" name="hdid" id="hdid" value="<?php echo $id; ?>">                    
-                    <label for="cname">Type &nbsp;
-                        <span class="at-required-highlight">*</span>
-                    </label>
-                    <div class="form-group">
-                        <input type="text" name="type" id="type" required="true" class="form-control" value="<?php echo $type; ?>">
-                    </div>
-                    <label for="contact1">About Type&nbsp;
-                        <span class="at-required-highlight">*</span>
-                    </label>
-                    <div class="form-group">
-                        <textarea name="aboutype" id="aboutype" class="form-control" required="true" rows="7"><?php echo $aboutype; ?></textarea>
-                    </div>                    
-                    
-                    <label for="housename">Number of Seats &nbsp;
+                    <label for="contact">Contact/WhatsApp Number&nbsp; (with country code)
                         <span class="at-required-highlight"></span>
                     </label>
                     <div class="form-group">
-                        <input type="text" name="noseats" id="noseats" class="form-control" value="<?php echo $noseats; ?>">
+                        <input type="text" name="contact" id="contact" class="form-control" value="<?php echo $contact; ?>" required>
                     </div>  
-                    <label for="housename">Deligate &nbsp;
+                    <label for="type">Type &nbsp;
                         <span class="at-required-highlight"></span>
                     </label>
-                    <div class="form-group">
-                    <?php 
-                    $sql_select = "SELECT  id, 
-                        name, 
-                        housename 
-                        FROM tbl_deligates WHERE IFNULL(isdeleted,0)=0 AND IFNULL(STATUS,'Active')='Active'  ORDER BY orderno ASC";                        
-                    $select_results = $con->query($sql_select);    
-                    ?>
-                   
-                        <select name="deligate" id="deligate" class="form-control">
+                    <div class="form-group">                        
+                        <select name="type" id="type" class="form-control" required>
                             <option value="">-----select-----</option>
                             <?php
-                            while($row_select=$select_results->fetch_array(MYSQLI_ASSOC)){    
-                                $id=$row_select["id"];
-                                $name=$row_select["name"];
-                                $housename=$row_select["housename"];
+                            foreach($contactarray as $key=>$value){                                     
                             ?>
-                            <option value="<?php echo $id; ?>" <?php if($id==$deligate_id){ ?> selected <?php }?>><?php echo $name." ".$housename; ?></option>
+                                <option value="<?php echo $value; ?>" <?php if($type==$value) {?> selected='selected' <?php }?>><?php echo $key; ?></option>
                             <?php
-                            }
-                            $select_results->close();	
+                            }                                
                             ?>
                         </select>
-                    </div>                     
-                    <label for="email">Banner Image&nbsp;
-                        <span class="at-required-highlight"></span>
-                    </label>
-                    <div class="form-group">
-                        <img src="assets/retreattype/type_banner/<?php echo $banner; ?>" alt=""><br><br>
-                        <input type="file" class="form-control" name="banner" id="banner" accept="image/x-png,image/gif,image/jpeg">
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    </div>
-                    <label for="email">Order No&nbsp;
-                        <span class="at-required-highlight"></span>
-                    </label>
-                    <div class="col-lg-4 col-md-4 form-group">
-                        <input type="number" class="form-control" name="orderno" id="orderno" value="<?php echo $orderno; ?>">
-                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                    </div>
+                    </div>    
                     
                     <div class="form-group" style="clear:both;text-align:center;margin:4px;">
                         <p>
@@ -132,7 +80,7 @@ if(isset($_GET["id"])){
                     </div>
                 </form>
                 </p>
-
+                <a href='whatsappcontact.php'><< back to list</a>
             </div>
             </div>
         </div>
@@ -154,28 +102,29 @@ if(isset($_GET["id"])){
 
                 $("#form_save").validate({
 					rules: {
+                        contact: {
+							required: true,
+                            number:true,
+                            minlength:13,
+                            maxlength:15,
+                        },    
 						type: {
 							required: true,
+                            
 						},
-						abouttype: {
-							required: true,
-                        },
-                        noseats:{
-                            number:true,
-                        }
-                        						
+						                    					
 					},
 
 					messages: {
-						type: {
-							required: "Please enter type",
+						contact: {
+							required: "Please enter contact",
+                            number:"Number only",
+                            minlength:"invalid mobile number",
+                            minlength:"invalid mobile number",
 						},
-						abouttype: {
-							required: "Please enter about retreat type",
-                        },
-                        noseats: {
-							number: "Enter valid number",
-						},					
+						type: {
+							required: "Please select contact type",
+                        },                       				
 					},
 					errorPlacement: function(error, element) {
 						error.insertAfter(element);
@@ -197,17 +146,7 @@ if(isset($_GET["id"])){
 							data.append(input.name, input.value);
 						});
 
-						//File data
-						var file_data = $('input[name="banner"]')[0].files;
-						data.append("banner", file_data[0]); 
-
-                        /*var file_document = $('input[name="document"]')[0].files;
-						data.append("document", file_document[0]); */
-
-						//multifile upload
-						/*for (var i = 0; i < file_data.length; i++) {
-						    data.append("banner[]", file_data[i]);
-						}*/
+					
 						formData = data;
 						// Ajax config
 
@@ -226,7 +165,7 @@ if(isset($_GET["id"])){
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								//alert(response);												
+								alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
