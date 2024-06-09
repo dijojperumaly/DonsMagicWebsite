@@ -12,6 +12,8 @@
       <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
+    
+
     <!-- plugins:js -->
     <script src="assets/vendors/js/vendor.bundle.base.js"></script>
     <!-- endinject -->
@@ -30,8 +32,8 @@
     <script src="assets/js/hoverable-collapse.js"></script>
     <script src="assets/js/misc.js"></script>
     <!-- endinject -->
-    <!-- Custom js for this page -->
-    <script src="assets/js/dashboard.js"></script>
+    <!-- Custom js for this page, only for dashboard page -->
+          <!--<script src="assets/js/dashboard.js"></script> -->
     <!-- End custom js for this page -->
  <!-- MY SCRIPT START -->
 
@@ -41,10 +43,12 @@
     <script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="assets/js/dataTables.rowReorder.min.js"></script>
     <!--<script src="assets/js/bootstrap-3.1.1.min.js"></script>-->
+    <script src="assets/js/bootstrap-3.4.1.min.js"></script>
     <script src="assets/js/bootbox.min.js"></script>
     <script src="assets/js/ckeditor.js"></script>
     <script src="assets/js/myjs.js"></script>
 
+    
     <script>
     $(document).ready(function() {
       $(".se-pre-con").fadeOut("slow");
@@ -67,3 +71,7 @@
 		$(AlertMsg).show();
 	}
 </script>
+<!-- multi select chosen links start-->
+<script src="assets/js/chosen.jquery.min.js"></script>
+<link href="assets/css/chosen.min.css" rel="stylesheet" />
+<!-- multi select chosen links end-->

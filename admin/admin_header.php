@@ -6,15 +6,15 @@ include_once("adminsession.php");
 <div class="container-scroller">
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="text-center sidebar-brand-wrapper d-flex align-items-center">
-          <a class="sidebar-brand brand-logo" href="./"><img src="assets/images/logo_jesus.png" alt="logo" /><b>DONSMAGIC</b></a>          
-          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="./"><img src="assets/images/logo_jesus.png" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo" href="./"><img src="assets/images/logo.png" alt="logo" /><b>DONSMAGIC</b></a>          
+          <a class="sidebar-brand brand-logo-mini pl-4 pt-3" href="./"><img src="assets/images/logo.png" alt="logo" /></a>
         </div>
         <hr>
         <ul class="nav">
           <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
               <div class="nav-profile-image">
-                <img src="assets/images/faces/face1.jpg" alt="profile" />
+                <img src="assets/images/faces/face.png" alt="profile" />
                 <span class="login-status online"></span>
                 <!--change to offline or busy as needed-->
               </div>
@@ -38,9 +38,9 @@ include_once("adminsession.php");
             </a>
           </li>          
           <li class="nav-item">
-            <a class="nav-link" href="deligates.php">
+            <a class="nav-link" href="size.php">
               <i class="mdi mdi-contacts menu-icon"></i>
-              <span class="menu-title">Deligates</span>
+              <span class="menu-title">Size</span>
             </a>
           </li>
           <li class="nav-item">
@@ -118,7 +118,7 @@ include_once("adminsession.php");
         </div>
         <nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
           <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between">
-            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="./"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="./"><img src="assets/images/logo.png" alt="logo" /></a>
             <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
               <i class="mdi mdi-menu"></i>
             </button>
@@ -246,7 +246,7 @@ include_once("adminsession.php");
               </li>
               <li class="nav-item nav-profile dropdown border-0">
                 <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
-                  <img class="nav-profile-img mr-2" alt="" src="assets/images/faces/face1.jpg" />
+                  <img class="nav-profile-img mr-2" alt="" src="assets/images/faces/face.png" />
                   <span class="profile-name"><?php echo $user_name; ?></span>
                 </a>
                 <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">

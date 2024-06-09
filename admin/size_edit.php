@@ -1,11 +1,26 @@
 <?php
 include_once("adminsession.php");
 include_once("db_connection.php");
-
-$deligate_id=0;
 $id=0;
-$name="";
-$housename="";
+$type="";
+$size="";
+if(isset($_GET["id"])){
+    $id=$_GET["id"];
+    $sql = "SELECT  size_id, 
+        IFNULL(size,'')size, 
+        IFNULL(aboutsize,'') aboutsize,
+        IFNULL(orderno,'') orderno
+        FROM tbl_size WHERE IFNULL(isdeleted,0)=0 AND size_id=$id";
+        
+    $results = $con->query($sql);    
+  
+    if($row=$results->fetch_array(MYSQLI_ASSOC)){  
+        $size_id=$row["size_id"];
+        $size=$row["size"];
+        $aboutsize=$row["aboutsize"];              
+        $orderno=$row["orderno"]; 
+    }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +36,9 @@ $housename="";
     <?php require_once("admin_header.php")?>
     
     <div class="col-lg-12 grid-margin stretch-card">
-        <div class="card"><a href='whatsappcontact.php'><< back to list</a>
+        <div class="card"><a href='size.php'><< back to list</a>
             <div class="card-body">
-            <h4 class="card-title">ADD CONTACT</h4>            
+            <h4 class="card-title">Edit Size</h4>            
             </p>
             <div class="table-responsive">
               
@@ -32,40 +47,38 @@ $housename="";
                     <p></p>
                 </div>
                 <p>
-                    <form method="post" action="whatsappcontact_save" id="form_save" name="form_save" enctype="multipart/form-data">                                                    
-                        <label for="contact">Contact/WhatsApp Number&nbsp; (with country code)
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">
-                            <input type="text" name="contact" id="contact" class="form-control" required>
-                        </div>  
-                        <label for="type">Type &nbsp;
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">                        
-                            <select name="type" id="type" class="form-control" required>
-                                <option value="">-----select-----</option>
-                                <?php
-                                foreach($contactarray as $key=>$value){                                     
-                                ?>
-                                    <option value="<?php echo $value; ?>"><?php echo $key; ?></option>
-                                <?php
-                                }                                
-                                ?>
-                            </select>
-                        </div>                        
-                        <div class="form-group" style="clear:both;text-align:center;margin:4px;">
-                            <p>
-                                <input type="button" name="submit" id="submit" value="Submit" class="btn btn-primary">
-                            </p>
-                        </div>
-                        <div class="alert alert-dismissible" role="alert" style="display:none;">
-                            <strong>Warning!</strong>
-                            <p></p>
-                        </div>
-                    </form>
+                <form method="post" action="size_save" id="form_save" name="form_save" enctype="multipart/form-data">    
+                    <input type="hidden" name="hdid" id="hdid" value="<?php echo $id; ?>">                    
+                    <label for="contact">Size
+                        <span class="at-required-highlight"></span>
+                    </label>
+                    <div class="form-group">
+                        <input type="text" name="size" id="size" class="form-control" value="<?php echo $size; ?>" required>
+                    </div>  
+                    <label for="type">About &nbsp;
+                        <span class="at-required-highlight"></span>
+                    </label>
+                    <div class="form-group">                        
+                        <textarea name="aboutsize" id="aboutsize" class="form-control" ><?php echo $aboutsize; ?></textarea>               
+                    </div>   
+                    <label for="contact">Order No
+                        <span class="at-required-highlight"></span>
+                    </label>
+                    <div class="form-group">
+                        <input type="number" name="orderno" id="orderno" class="form-control" value="<?php echo $orderno; ?>">
+                    </div>   
+                    <div class="form-group" style="clear:both;text-align:center;margin:4px;">
+                        <p>
+                            <input type="button" name="submit" id="submit" value="Update" class="btn btn-primary">
+                        </p>
+                    </div>
+                    <div class="alert alert-dismissible" role="alert" style="display:none;">
+                        <strong>Warning!</strong>
+                        <p></p>
+                    </div>
+                </form>
                 </p>
-                <a href='whatsappcontact.php'><< back to list</a>
+                <a href='size.php'><< back to list</a>
             </div>
             </div>
         </div>
@@ -87,28 +100,21 @@ $housename="";
 
                 $("#form_save").validate({
 					rules: {
-                        contact: {
-							required: true,
-                            number:true,
-                            minlength:13,
-                            maxlength:15,
+                        size: {
+							required: true,                          
                         },    
-						type: {
-							required: true,
-                            
+						orderno: {
+							number: true,
 						},
 						                    					
 					},
 
 					messages: {
-						contact: {
-							required: "Please enter contact",
-                            number:"Number only",
-                            minlength:"invalid mobile number",
-                            minlength:"invalid mobile number",
+						size: {
+							required: "Please enter size",                           
 						},
-						type: {
-							required: "Please enter contact type",
+						irderno: {
+                            number:"Number only",
                         },                       				
 					},
 					errorPlacement: function(error, element) {
@@ -130,7 +136,8 @@ $housename="";
                         $.each(formData, function(key, input) {
 							data.append(input.name, input.value);
 						});
-				
+
+					
 						formData = data;
 						// Ajax config
 
@@ -149,15 +156,15 @@ $housename="";
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								alert(response);												
+								//alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
 									if (json["status"] == "success") {
-										resetForm();
+										//resetForm();
 										//all();
                                         
-										ShowAlert("", "Successfully Saved", "success");
+										ShowAlert("", "Successfully Updated", "success");
 									}else if(json["status"] == "filetype_error") {
 										ShowAlert("", "Not saved! invalid file type", "danger");
 									}else if(json["status"] == "filesize_error") {

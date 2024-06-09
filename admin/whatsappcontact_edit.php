@@ -36,7 +36,7 @@ if(isset($_GET["id"])){
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card"><a href='whatsappcontact.php'><< back to list</a>
             <div class="card-body">
-            <h4 class="card-title">Edit Retreat Type</h4>            
+            <h4 class="card-title">Edit Contact</h4>            
             </p>
             <div class="table-responsive">
               
@@ -165,12 +165,12 @@ if(isset($_GET["id"])){
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								alert(response);												
+								//alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
 									if (json["status"] == "success") {
-										resetForm();
+										//resetForm();
 										//all();
                                         
 										ShowAlert("", "Successfully Updated", "success");
