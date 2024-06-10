@@ -3,6 +3,7 @@ include_once("adminsession.php");
 //error_reporting(0);
 include_once("db_connection.php");
 
+$id=0;
 $status="success";
 $edit_filename="";
 $edit_document="";
@@ -51,7 +52,7 @@ $con->begin_transaction();
 		$featured=isset($_POST["featured"])? $_POST["featured"]:0;	
 		$orderno=$_POST["orderno"];	
 		$productstatus=$_POST["productstatus"];	
-
+		$size=$_POST["size"];
 		$cid=0;
 		$stmt="";
 		$smt_code="";
@@ -90,7 +91,8 @@ $con->begin_transaction();
 			$stmt->bind_param("issiiisisisi", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $user_id, $present,$id);
 			
 		}
-		if($stmt->execute()){			
+		if($stmt->execute()){	
+			$lastid=0;		
 			if($smt_code!=""){				
 				$lastid=$stmt->insert_id;
 				$procode=floor(((double) microtime() * 10000)).$lastid;
@@ -103,9 +105,46 @@ $con->begin_transaction();
 					$status=[ 'status' => 'fail, Product code error' ];
 					$con->rollback();
 				}
-			}	
-			$status=[ 'status' => 'success'];
-			$con->commit();		
+			}
+			if($id==0){
+				$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
+					size_id,
+					product_id,
+					createdby,
+					createdat
+				)VALUES(?, ?)");
+				$stmt_size->bind_param("iiis",$size,$lastid,$procode,$lastid);
+				if($stmt_size->execute()){
+					$status=[ 'status' => 'success'];
+					$con->commit();	
+				}else{
+					$status=[ 'status' => 'fail, Product size error' ];
+					$con->rollback();
+				}
+			}
+			else{
+				$stmt_delete = $con->prepare("DELETE FROM tbl_availablesizes WHERE product_id=?");				
+				$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
+					size_id,
+					product_id,
+					createdby,
+					createdat
+				)VALUES(?, ?)");
+				$stmt_size->bind_param("iiis",$size,$lastid,$procode,$lastid);
+				if($stmt_delete->execute()){
+					if($stmt_size->execute()){
+						$status=[ 'status' => 'success'];
+						$con->commit();	
+					}else{
+						$status=[ 'status' => 'fail, Product size error' ];
+						$con->rollback();
+					}
+				}
+				else{
+					$status=[ 'status' => 'fail, Product size update error' ];
+					$con->rollback();
+				}
+			}				
 		}
 		else{
 			$status=[ 'status' => 'fail' ];
