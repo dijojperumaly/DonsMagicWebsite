@@ -112,15 +112,19 @@ $con->begin_transaction();
 					product_id,
 					createdby,
 					createdat
-				)VALUES(?, ?)");
-				$stmt_size->bind_param("iiis",$size,$lastid,$procode,$lastid);
-				if($stmt_size->execute()){
-					$status=[ 'status' => 'success'];
-					$con->commit();	
-				}else{
-					$status=[ 'status' => 'fail, Product size error' ];
-					$con->rollback();
+				)VALUES(?, ?, ?, ?)");
+				echo print_r($size);
+				foreach($size as $sizevalue){
+					$stmt_size->bind_param("iiis",$sizevalue,$lastid,$user_id,$present);
+					if($stmt_size->execute()){
+						$status=[ 'status' => 'success'];
+						$con->commit();	
+					}else{
+						$status=[ 'status' => 'fail, Product size error' ];
+						$con->rollback();
+					}
 				}
+				
 			}
 			else{
 				$stmt_delete = $con->prepare("DELETE FROM tbl_availablesizes WHERE product_id=?");				

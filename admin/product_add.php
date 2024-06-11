@@ -75,7 +75,7 @@
                         </label>
                         <div class="form-group">
                             <img src="images/loader.gif" id="select_preloader" style="display:none;width:20px;"/>
-                            <select name="size[]" id="size" data-placeholder="Begin typing a size to filter..." multiple class="form-control chosen-select" style="padding:2px 12px; display:none;">
+                            <select name="size[]" id="size_id" data-placeholder="Begin typing a size to filter..." multiple class="form-control chosen-select" style="padding:2px 12px; display:none;">
                                 <option value=""></option>
                             </select>
                         </div>
@@ -166,7 +166,7 @@
 						cache: false,
 						beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click								
 							//$(".se-pre-con").fadeIn("slow");
-							$("#size").css('display', 'none');
+							//$("#size").css('display', 'none');
 							$("#select_preloader").css('display', 'block');
 						},
 						success: function(dataResult) {		
@@ -178,7 +178,7 @@
 							$(data["list1"]).each(function(key, value){	
 								s += '<option value="' + value.size_id + '" '+' >' + value.size + '</option>';
 							});							
-							$("#size").html(s);
+							$("#size_id").html(s);
 							
 							//$("#form_save").find('select[name="size[]"]').html(s);
 							//$("#form_edit").find('select[name="size[]"]').html(s);
@@ -272,7 +272,7 @@
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								//alert(response);												
+								alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
