@@ -52,7 +52,7 @@ $con->begin_transaction();
 		$featured=isset($_POST["featured"])? $_POST["featured"]:0;	
 		$orderno=$_POST["orderno"];	
 		$productstatus=$_POST["productstatus"];	
-		$size=$_POST["size"];
+		$size=$_POST["size"];		
 		$cid=0;
 		$stmt="";
 		$smt_code="";
@@ -113,7 +113,7 @@ $con->begin_transaction();
 					createdby,
 					createdat
 				)VALUES(?, ?, ?, ?)");
-				echo print_r($size);
+				
 				foreach($size as $sizevalue){
 					$stmt_size->bind_param("iiis",$sizevalue,$lastid,$user_id,$present);
 					if($stmt_size->execute()){

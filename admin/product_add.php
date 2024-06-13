@@ -75,8 +75,9 @@
                         </label>
                         <div class="form-group">
                             <img src="images/loader.gif" id="select_preloader" style="display:none;width:20px;"/>
-                            <select name="size[]" id="size_id" data-placeholder="Begin typing a size to filter..." multiple class="form-control chosen-select" style="padding:2px 12px; display:none;">
-                                <option value=""></option>
+                            <select name="size[]" id="size" data-placeholder="Begin typing a size to filter..." multiple class="form-control chosen-select" style="padding:2px 12px;">
+                                <option value="">sdf sd</option>
+                                <option value="">sdf sd</option>
                             </select>
                         </div>
 
@@ -118,8 +119,7 @@
                         <div class="col-lg-4 col-md-4 form-group">
                             <input type="number" class="form-control" name="orderno" id="orderno">
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>
-                        
+                        </div>                        
                         <div class="form-group" style="clear:both;text-align:center;margin:4px;">
                             <p>
                                 <input type="button" name="submit" id="submit" value="Submit" class="btn btn-primary">
@@ -178,12 +178,12 @@
 							$(data["list1"]).each(function(key, value){	
 								s += '<option value="' + value.size_id + '" '+' >' + value.size + '</option>';
 							});							
-							$("#size_id").html(s);
+							$("#size").html(s);
 							
 							//$("#form_save").find('select[name="size[]"]').html(s);
 							//$("#form_edit").find('select[name="size[]"]').html(s);
 							$("#select_preloader").css('display', 'none');
-							//$("#size").css('display', 'block');
+						    //$("#size").css('display', 'block');
 						},
 						complete: function(data) {
 							showChosen();
@@ -194,7 +194,7 @@
 						error: function(XMLHttpRequest, textStatus, errorThrown) {
 							showChosen();
 							$("#select_preloader").css('display', 'none');
-							//$("#size").css('display', 'block');
+						    //$("#size").css('display', 'block');
 						}
 					});
 				}	
