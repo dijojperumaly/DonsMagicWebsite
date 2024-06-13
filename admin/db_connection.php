@@ -15,7 +15,7 @@ $contactarray=array("PRIMARY"=>"PRIMARY","SECONDARY"=>"SECONDARY");
 //local server
 $servername = "localhost";
 $username = "root";
-$password ="root";
+$password ="";
 $dbname = "db_donswebadmin";
 
 //production server
