@@ -133,8 +133,9 @@ $con->begin_transaction();
 					product_id,
 					createdby,
 					createdat
-				)VALUES(?, ?)");
-				$stmt_size->bind_param("iiis",$size,$lastid,$procode,$lastid);
+				)VALUES(?, ?, ?, ?)");
+				$stmt_delete->bind_param("i",$id);
+				$stmt_size->bind_param("iiis",$size,$id,$procode,$present);
 				if($stmt_delete->execute()){
 					if($stmt_size->execute()){
 						$status=[ 'status' => 'success'];

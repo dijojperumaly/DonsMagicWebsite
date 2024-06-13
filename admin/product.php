@@ -95,7 +95,7 @@ require_once("adminsession.php");
                                             "<td width='10%'><img src='../images/products/" + value.image_1 + "' /></td>" +
                                             "<td width='20%'><b>" + value.producttype + "</b><br><span style='font-size:12px;'>"+ value.title  +"</span></td>" +                                            
                                             "<td width='25%'>" + value.product_code + "</td>" +
-                                            "<td width='15%'>" + value.MRP + "<br><span style='font-size:10px;'>"+ value.offerprice  +"</span></td>" +
+                                            "<td width='15%'>Off: &#x20b9;" + value.offerprice + "<br><br><span style='font-size:12px;'>MRP: &#x20b9;"+ value.MRP  +"</span></td>" +
                                             "<td width='5%'>" + value.isfeatured + "</td>" +                                            
                                             "<td width='5%'>"+ value.orderno +"</td>" +
                                             "<td width='5%'>" + value.status + "</td>" +

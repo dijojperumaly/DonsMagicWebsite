@@ -76,8 +76,8 @@
                         <div class="form-group">
                             <img src="images/loader.gif" id="select_preloader" style="display:none;width:20px;"/>
                             <select name="size[]" id="size" data-placeholder="Begin typing a size to filter..." multiple class="form-control chosen-select" style="padding:2px 12px;">
-                                <option value="">sdf sd</option>
-                                <option value="">sdf sd</option>
+                                <option value="">---sleect----</option>
+                                
                             </select>
                         </div>
 

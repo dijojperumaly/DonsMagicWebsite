@@ -117,6 +117,16 @@ if(isset($_GET["id"])){
                         <div class="form-group">
                             <input type="text" name="offerprice" id="offerprice" value="<?php echo $offerprice; ?>" class="form-control">
                         </div>
+                        <label for="size">Available Sizes &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <img src="images/loader.gif" id="select_preloader" style="display:none;width:20px;"/>
+                            <select name="size[]" id="size" data-placeholder="Begin typing a size to filter..." multiple class="form-control chosen-select" style="padding:2px 12px;">
+                                <option value="">---select---</option>
+                                
+                            </select>
+                        </div>
 
                         <label for="contact1">About Product&nbsp;
                             <span class="at-required-highlight"></span>
@@ -182,6 +192,13 @@ if(isset($_GET["id"])){
     <script>
 			$(document).ready(function() {
 
+                function showChosen(){
+					$(".chosen-select").chosen({
+						width: "100%",
+						no_results_text: "Oops, nothing found!",
+					});	
+				}
+
                 function resetForm() {
 					$('#form_save')[0].reset();
 					//$('#form_edit')[0].reset();
@@ -190,6 +207,49 @@ if(isset($_GET["id"])){
 				function resetMessage() {
 					$('div[role="alert"]').attr("display:none");
 				}
+
+                function areaFill() {
+					var cat_id = this.value!=""?this.value:-1;
+					
+					$.ajax({
+						url: "ajax_jsonlistview.php?valueField=size_id&textField=size&table=tbl_size t1",
+						type: "GET",
+						cache: false,
+						beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click								
+							//$(".se-pre-con").fadeIn("slow");
+							//$("#size").css('display', 'none');
+							$("#select_preloader").css('display', 'block');
+						},
+						success: function(dataResult) {		
+                            //alert(dataResult);
+							var data = JSON.parse(dataResult);
+							var s = '<option value=""></option>';							
+							var isDisable="";
+							//alert(data["list1"].length);
+							$(data["list1"]).each(function(key, value){	
+								s += '<option value="' + value.size_id + '" '+' >' + value.size + '</option>';
+							});							
+							$("#size").html(s);
+							
+							//$("#form_save").find('select[name="size[]"]').html(s);
+							//$("#form_edit").find('select[name="size[]"]').html(s);
+							$("#select_preloader").css('display', 'none');
+						    //$("#size").css('display', 'block');
+						},
+						complete: function(data) {
+							showChosen();
+							$("#select_preloader").css('display', 'none');
+							//$("#size").css('display', 'block');
+							
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							showChosen();
+							$("#select_preloader").css('display', 'none');
+						    //$("#size").css('display', 'block');
+						}
+					});
+				}	
+                areaFill();
 
                 $("#form_save").validate({
 					rules: {
@@ -255,7 +315,7 @@ if(isset($_GET["id"])){
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								//alert(response);												
+								alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
