@@ -1,7 +1,8 @@
 <?php 
+ob_start();
+include_once("admin/db_connection.php");
 include('header.php');
 ?>
-
 	<!-- Banner -->
 	<div class="sec-banner bg0 p-t-95 p-b-55">
 		<div class="container">
@@ -75,26 +76,25 @@ include('header.php');
 				<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
 						All Products
 					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-					Outdoor Wear
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-					Comfort Wear
-					</button>
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
-						Maternity Wear
-					</button>
-
-					<!-- <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
-						Body Positive Collection
-					</button> -->
-
-					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
-						Kaftans
-					</button>
+						<?php 
+                            $sql_select = "SELECT  producttype_id, 
+							producttype,typecode
+							FROM tbl_producttype 
+							WHERE IFNULL(isdeleted,0)=0 AND IFNULL(STATUS,'Active')='Active'  
+							ORDER BY orderno ASC";                        
+							$select_results = $con->query($sql_select);                                
+							while($row_select=$select_results->fetch_array(MYSQLI_ASSOC)){    
+								$id=$row_select["producttype_id"];
+								$producttype=$row_select["producttype"];
+								$typecode=$row_select["typecode"];
+							?>
+							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".<?php echo $typecode; ?>">
+								<?php echo $producttype; ?>
+							</button>
+							<?php
+							}
+							$select_results->close();	
+						?>					
 				</div>
 
 				<!-- <div class="flex-w flex-c-m m-tb-10">
@@ -313,6 +313,95 @@ include('header.php');
 			</div>
 
 			<div class="row isotope-grid">
+				
+				<?php 
+					$sql_products = "SELECT   p.id, 
+						IFNULL(p.title,'')title, 
+						IFNULL(p.product_code,'')product_code, 
+						IFNULL(p.aboutproduct,'') aboutproduct, 
+						p.MRP, 
+						IFNULL(p.offerprice,'') offerprice, 
+						CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
+						p.image_1, 
+						IFNULL(p.STATUS,'Active') status,
+						IFNULL(p.orderno,0) orderno,
+						t.producttype_id,
+						t.producttype,
+						t.typecode
+						FROM tbl_product p LEFT JOIN tbl_producttype t ON t.producttype_id=p.producttype_id
+						WHERE IFNULL(p.isdeleted,0)=0 AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."' ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";                        
+					$product_results = $con->query($sql_products);                                
+					while($row_product=$product_results->fetch_array(MYSQLI_ASSOC)){    
+						$typeid=$row_product["producttype_id"];
+						$producttype=$row_product["producttype"];
+						$typecode=$row_product["typecode"];
+
+						$id=$row_product["id"];
+						$title=$row_product["title"];
+						$product_code=$row_product["product_code"];
+						$aboutproduct=$row_product["aboutproduct"];
+						$MRP=$row_product["MRP"];
+						$offerprice=$row_product["offerprice"];
+						$image_1=$row_product["image_1"];
+						$status=$row_product["status"];
+
+					?>
+					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?php echo $typecode; ?>">
+						<!-- Block2 -->
+						<div class="block2">
+						<div class="block2-pic hov-img0 <?php if(trim($title)!=""){ ?>label-new <?php }?>" data-label="<?php echo $title; ?>">
+								<img src="images/products/<?php echo $image_1; ?>" alt="IMG-PRODUCT">
+
+								<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20<?php echo $product_code; ?> "
+								style="background-color: #075e54; color: white;" 
+								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+									Contact Us
+								</a>
+							</div>
+
+							<div class="block2-txt flex-w flex-t p-t-14">
+								<div class="block2-txt-child1 flex-col-l ">
+									<a href="#" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+										<?php echo $producttype; ?>
+									</a>
+									<span class="stext-105 cl3">
+									Product ID : <?php echo $product_code; ?>
+									</span>
+
+									<span class="stext-105 cl3">									
+									 <?php 
+									 if($status!=$statusarray["SOLDOUT"]){
+										if($offerprice!="" && $offerprice>0){
+											echo "₹ <s>$MRP</s> &nbsp; $offerprice/-";
+										}else{
+											echo "$MRP/-";
+										}
+									}else{
+										if($offerprice!="" && $offerprice>0){
+											echo "<s>₹ $offerprice</s>/-";
+										}else{
+											echo "<s>₹$MRP</s>/-";
+										}
+										echo '<span class="soldout">'.$statusarray["SOLDOUT"].'</span>';
+									}
+									?>
+									</span>
+								</div>
+
+								<div class="block2-txt-child2 flex-r p-t-3">
+									<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+										<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
+										<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					<?php
+					}
+					$product_results->close();	
+				?>
+
 				<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item women">
 					<!-- Block2 -->
 					<div class="block2">

@@ -87,7 +87,7 @@
                         <div class="form-group">
                             <textarea name="aboutproduct" id="aboutproduct" class="form-control" rows="7"></textarea>
                         </div>                                              
-                        <label for="email">Image&nbsp;
+                        <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="form-group">

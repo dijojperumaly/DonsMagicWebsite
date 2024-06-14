@@ -9,13 +9,13 @@ function currentDateTime(){
 define("PRIMARY_CONTACT",1);
 define("SECONDARY_CONTACT",2);
 
-$statusarray=array("Active","Draft","SoldOut");
+$statusarray=array("ACTIVE"=>"Active","DRAFT"=>"Draft","SOLDOUT"=>"SoldOut");
 $contactarray=array("PRIMARY"=>"PRIMARY","SECONDARY"=>"SECONDARY");
 
 //local server
 $servername = "localhost";
 $username = "root";
-$password ="";
+$password ="root";
 $dbname = "db_donswebadmin";
 
 //production server

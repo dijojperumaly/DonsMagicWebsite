@@ -134,7 +134,7 @@ if(isset($_GET["id"])){
                         <div class="form-group">
                             <textarea name="aboutproduct" id="aboutproduct" class="form-control" rows="7"><?php echo $aboutproduct; ?></textarea>
                         </div>                        
-                        <label for="email">Image&nbsp;
+                        <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="form-group">
@@ -253,21 +253,29 @@ if(isset($_GET["id"])){
 
                 $("#form_save").validate({
 					rules: {
-						title: {
+						producttype: {
 							required: true,
 						},
-						matter: {
+						mrp: {
 							required: true,
+                            number:true,
+						},	
+                        orderno: {							
+                            number:true,
 						},						
 					},
 
 					messages: {
-						title: {
-							required: "Please specify news title",
+						producttype: {
+							required: "Please specify product type",
 						},
-						matter: {
-							required: "Please enter matter of news",
-						},					
+						mrp: {
+							required: "Please enter MRP",
+                            number: "Number only",
+						},	
+                        orderno: {
+                            number: "Number only",
+                        },						
 					},
 					errorPlacement: function(error, element) {
 						error.insertAfter(element);
