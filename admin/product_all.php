@@ -15,9 +15,14 @@ $sql = "SELECT   p.id,
         IFNULL(p.STATUS,'Active') status,
         IFNULL(p.orderno,0) orderno,
         t.producttype_id,
-        t.producttype
-        FROM tbl_product p LEFT JOIN tbl_producttype t ON t.producttype_id=p.producttype_id
+        t.producttype,
+        GROUP_CONCAT(s.size  ORDER BY s.orderno ASC) size
+        FROM tbl_product p     
+        LEFT JOIN tbl_producttype t ON t.producttype_id=p.producttype_id
+        LEFT JOIN tbl_availablesizes a On a.product_id=p.id
+        LEFT JOIN tbl_size s ON a.size_id=s.size_id
         WHERE IFNULL(p.isdeleted,0)=0 
+        GROUP BY a.product_id
         ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";
 
 // Process the query so that we will save the date of birth

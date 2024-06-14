@@ -316,20 +316,25 @@ include('header.php');
 				
 				<?php 
 					$sql_products = "SELECT   p.id, 
-						IFNULL(p.title,'')title, 
-						IFNULL(p.product_code,'')product_code, 
-						IFNULL(p.aboutproduct,'') aboutproduct, 
-						p.MRP, 
-						IFNULL(p.offerprice,'') offerprice, 
-						CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
-						p.image_1, 
-						IFNULL(p.STATUS,'Active') status,
-						IFNULL(p.orderno,0) orderno,
-						t.producttype_id,
-						t.producttype,
-						t.typecode
-						FROM tbl_product p LEFT JOIN tbl_producttype t ON t.producttype_id=p.producttype_id
-						WHERE IFNULL(p.isdeleted,0)=0 AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."' ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";                        
+					IFNULL(p.title,'')title, 
+					IFNULL(p.product_code,'')product_code, 
+					IFNULL(p.aboutproduct,'') aboutproduct, 
+					p.MRP, 
+					IFNULL(p.offerprice,'') offerprice, 
+					CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
+					p.image_1, 
+					IFNULL(p.STATUS,'Active') status,
+					IFNULL(p.orderno,0) orderno,
+					t.producttype_id,
+					t.producttype,
+					t.typecode,
+					GROUP_CONCAT(s.size  ORDER BY s.orderno ASC) size
+					FROM tbl_product p LEFT JOIN tbl_producttype t ON t.producttype_id=p.producttype_id
+					LEFT JOIN tbl_availablesizes a On a.product_id=p.id
+					LEFT JOIN tbl_size s ON a.size_id=s.size_id
+					WHERE IFNULL(p.isdeleted,0)=0  AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."' 
+					GROUP BY a.product_id ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";     
+					//echo $sql_products;                   
 					$product_results = $con->query($sql_products);                                
 					while($row_product=$product_results->fetch_array(MYSQLI_ASSOC)){    
 						$typeid=$row_product["producttype_id"];
@@ -344,6 +349,7 @@ include('header.php');
 						$offerprice=$row_product["offerprice"];
 						$image_1=$row_product["image_1"];
 						$status=$row_product["status"];
+						$size=$row_product["size"];
 
 					?>
 					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?php echo $typecode; ?>">
@@ -372,7 +378,7 @@ include('header.php');
 									 <?php 
 									 if($status!=$statusarray["SOLDOUT"]){
 										if($offerprice!="" && $offerprice>0){
-											echo "₹ <s>$MRP</s> &nbsp; $offerprice/-";
+											echo "<s>₹ $MRP</s> &nbsp; ₹ $offerprice/-";
 										}else{
 											echo "$MRP/-";
 										}
@@ -380,9 +386,15 @@ include('header.php');
 										if($offerprice!="" && $offerprice>0){
 											echo "<s>₹ $offerprice</s>/-";
 										}else{
-											echo "<s>₹$MRP</s>/-";
+											echo "<s>₹ $MRP</s>/-";
 										}
 										echo '<span class="soldout">'.$statusarray["SOLDOUT"].'</span>';
+									}
+									if($status!=$statusarray["SOLDOUT"]){
+										echo "<br>Size: $size";
+									}
+									else{
+										echo "<br><s>Size: $size</s>";
 									}
 									?>
 									</span>

@@ -127,22 +127,25 @@ $con->begin_transaction();
 				
 			}
 			else{
-				$stmt_delete = $con->prepare("DELETE FROM tbl_availablesizes WHERE product_id=?");				
-				$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
-					size_id,
-					product_id,
-					createdby,
-					createdat
-				)VALUES(?, ?, ?, ?)");
+				$stmt_delete = $con->prepare("DELETE FROM tbl_availablesizes WHERE product_id=?");	
 				$stmt_delete->bind_param("i",$id);
-				$stmt_size->bind_param("iiis",$size,$id,$procode,$present);
 				if($stmt_delete->execute()){
-					if($stmt_size->execute()){
-						$status=[ 'status' => 'success'];
-						$con->commit();	
-					}else{
-						$status=[ 'status' => 'fail, Product size error' ];
-						$con->rollback();
+					$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
+						size_id,
+						product_id,
+						createdby,
+						createdat
+					)VALUES(?, ?, ?, ?)");
+					
+					foreach($size as $sizevalue){
+						$stmt_size->bind_param("iiis",$sizevalue,$id,$user_id,$present);
+						if($stmt_size->execute()){
+							$status=[ 'status' => 'success'];
+							$con->commit();	
+						}else{
+							$status=[ 'status' => 'fail, Product size error' ];
+							$con->rollback();
+						}
 					}
 				}
 				else{

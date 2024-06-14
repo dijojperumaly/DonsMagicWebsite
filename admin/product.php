@@ -78,6 +78,7 @@ require_once("adminsession.php");
                                     "<th>Product</th>" +
                                     "<th>Product_Code</th>" +
                                     "<th>Price</th>" +
+                                    "<th>Size</th>" + 
                                     "<th>Featured</th>" +                                    
                                     "<th>Order</th>" +
                                     "<th>Status</th>" +
@@ -96,6 +97,7 @@ require_once("adminsession.php");
                                             "<td width='20%'><b>" + value.producttype + "</b><br><span style='font-size:12px;'>"+ value.title  +"</span></td>" +                                            
                                             "<td width='25%'>" + value.product_code + "</td>" +
                                             "<td width='15%'>Off: &#x20b9;" + value.offerprice + "<br><br><span style='font-size:12px;'>MRP: &#x20b9;"+ value.MRP  +"</span></td>" +
+                                            "<td width='5%'>" + value.size + "</td>" +  
                                             "<td width='5%'>" + value.isfeatured + "</td>" +                                            
                                             "<td width='5%'>"+ value.orderno +"</td>" +
                                             "<td width='5%'>" + value.status + "</td>" +
