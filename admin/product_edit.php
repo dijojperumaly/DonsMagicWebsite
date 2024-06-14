@@ -12,23 +12,30 @@ $isfeatured="";
 $orderno="";
 $image_1="";
 $status="";
+$size="";
 
 if(isset($_GET["id"])){
     $id=$_GET["id"];
     $sql = "SELECT  id, 
-        IFNULL(title,'')title, 
-        IFNULL(producttype_id,'') producttype_id, 
-        product_code, 
-        IFNULL(aboutproduct,'') aboutproduct, 
-        IFNULL(MRP,'') MRP, 
-        IFNULL(offerprice,'') offerprice, 
-        CASE WHEN IFNULL(isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
-        IFNULL(orderno,0) orderno, 
-        image_1, 
-        IFNULL(STATUS,'Active') status,
-        IFNULL(orderno,0) orderno
-        FROM tbl_product WHERE IFNULL(isdeleted,0)=0  AND id=$id";
-        
+        IFNULL(p.title,'')title, 
+        IFNULL(p.producttype_id,'') producttype_id, 
+        p.product_code, 
+        IFNULL(p.aboutproduct,'') aboutproduct, 
+        IFNULL(p.MRP,'') MRP, 
+        IFNULL(p.offerprice,'') offerprice, 
+        CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
+        IFNULL(p.orderno,0) orderno, 
+        p.image_1, 
+        IFNULL(p.STATUS,'Active') status,
+        IFNULL(p.orderno,0) orderno,
+        GROUP_CONCAT(s.size  ORDER BY s.orderno ASC) size,
+        GROUP_CONCAT(s.size_id  ORDER BY s.orderno ASC) sizeid
+        FROM tbl_product p
+        LEFT JOIN tbl_availablesizes a On a.product_id=p.id
+        LEFT JOIN tbl_size s ON a.size_id=s.size_id
+        WHERE IFNULL(p.isdeleted,0)=0  AND p.id=$id
+        GROUP BY a.product_id";
+       
     $results = $con->query($sql);    
   
     if($row=$results->fetch_array(MYSQLI_ASSOC)){        
@@ -42,6 +49,7 @@ if(isset($_GET["id"])){
         $orderno=$row["orderno"];
         $status=$row["status"];     
         $image_1=$row["image_1"];
+        $sizeid=$row["sizeid"];
     }
 }
 ?>
@@ -57,7 +65,7 @@ if(isset($_GET["id"])){
 </head>
 <body>
     <?php require_once("admin_header.php")?>
-    
+    <input type="hidden" name="hdsize" id="hdsize" value="<?php echo $sizeid; ?>">
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card"><a href='product.php'><< back to list</a>
             <div class="card-body">
@@ -208,9 +216,10 @@ if(isset($_GET["id"])){
 					$('div[role="alert"]').attr("display:none");
 				}
 
-                function areaFill() {
+                function sizeFill() {
 					var cat_id = this.value!=""?this.value:-1;
-					
+                    var sizeArray=$("#hdsize").val().split(",");
+                    					
 					$.ajax({
 						url: "ajax_jsonlistview.php?valueField=size_id&textField=size&table=tbl_size t1",
 						type: "GET",
@@ -227,7 +236,12 @@ if(isset($_GET["id"])){
 							var isDisable="";
 							//alert(data["list1"].length);
 							$(data["list1"]).each(function(key, value){	
-								s += '<option value="' + value.size_id + '" '+' >' + value.size + '</option>';
+                                let select="";
+                                if ($.inArray(value.size_id, sizeArray) != -1)
+                                {
+                                    select='selected'
+                                }
+								s += '<option '+ select +' value="' + value.size_id + '" '+' >' + value.size + '</option>';
 							});							
 							$("#size").html(s);
 							
@@ -249,7 +263,7 @@ if(isset($_GET["id"])){
 						}
 					});
 				}	
-                areaFill();
+                sizeFill();
 
                 $("#form_save").validate({
 					rules: {

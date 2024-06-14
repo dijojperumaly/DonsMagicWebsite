@@ -157,7 +157,7 @@
 					$('div[role="alert"]').attr("display:none");
 				}
 
-                function areaFill() {
+                function sizeFill() {
 					var cat_id = this.value!=""?this.value:-1;
 					
 					$.ajax({
@@ -198,7 +198,7 @@
 						}
 					});
 				}	
-                areaFill();
+                sizeFill();
 
                 $("#form_save").validate({
 					rules: {
