@@ -6,34 +6,62 @@ include_once("admin/db_connection.php");
 	
 	<!-- Product -->
 	<div class="bg0 m-t-23 p-b-140">
-	<div class="container">
-			
-
+		<div class="container">
 			<div class="flex-w flex-sb-m p-b-52">
 				<div class="flex-w flex-l-m filter-tope-group m-tb-10">
 				<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
 						All Products
 					</button>
-						<?php 
-                            $sql_select = "SELECT  producttype_id, 
-							producttype,typecode
-							FROM tbl_producttype 
-							WHERE IFNULL(isdeleted,0)=0 AND IFNULL(STATUS,'Active')='Active'  
-							ORDER BY orderno ASC";                        
-							$select_results = $con->query($sql_select);                                
-							while($row_select=$select_results->fetch_array(MYSQLI_ASSOC)){    
-								$id=$row_select["producttype_id"];
-								$producttype=$row_select["producttype"];
-								$typecode=$row_select["typecode"];
-							?>
-							<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".<?php echo $typecode; ?>">
-								<?php echo $producttype; ?>
-							</button>
-							<?php
+
+					<?php 
+						$type="";
+						$typearray=array(null);	
+						echo $type;					
+						if(isset($_REQUEST["type"])){
+							$typerequest=$_REQUEST["type"];							
+							$typearray=explode(',', $typerequest);							
+							if(count($typearray)>1){
+								foreach($typearray as $value){
+									$type=$type."'".$value."',";
+								}								
+								$type=$type."'null'";
+								$sql_select = "SELECT  producttype_id, 
+								producttype,typecode
+								FROM tbl_producttype 
+								WHERE IFNULL(isdeleted,0)=0 
+								AND IFNULL(STATUS,'Active')='Active' 
+								AND typecode IN($type)
+								ORDER BY orderno ASC";                        
+								$select_results = $con->query($sql_select);                                
+								while($row_select=$select_results->fetch_array(MYSQLI_ASSOC)){    
+									$id=$row_select["producttype_id"];
+									$producttype=$row_select["producttype"];
+									$typecode=$row_select["typecode"];
+								?>
+								<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".<?php echo $typecode; ?>">
+									<?php echo $producttype; ?>
+								</button>
+								<?php
+								}
+								$select_results->close();	
+							}else{
+								$type="'".$typerequest."'";
 							}
-							$select_results->close();	
-						?>	
-					
+						}
+					?>
+
+					<!-- <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+						Featured
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
+						Best Sellers
+					</button>
+
+					<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+					Trending
+					</button> -->
+
 				</div>
 
 				<!-- <div class="flex-w flex-c-m m-tb-10">
@@ -252,7 +280,8 @@ include_once("admin/db_connection.php");
 			</div>
 
 			<div class="row isotope-grid">
-				<?php 
+				
+			<?php 
 						$sql_products = "SELECT   p.id, 
 						IFNULL(p.title,'')title, 
 						IFNULL(p.product_code,'')product_code, 
@@ -273,8 +302,8 @@ include_once("admin/db_connection.php");
 						LEFT JOIN tbl_availablesizes a On a.product_id=p.id
 						LEFT JOIN tbl_size s ON a.size_id=s.size_id
 						WHERE IFNULL(p.isdeleted,0)=0  
-						AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."' 
-						AND IFNULL(p.label,'')='".$productlabelarray["NEW"]."' 
+						AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."'
+						AND t.typecode IN($type)
 						GROUP BY a.product_id ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";     
 						//echo $sql_products;                   
 						$product_results = $con->query($sql_products);                                
@@ -358,27 +387,16 @@ include_once("admin/db_connection.php");
 						}
 						$product_results->close();	
 					?>
-
-
-				
-
 				
 			</div>
 
-			<!-- Pagination -->
-			<!-- <div class="flex-c-m flex-w w-full p-t-38">
-				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7 active-pagination1">
-					1
-				</a>
-
-				<a href="#" class="flex-c-m how-pagination1 trans-04 m-all-7">
-					2
-				</a>
-			</div> -->
+			<!-- Load more -->
+			
 		</div>
+	</div>
 		
-</div>
+
 	<!-- Footer -->
 	<?php
-	include("footer.php");
+include("footer.php");
 	?>

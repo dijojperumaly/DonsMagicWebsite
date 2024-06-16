@@ -76,7 +76,7 @@ require_once("adminsession.php");
                                 html += "<thead><tr>" +
                                     "<th>#</th>" +
                                     "<th>Product</th>" +
-                                    "<th>Product_Code</th>" +
+                                    "<th>Color/Label</th>" +
                                     "<th>Price</th>" +
                                     "<th>Size</th>" + 
                                     "<th>Featured</th>" +                                    
@@ -93,11 +93,11 @@ require_once("adminsession.php");
                                     $.each(response, function(key, value) {
                                         let doc_icon="";                                      
                                         html += "<tr>" +
-                                            "<td width='10%'><img src='../images/products/" + value.image_1 + "' /></td>" +
-                                            "<td width='20%'><b>" + value.producttype + "</b><br><span style='font-size:12px;'>"+ value.title  +"</span></td>" +                                            
-                                            "<td width='25%'>" + value.product_code + "</td>" +
+                                            "<td width='15%'><img src='../images/products/" + value.image_1 + "' style='width:50px !important; height:auto !important;' /></td>" +
+                                            "<td width='20%'><b>" + value.producttype + "</b><p><span style='font-size:12px;'>"+ value.title  +"</span></p>" + value.product_code + "</td>" +                                            
+                                            "<td width='20%'>" +  value.color +"/"+ value.label + "</td>" +
                                             "<td width='15%'>Off: &#x20b9;" + value.offerprice + "<br><br><span style='font-size:12px;'>MRP: &#x20b9;"+ value.MRP  +"</span></td>" +
-                                            "<td width='5%'>" + value.size + "</td>" +  
+                                            "<td width='5%'>" + value.size + "</td>" +                                 
                                             "<td width='5%'>" + value.isfeatured + "</td>" +                                            
                                             "<td width='5%'>"+ value.orderno +"</td>" +
                                             "<td width='5%'>" + value.status + "</td>" +

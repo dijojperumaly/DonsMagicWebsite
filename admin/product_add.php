@@ -57,7 +57,22 @@
                         <div class="form-group">
                             <input type="text" name="title" id="title" class="form-control">
                         </div>
-
+                        <label for="cname">Label &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <select name="label" id="label" class="form-control" required="true">                                
+                                <option value="">---No Label----</option>
+                                <?php
+                                foreach($productlabelarray as $label){                                       
+                                ?>
+                                    <option value="<?php echo $label; ?>"><?php echo $label; ?></option>
+                                <?php
+                                }
+                                
+                                ?>
+                            </select>
+                        </div>
                         <label for="housename">MRP &nbsp;
                             <span class="at-required-highlight">*</span>
                         </label>
@@ -80,7 +95,12 @@
                                 
                             </select>
                         </div>
-
+                        <label for="housename">Colour &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <input type="text" name="color" id="color" class="form-control">
+                        </div>
                         <label for="contact1">About Product&nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
@@ -106,7 +126,7 @@
                                 <?php
                                 foreach($statusarray as $prostatus){                                       
                                 ?>
-                                    <option value="<?php echo $prostatus; ?>"><?php echo$prostatus; ?></option>
+                                    <option value="<?php echo $prostatus; ?>"><?php echo $prostatus; ?></option>
                                 <?php
                                 }
                              

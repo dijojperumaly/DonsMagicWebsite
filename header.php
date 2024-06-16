@@ -85,14 +85,14 @@
 							<li>
 								<a>COLLECTIONS</a>
 								<ul class="sub-menu">
-								<li><a href="outDoorCasual.php">OUTDOOR CASUAL</a></li>
-									<li><a href="ComfortAndHome.php">COMFORT WEARS & HOME WEARS</a></li>
+								<li><a href="collections.php?type=OW">OUTDOOR CASUAL</a></li>
+									<li><a href="collections.php?type=CW,MW">COMFORT WEARS & HOME WEARS</a></li>
 									<!-- <li><a href="BodyPositive.php">BODY POSITIVE COLLECTION</a></li> -->
 								</ul>
 							</li>
 
 							<li>
-								<a href="Comingsoon.php">OFFERS</a>
+								<a href="offers.php">OFFERS</a>
 							</li>
 
 							<li>
@@ -177,8 +177,8 @@
 							<li>
 								<a>COLLECTIONS</a>
 								<ul class="sub-menu-m">
-									<li><a href="outDoorCasual.php">OUTDOOR CASUAL</a></li>
-									<li><a href="ComfortAndHome.php">COMFORT WEARS & HOME WEARS</a></li>
+									<li><a href="collections.php?type=OW">OUTDOOR CASUAL</a></li>
+									<li><a href="collections.php?type=CW,MW">COMFORT WEARS & HOME WEARS</a></li>
 									<!-- <li><a href="Comingsoon.php">MATERNITY & NURSING WEAR</a></li> -->
 									<!-- <li><a href="BodyPositive.php">BODY POSITIVE COLLECTION</a></li> -->
 								</ul>
@@ -188,7 +188,7 @@
 							</li>
 
 							<li>
-								<a href="Comingsoon.php">OFFERS</a>
+								<a href="offers.php">OFFERS</a>
 							</li>
 
 							<li>

@@ -28,6 +28,8 @@ if(isset($_GET["id"])){
         p.image_1, 
         IFNULL(p.STATUS,'Active') status,
         IFNULL(p.orderno,0) orderno,
+        IFNULL(p.label,'') label,
+        IFNULL(p.color,'') color,
         GROUP_CONCAT(s.size  ORDER BY s.orderno ASC) size,
         GROUP_CONCAT(s.size_id  ORDER BY s.orderno ASC) sizeid
         FROM tbl_product p
@@ -50,6 +52,8 @@ if(isset($_GET["id"])){
         $status=$row["status"];     
         $image_1=$row["image_1"];
         $sizeid=$row["sizeid"];
+        $label=$row["label"];
+        $color=$row["color"];
     }
 }
 ?>
@@ -112,6 +116,22 @@ if(isset($_GET["id"])){
                         <div class="form-group">
                             <input type="text" name="title" id="title" value="<?php echo $title; ?>" class="form-control">
                         </div>
+                        <label for="cname">Label &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <select name="label" id="label" class="form-control">                                
+                                <option value="">---No Label----</option>
+                                <?php
+                                foreach($productlabelarray as $prolabel){                                       
+                                ?>
+                                    <option <?php if($prolabel==$label){echo "selected";} ?> value="<?php echo $prolabel; ?>"><?php echo $prolabel; ?></option>
+                                <?php
+                                }
+                                
+                                ?>
+                            </select>
+                        </div>
 
                         <label for="housename">MRP &nbsp;
                             <span class="at-required-highlight">*</span>
@@ -135,7 +155,12 @@ if(isset($_GET["id"])){
                                 
                             </select>
                         </div>
-
+                        <label for="housename">Colour &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <input type="text" name="color" id="color" value="<?php echo $color; ?>" class="form-control">
+                        </div>
                         <label for="contact1">About Product&nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
@@ -339,8 +364,8 @@ if(isset($_GET["id"])){
 								$this.attr('disabled', false).val($caption);
 								alert(response);												
 								try {
-									//var json = $.parseJSON(response);
-									var json = JSON.parse(response);
+									//var json = $.parseJSON(response);                                    
+									var json = JSON.parse(response);                                    
 									if (json["status"] == "success") {
 										//resetForm();
 										//all();
@@ -356,7 +381,7 @@ if(isset($_GET["id"])){
 										ShowAlert("", "Not saved! please enter correct data", "danger");
 									}
 								} catch (e) {                                    
-									ShowAlert("", "Not saved! please enter correct data", "danger");
+									ShowAlert("", "error:Not saved! please enter correct data", "danger");
 								}
 
 								// Reset form

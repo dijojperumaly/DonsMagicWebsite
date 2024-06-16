@@ -14,6 +14,8 @@ $sql = "SELECT   p.id,
         p.image_1, 
         IFNULL(p.STATUS,'Active') status,
         IFNULL(p.orderno,0) orderno,
+        IFNULL(p.label,'') label,
+        IFNULL(p.color,'') color,
         t.producttype_id,
         t.producttype,
         GROUP_CONCAT(s.size  ORDER BY s.orderno ASC) size

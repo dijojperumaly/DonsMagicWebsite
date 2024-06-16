@@ -10,6 +10,7 @@ define("PRIMARY_CONTACT",1);
 define("SECONDARY_CONTACT",2);
 
 $statusarray=array("ACTIVE"=>"Active","DRAFT"=>"Draft","SOLDOUT"=>"SoldOut");
+$productlabelarray=array("NEW"=>"New");
 $contactarray=array("PRIMARY"=>"PRIMARY","SECONDARY"=>"SECONDARY");
 
 //local server

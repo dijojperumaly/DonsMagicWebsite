@@ -2,7 +2,6 @@
 include_once("adminsession.php");
 //error_reporting(0);
 include_once("db_connection.php");
-
 $id=0;
 $status="success";
 $edit_filename="";
@@ -10,7 +9,6 @@ $edit_document="";
 $filename="";
 $documentfilename="";
 $folder = "../images/products/";
-
 if(isset($_POST["hdimagefile"])){
 	$edit_filename=$_POST["hdimagefile"];
 }
@@ -42,7 +40,7 @@ $con->begin_transaction();
 			}
 		}
 	}	
-	
+	$size=array();
 	if($status=="success"){		
 		$title=$_POST["title"];
 		$producttype=$_POST["producttype"];
@@ -52,7 +50,9 @@ $con->begin_transaction();
 		$featured=isset($_POST["featured"])? $_POST["featured"]:0;	
 		$orderno=$_POST["orderno"];	
 		$productstatus=$_POST["productstatus"];	
-		$size=$_POST["size"];		
+		$size=isset($_POST["size"])?$_POST["size"]:array(null);		
+		$label=$_POST["label"];	
+		$color=$_POST["color"];	
 		$cid=0;
 		$stmt="";
 		$smt_code="";
@@ -67,9 +67,11 @@ $con->begin_transaction();
 				image_1,
 				orderno,
 				status,
+				label,
+				color,
 				createdby,
-				createdat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");		
-			$stmt->bind_param("issiiisisis", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $user_id, $present);		
+				createdat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");		
+			$stmt->bind_param("issiiisisssis", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $label, $color, $user_id, $present);		
 
 			$smt_code=$con->prepare("UPDATE tbl_product SET product_code=CONCAT((SELECT typecode FROM tbl_producttype WHERE producttype_id=$producttype),?) WHERE id=?");
 		}
@@ -86,9 +88,11 @@ $con->begin_transaction();
 				image_1=?,
 				orderno=?,
 				status=?,
+				label=?,
+				color=?,
 				updatedby=?,
 				updatedat=? WHERE id=?");
-			$stmt->bind_param("issiiisisisi", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $user_id, $present,$id);
+			$stmt->bind_param("issiiisisssisi", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $label, $color, $user_id, $present,$id);
 			
 		}
 		if($stmt->execute()){	
@@ -162,7 +166,6 @@ $con->begin_transaction();
 		$stmt->close();	
 	}	
 //}
-
 $con->close();
 echo json_encode($status);
 ?>
