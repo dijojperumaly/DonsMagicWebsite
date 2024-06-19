@@ -42,48 +42,13 @@ include_once("adminsession.php");
               <i class="mdi mdi-contacts menu-icon"></i>
               <span class="menu-title">Size</span>
             </a>
-          </li>
+          </li>          
           <li class="nav-item">
-            <a class="nav-link" href="prayerrequest.php">
-              <i class="mdi mdi-contacts menu-icon"></i>
-              <span class="menu-title">Prayer Request</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="retreattype.php">
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              <span class="menu-title">Retreat Type</span>
-            </a>
-          </li>         
-          <li class="nav-item">
-            <a class="nav-link" href="retreat.php">
-              <i class="mdi mdi-contacts menu-icon"></i>
-              <span class="menu-title">Retreat</span>
-            </a>
-          </li>         
-          <li class="nav-item">
-            <a class="nav-link" href="dailyquotes.php">
-              <i class="mdi mdi-chart-bar menu-icon"></i>
-              <span class="menu-title">Daily Quotes</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="retreatbookinglist.php">
+            <a class="nav-link" href="#">
               <i class="mdi mdi-table-large menu-icon"></i>
-              <span class="menu-title">Booking List</span>
+              <span class="menu-title">Order List</span>
             </a>
-          </li>
-          <!--<li class="nav-item">
-            <span class="nav-link" href="#">
-              <span class="menu-title">Docs</span>
-            </span>
-          </li>-->
-          <!--<li class="nav-item">
-            <a class="nav-link" href="https://www.bootstrapdash.com/demo/breeze-free/documentation/documentation.html">
-              <i class="mdi mdi-file-document-box menu-icon"></i>
-              <span class="menu-title">Documentation</span>
-            </a>
-          </li>-->
+          </li>          
           <li class="nav-item sidebar-actions">
             <div class="nav-link">
               <div class="mt-4">
@@ -161,7 +126,7 @@ include_once("adminsession.php");
                   <p class="p-3 mb-0">View all activities</p>
                 </div>
               </li>
-              <li class="nav-item dropdown d-none d-sm-flex">
+              <!--<li class="nav-item dropdown d-none d-sm-flex">
               <?php              
                 /*$sql = "SELECT  request_id, 
                     IFNULL(name,'') name,  
@@ -219,7 +184,7 @@ include_once("adminsession.php");
                 
                 ?>
                 
-              </li>
+              </li> -->
               <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
                 <form class="nav-link form-inline mt-2 mt-md-0">
                   <div class="input-group">
