@@ -401,7 +401,7 @@ include('header.php');
 							</div>
 							<div class="block2-txt flex-w flex-t p-t-14">
 								<div class="block2-txt-child1 flex-col-l ">
-									<a href="#" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									<a href="viewmore.php?id=<?php echo $id; ?>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 										<?php echo $producttype; echo trim($color)!=""?" (".$color.")":""; ?>										
 										<br><?php echo trim($title); ?>
 									</a>

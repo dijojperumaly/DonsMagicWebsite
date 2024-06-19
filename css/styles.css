@@ -1,9 +1,9 @@
-* {
+ * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-body {
+/* body {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 30px;
@@ -12,7 +12,7 @@ body {
 header {
   margin-bottom: 20px;
 }
-
+*/
 .product-container {
   display: flex;
   justify-content: start;
@@ -20,9 +20,9 @@ header {
   gap: 40px;
 }
 
-/* .img-card{
+ .img-card{
     width: 40%;
-} */
+} 
 
 .img-card img {
   width: 100%;
@@ -103,7 +103,7 @@ header {
   padding: 6px;
 }
 
-button {
+.quantity button {
   background: #17696a;
   border-radius: 4px;
   padding: 10px 37px;
@@ -112,7 +112,7 @@ button {
   font-weight: 600;
 }
 
-button:hover {
+.quantity button:hover {
   background: #ff4242;
   transition: ease-in 0.4s;
 }
@@ -151,7 +151,7 @@ hr {
   .product-info{
     width: 100%;
   }
-  echo "# product-details-page-html-css-js" >> README.md
+ 
   .product-info p{
     width: 100%;
   }

@@ -5,8 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!--	<link rel="stylesheet" href="popupStyle/popupstyle.css"> --
-<!--===============================================================================================-->
+<!--	<link rel="stylesheet" href="popupStyle/popupstyle.css"> -->
+<!-- ===============================================================================================-->
 <!-- <link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'> -->
 <!--===============================================================================================-->	
 	<link rel="icon" type="image/png" href="images/icons/favicon.png"/>
@@ -37,7 +37,7 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link rel="stylesheet" type="text/css" href="css/styles.css">
+	<link rel="stylesheet" type="text/css" href="css/styles.css"> 
 <!--===============================================================================================-->
 </head>
 <body class="animsition">

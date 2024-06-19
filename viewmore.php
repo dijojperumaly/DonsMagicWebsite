@@ -1,26 +1,62 @@
 <?php
 ob_start();
-include('headerWhite.php');
 include_once("admin/db_connection.php");
+include('headerWhite.php');
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Single Product Page</title>
-    <!-- css -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
     <div class="pagination">
-        <p>Home > Shop > Women > Jacket </p>
+        <!--<p>Home > Shop > Women > Jacket </p>-->
     </div>
     <!-- product section -->
     <section class="product-container">
+    <?php
+        if(isset($_REQUEST["id"])){
+            $getId=$_REQUEST["id"];
+            $sql_products = "SELECT   p.id, 
+					IFNULL(p.title,'')title, 
+					IFNULL(p.product_code,'')product_code, 
+					IFNULL(p.aboutproduct,'') aboutproduct, 
+					p.MRP, 
+					IFNULL(p.offerprice,'') offerprice, 
+					CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
+					p.image_1, 
+					IFNULL(p.STATUS,'Active') status,
+					IFNULL(p.orderno,0) orderno,
+					IFNULL(p.label,'') label,
+					IFNULL(p.color,'') color,
+					t.producttype_id,
+					t.producttype,
+					t.typecode,
+					GROUP_CONCAT(s.size  ORDER BY s.orderno ASC) size
+					FROM tbl_product p LEFT JOIN tbl_producttype t ON t.producttype_id=p.producttype_id
+					LEFT JOIN tbl_availablesizes a On a.product_id=p.id
+					LEFT JOIN tbl_size s ON a.size_id=s.size_id
+					WHERE IFNULL(p.isdeleted,0)=0  
+                        AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."' 
+                        AND IFNULL(p.id,0)=$getId                        
+					GROUP BY a.product_id 
+					ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";     
+					//echo $sql_products;                   
+					$product_results = $con->query($sql_products);                                
+					if($row_product=$product_results->fetch_array(MYSQLI_ASSOC)){    
+						$typeid=$row_product["producttype_id"];
+						$producttype=$row_product["producttype"];
+						$typecode=$row_product["typecode"];
+
+						$id=$row_product["id"];
+						$title=$row_product["title"];
+						$product_code=$row_product["product_code"];
+						$aboutproduct=$row_product["aboutproduct"];
+						$MRP=$row_product["MRP"];
+						$offerprice=$row_product["offerprice"];
+						$image_1=$row_product["image_1"];
+						$status=$row_product["status"];
+						$size=$row_product["size"];
+						$label=$row_product["label"];
+						$color=$row_product["color"];
+    ?>
         <!-- left side -->
         <div class="img-card">
-            <img src="images/products/240614231441000000304861.jpg" alt="" id="featured-image">
+            <img src="images/products/<?php echo $image_1; ?>" alt="" id="featured-image" style="margin-left:4px;">
             <!-- small img -->
             <!--<div class="small-Card">
                 <img src="images/products/240614231441000000304861.jpg" alt="" class="small-Img">
@@ -31,30 +67,58 @@ include_once("admin/db_connection.php");
         </div>
         <!-- Right side -->
         <div class="product-info">
-            <h3>LEVI'S® WOMEN'S XL TRUCKER JACKET</h3>
-            <h5>Price: $140 <del>$170</del></h5>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa accusantium, aspernatur provident beatae corporis veniam atque facilis, consequuntur assumenda, vitae dignissimos iste exercitationem dolor eveniet alias eos ullam nesciunt voluptatum.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore accusamus natus dolorum. Quaerat nulla quod doloremque, officia quis provident amet adipisci unde esse iure delectus, maxime inventore optio fuga nisi?</p>
+            <h3><?php echo $producttype; echo trim($color)!=""?" (".$color.")":""; ?></h3>             										
+				<?php echo trim($title); ?>           
+                <br>Product ID : <?php echo trim($product_code); ?> 
+            <h5>
+            <?php 
+                    if($status!=$statusarray["SOLDOUT"]){
+                    if($offerprice!="" && $offerprice>0){
+                        echo "<del>₹ $MRP</del> &nbsp; ₹ $offerprice/-";
+                    }else{
+                        echo "₹ $MRP/-";
+                    }
+                }else{
+                    if($offerprice!="" && $offerprice>0){
+                        echo "<del>₹ $offerprice</del>/-";
+                    }else{
+                        echo "<del>₹ $MRP</del>/-";
+                    }
+                    echo '<span class="soldout">'.$statusarray["SOLDOUT"].'</span>';
+                }
+                ?>
+            </h5>
+            <p><?php echo $aboutproduct;?></p>           
 
             <div class="sizes">
-                <p>Size:</p>
-                <select name="Size" id="size" class="size-option">
-                    <option value="xxl">XXL</option>
-                    <option value="xl">XL</option>
-                    <option value="medium">Medium</option>
-                    <option value="small">Small</option>
-                </select>
+                <?php 
+                $sizeArray = explode(',', $size);
+                if(count($sizeArray)>0){
+                ?>
+                    <p>Size:</p>
+                    <select name="size" id="size" class="size-option">
+                        <?php 
+                        foreach($sizeArray as $sizevalue){
+                        ?>
+                        <option value="<?php echo $sizevalue; ?>"><?php echo $sizevalue; ?></option>
+                        <?php
+                        }
+                        ?>
+                    </select>
+                <?php 
+                }
+                ?>
             </div>
 
             <div class="quantity">
-                <input type="number" value="1" min="1">
-                <button>Add to Cart</button>
+                <!--<input type="number" value="1" min="1">-->              
+                <button id="btnorder" onClick="callWhatsapp('<?php echo $product_code;?>',size.value)">Order Now</button>
             </div>
 
             <div>
                 <p>Delivery:</p>
-                <p>Free standard shipping on orders over $35 before tax, plus free returns.</p>
-                <div class="delivery">
+                <p>Free shipping on orders above ₹ 599 | All over Kerala.</p>
+                <!--<div class="delivery">
                     <p>TYPE</p> <p>HOW LONG</p> <p>HOW MUCH</p>
                 </div>
                 <hr>
@@ -74,12 +138,26 @@ include_once("admin/db_connection.php");
                     <p>Pick up in store</p> 
                     <p>1-3 business days</p> 
                     <p>Free</p>
-                </div>
+                </div>-->
             </div>
         </div>
+        
+        <?php
+                }
+            }
+        ?>
     </section>
-
+    <p>&nbsp;</p><p>&nbsp;</p>
     <!-- script tags -->
-    <script src="js/cart.js"></script>
-</body>
-</html>
+    
+    <?php
+	include("footer.php");
+	?>
+    <script>
+        $(document).ready(function() {
+            window.callWhatsapp = function(code,size) { 
+                alert(code+" "+size);
+                window.open("https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20"+code+", size:"+size);
+            }
+        });
+    </script>
