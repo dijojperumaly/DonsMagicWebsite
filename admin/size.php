@@ -124,6 +124,7 @@
                     }
 
             window.deleteItem=function (id, obj) {
+                
 				bootbox.confirm({
 					//title: "Delete",
 					onEscape: true,
@@ -140,6 +141,7 @@
 						}
 					},
 					callback: function(result) {
+                        
 						if (result) {
 
 							$.ajax({

@@ -275,7 +275,7 @@ include_once("admin/db_connection.php");
 						WHERE IFNULL(p.isdeleted,0)=0  
 						AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."'
 						AND IFNULL(p.offerprice,0)>0
-						GROUP BY a.product_id ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";     
+						GROUP BY p.id ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";     
 						//echo $sql_products;                   
 						$product_results = $con->query($sql_products);                                
 						while($row_product=$product_results->fetch_array(MYSQLI_ASSOC)){    
@@ -299,12 +299,14 @@ include_once("admin/db_connection.php");
 						<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?php echo $typecode; ?>">
 							<!-- Block2 -->
 							<div class="block2">
-							<div class="block2-pic hov-img0 <?php if(trim($label)!=""){ ?>label-new <?php }?>" data-label="<?php echo $label; ?>">
-									<img src="images/products/<?php echo $image_1; ?>" alt="IMG-PRODUCT">
+								<div class="block2-pic hov-img0 <?php if(trim($label)!=""){ ?>label-new <?php }?>" data-label="<?php echo $label; ?>">
+									<a href="viewmore.php?id=<?php echo $id; ?>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+										<img src="images/products/<?php echo $image_1; ?>" alt="IMG-PRODUCT">
+									</a>
 									<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20<?php echo $product_code; ?> "
-									style="background-color: #075e54; color: white;" 
-									class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
-										Contact Us
+										style="background-color: #075e54; color: white;" 
+										class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
+											Contact Us
 									</a>
 								</div>
 								<div class="block2-txt flex-w flex-t p-t-14">

@@ -6,9 +6,9 @@ $status=array('status'=>'success');
 
 	if(isset($_GET["delid"])){		
 		$id=$_GET["delid"];
-		$stmt = $con->prepare("UPDATE tbl_size SET
+		$stmt = $con->prepare("UPDATE tbl_contact SET
 			isdeleted=1
-			WHERE 	size_id=?");
+			WHERE 	contact_id=?");
 		$stmt->bind_param("i", $id);
 	
 		if($stmt->execute()){
@@ -19,8 +19,7 @@ $status=array('status'=>'success');
 		}
 		$stmt->close();
 	}
-	
-	
+		
 //}
 $con->close();
 echo json_encode($status);

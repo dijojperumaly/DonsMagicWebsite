@@ -39,12 +39,14 @@
 
     <script type="text/javascript" src="assets/js/jquery.validate.js"></script>
     <script type="text/javascript" src="assets/js/jquery.validate.min.js"></script>
+    <script src="assets/js/bootbox.min.js"></script>
+    <!--<script src="assets/js/bootstrap-3.1.1.min.js"></script>
+    <script src="assets/js/bootstrap-3.4.1.min.js"></script>-->
+    
 
     <script type="text/javascript" src="assets/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="assets/js/dataTables.rowReorder.min.js"></script>
-    <!--<script src="assets/js/bootstrap-3.1.1.min.js"></script>-->
-    <script src="assets/js/bootstrap-3.4.1.min.js"></script>
-    <script src="assets/js/bootbox.min.js"></script>
+    
     <script src="assets/js/ckeditor.js"></script>
     <script src="assets/js/myjs.js"></script>
 

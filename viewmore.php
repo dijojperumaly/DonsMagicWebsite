@@ -33,7 +33,7 @@ include('headerWhite.php');
 					WHERE IFNULL(p.isdeleted,0)=0  
                         AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."' 
                         AND IFNULL(p.id,0)=$getId                        
-					GROUP BY a.product_id 
+					GROUP BY p.id 
 					ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";     
 					//echo $sql_products;                   
 					$product_results = $con->query($sql_products);                                
@@ -155,8 +155,7 @@ include('headerWhite.php');
 	?>
     <script>
         $(document).ready(function() {
-            window.callWhatsapp = function(code,size) { 
-                alert(code+" "+size);
+            window.callWhatsapp = function(code,size) {                 
                 window.open("https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20"+code+", size:"+size);
             }
         });

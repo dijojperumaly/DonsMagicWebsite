@@ -24,7 +24,7 @@ $sql = "SELECT   p.id,
         LEFT JOIN tbl_availablesizes a On a.product_id=p.id
         LEFT JOIN tbl_size s ON a.size_id=s.size_id
         WHERE IFNULL(p.isdeleted,0)=0 
-        GROUP BY a.product_id
+        GROUP BY p.id
         ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";
 
 // Process the query so that we will save the date of birth

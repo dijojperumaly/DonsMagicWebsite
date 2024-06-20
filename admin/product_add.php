@@ -61,7 +61,7 @@
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="form-group">
-                            <select name="label" id="label" class="form-control" required="true">                                
+                            <select name="label" id="label" class="form-control">                                
                                 <option value="">---No Label----</option>
                                 <?php
                                 foreach($productlabelarray as $label){                                       

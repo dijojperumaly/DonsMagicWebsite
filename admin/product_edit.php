@@ -36,7 +36,7 @@ if(isset($_GET["id"])){
         LEFT JOIN tbl_availablesizes a On a.product_id=p.id
         LEFT JOIN tbl_size s ON a.size_id=s.size_id
         WHERE IFNULL(p.isdeleted,0)=0  AND p.id=$id
-        GROUP BY a.product_id";
+        GROUP BY p.id";
        
     $results = $con->query($sql);    
   
