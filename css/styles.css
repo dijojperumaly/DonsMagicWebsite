@@ -21,8 +21,17 @@ header {
 }
 
  .img-card{
-    width: 34%;
+    width: 35%;    
 } 
+@media (max-width: 350px) {
+  .img-card {
+    width: 100%; } }
+@media (min-width: 350px) {
+  .img-card {
+    width: 100%; } }
+@media (min-width: 720px) {
+  .img-card {
+    width: 30%; } }
 
 .img-card img {
   width: 100%;
@@ -30,6 +39,7 @@ header {
   border-radius: 4px;
   height: 520px;
   object-fit: cover;
+  padding: 2px;
 }
 
 .small-Card {
@@ -57,6 +67,7 @@ header {
 
 .product-info{
   width: 60%;
+  margin: 4px;
 }
 .product-info h3 {
   font-size: 32px;
