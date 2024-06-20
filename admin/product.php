@@ -67,7 +67,7 @@ require_once("adminsession.php");
                                 $("#table_div").html("<center><img src='images/loader.gif' width='50px'/></center>");
                             },
                             success: function(response) { //once the request successfully process to the server side it will return result here
-                                //alert(response);
+                                alert(response);
                                 // Parse the json result
                                 response = JSON.parse(response);
 
