@@ -116,8 +116,8 @@ include('headerWhite.php');
             </div>
 
             <div>
-                <p>Delivery:</p>
-                <p>Free shipping on orders above ₹ 599 | All over Kerala.</p>
+                <!--<p>Delivery:</p>
+                <p>Free shipping on orders above ₹ 599 | All over Kerala.</p>-->
                 <!--<div class="delivery">
                     <p>TYPE</p> <p>HOW LONG</p> <p>HOW MUCH</p>
                 </div>

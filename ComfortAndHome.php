@@ -1,5 +1,7 @@
 <?php
+ob_start();
 include('headerWhite.php');
+header("location:./");
 ?>
 	
 	<!-- Product -->

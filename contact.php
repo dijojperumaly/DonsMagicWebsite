@@ -69,7 +69,7 @@ Ernakulam <br/>
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-							+91 9744187391 <br/> +91 9846366246
+							+91 9744187391 <br/>
 							</p>
 						</div>
 					</div>
