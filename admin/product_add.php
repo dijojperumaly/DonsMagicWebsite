@@ -7,6 +7,31 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Donsmagic Admin Panel</title>
     <?php require_once("admin_links.php")?>
+    <style>
+		.holder {
+			height: 200px;
+			width: 200px;
+			border: 0px solid black;
+			display:none;
+		}
+
+		.holder img {
+			max-width: 200px;
+			max-height: 200px;
+			min-width: 200px;
+			min-height: 200px;
+		}
+
+		input[type="file"] {
+			margin-top: 5px;
+		}
+
+		.heading {
+			font-family: Montserrat;
+			font-size: 45px;
+			color: green;
+		}
+	</style> 
    
 </head>
 <body>
@@ -50,7 +75,19 @@
                                 $select_results->close();	
                                 ?>
                             </select>
-                        </div>                  
+                        </div>  
+                        <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="holder" id="imgholder">
+							<img
+								id="imgPreview"
+								src="#" alt="pic" />
+						</div>	
+                        <div class="form-group">
+                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg">
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>                   
                         <label for="cname">Title &nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
@@ -107,13 +144,7 @@
                         <div class="form-group">
                             <textarea name="aboutproduct" id="aboutproduct" class="form-control" rows="7"></textarea>
                         </div>                                              
-                        <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">
-                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg">
-                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>        
+                            
                         <div class="form-group" style="text-align:left;float:left; margin:4px;">
                             <input type="checkbox" class="form-control" name="featured" id="featured" value="1">                            
                         </div>
@@ -161,6 +192,27 @@
 
     <script>
 			$(document).ready(function() {
+
+                const photoInp = $("#imagefile");
+				let file;
+
+				photoInp.change(function (e) {
+				file = this.files[0];
+					if (file) {
+						let reader = new FileReader();
+						reader.onload = function (event) {
+							$("#imgPreview")
+								.attr("src", event.target.result);
+						};
+						reader.readAsDataURL(file);
+						$("#imgholder").css("display","block");
+					}
+					else{
+						$("#imgPreview")
+								.attr("src", "");
+						$("#imgholder").css("display","none");
+					}
+				});
 
                 function showChosen(){
 					$(".chosen-select").chosen({
