@@ -72,10 +72,10 @@
 
 					<p class="stext-107 cl7 size-201">
 					Don's Magic
-C/o Mariyan Stitching Centre
-Paingottoor
-Pin 686671
-Ernakulam
+					C/o Mariyan Stitching Centre
+					Paingottoor
+					Pin 686671
+					Ernakulam
 					</p>
 
 					<div class="p-t-27">
@@ -112,7 +112,7 @@ Ernakulam
 							</button> -->
 
 							<a class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04"
-							 href="https://wa.me/919744187391?text=Hi%20There! I am interested in your product..." target="_blank">Contact Us</a>
+							 href="https://wa.me/+919744187391?text=Hi%20There! I am interested in your products..." target="_blank">Contact Us</a>
 						</div>
 					</form>
 				</div>

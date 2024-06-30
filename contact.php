@@ -1,4 +1,6 @@
 <?php
+ob_start();
+include_once("admin/db_connection.php");
 include('headerWhite.php');
 ?>
 
@@ -50,9 +52,9 @@ include('headerWhite.php');
 							Don's Magic <br/>
 
 							C/o Mariyan Stitching Centre <br/>
-Paingottoor <br/>
-Pin 686671 <br/>
-Ernakulam <br/>
+							Paingottoor <br/>
+							Pin 686671 <br/>
+							Ernakulam <br/>
 
 							</p>
 						</div>
@@ -69,7 +71,22 @@ Ernakulam <br/>
 							</span>
 
 							<p class="stext-115 cl1 size-213 p-t-18">
-							+91 9744187391 <br/>
+							<?php
+								$contact="";
+									$sqlcontact = "SELECT  contact_id, 
+										IFNULL(contact,'')contact										
+										FROM tbl_contact										
+										WHERE IFNULL(isdeleted,0)=0  
+										AND IFNULL(status,'Active')='Active'";								
+									
+									$results = $con->query($sqlcontact);    
+								
+									while($row=$results->fetch_array(MYSQLI_ASSOC)){        
+										$contact_id=$row["contact_id"];
+										$contact=$row["contact"];
+										echo "$contact </br>";									
+									}								
+								?>							
 							</p>
 						</div>
 					</div>

@@ -99,14 +99,22 @@ if(isset($_GET["id"])){
 				function resetMessage() {
 					$('div[role="alert"]').attr("display:none");
 				}
-
+                $.validator.addMethod(
+                    "mobileValidation",
+                    function(value, element) {
+                        return !/^(\+\d{1,2}[\s.-]?)?\(?\d{10}$/.test(value) ? false : true;
+                    },
+                    "Contact number invalid"
+                );
+                
                 $("#form_save").validate({
 					rules: {
                         contact: {
 							required: true,
-                            number:true,
-                            minlength:13,
-                            maxlength:15,
+                            //number:true,
+                            mobileValidation: $("#contact").val(),
+                            //minlength:13,
+                            //maxlength:15,
                         },    
 						type: {
 							required: true,
@@ -119,8 +127,8 @@ if(isset($_GET["id"])){
 						contact: {
 							required: "Please enter contact",
                             number:"Number only",
-                            minlength:"invalid mobile number",
-                            minlength:"invalid mobile number",
+                            //minlength:"invalid mobile number",
+                            //minlength:"invalid mobile number",
 						},
 						type: {
 							required: "Please select contact type",

@@ -223,6 +223,9 @@
                 function resetForm() {
 					$('#form_save')[0].reset();
 					//$('#form_edit')[0].reset();
+					$("#imgPreview")
+								.attr("src", "");
+						$("#imgholder").css("display","none");
 				}
 
 				function resetMessage() {
@@ -344,7 +347,7 @@
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								alert(response);												
+								//alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
