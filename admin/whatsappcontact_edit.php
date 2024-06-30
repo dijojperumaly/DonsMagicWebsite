@@ -102,7 +102,7 @@ if(isset($_GET["id"])){
                 $.validator.addMethod(
                     "mobileValidation",
                     function(value, element) {
-                        return !/^(\+\d{1,2}[\s.-]?)?\(?\d{10}$/.test(value) ? false : true;
+                        return !/^(\+\d{1,2})([\s.-])?\(?\d{10}$/.test(value) ? false : true;
                     },
                     "Contact number invalid"
                 );
