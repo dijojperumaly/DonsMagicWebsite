@@ -116,8 +116,8 @@ include('headerWhite.php');
             </div>
 
             <div>
-                <p>Delivery:</p>
-                <p>Free shipping on orders above ₹ 599 | All over Kerala.</p>
+                <!--<p>Delivery:</p>
+                <p>Free shipping on orders above ₹ 599 | All over Kerala.</p>-->
                 <!--<div class="delivery">
                     <p>TYPE</p> <p>HOW LONG</p> <p>HOW MUCH</p>
                 </div>
@@ -156,7 +156,7 @@ include('headerWhite.php');
     <script>
         $(document).ready(function() {
             window.callWhatsapp = function(code,size) {                 
-                window.open("https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20"+code+", size:"+size);
+                window.open("https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20"+code+", size:"+size);
             }
         });
     </script>

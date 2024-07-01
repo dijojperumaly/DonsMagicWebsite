@@ -51,7 +51,7 @@
     <!-- WHATS APP SHARE BUTTON ENDING -->
     <!--Floating Call BUTTON STARTING -->
     <a
-      href="tel:+919744187391"
+      href="tel:+918921911289"
       class="floatCallbutton">
       <img src="images/call.png" alt="" height="50px" width="50px" />
     </a>
@@ -65,7 +65,7 @@
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						Free shipping on orders above ₹ 599 | All over Kerala.
+						<!--Free shipping on orders above ₹ 599 | All over Kerala.-->
 					</div>
 
 					<div class="right-top-bar flex-w h-full">
@@ -200,7 +200,7 @@
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-					Free shipping on orders above ₹ 599 | All over Kerala.
+					<!--Free shipping on orders above ₹ 599 | All over Kerala.-->
 					</div>
 				</li>
 

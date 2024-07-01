@@ -69,7 +69,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0 label-new" data-label="New">
 							<img src="images/Comfort/comfort/c7.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0312 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0312 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -106,7 +106,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c11.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0315 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0315 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -143,7 +143,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Kaftan/k1.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0109 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0109 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -180,7 +180,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c3.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0319 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0319 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -217,7 +217,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m3.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0103 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0103 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -254,7 +254,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c10.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0329 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0329 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -291,7 +291,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c17.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0331 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0331 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -328,7 +328,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m7.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0107 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0107 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -365,7 +365,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m9.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0109 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0109 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -402,7 +402,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Kaftan/k2.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0112 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0112 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -439,7 +439,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Kaftan/k3.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0114 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20KF0114 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -476,7 +476,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c1.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0101 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0101 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -513,7 +513,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c2.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0102 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0102 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -550,7 +550,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c4.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0104 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0104 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -587,7 +587,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c5.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0105 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0105 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -624,7 +624,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c6.jpg" alt="IMG-PRODUCT">
 
-							<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0106 "
+							<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0106 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -661,7 +661,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c8.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0108 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0108 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -698,7 +698,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c9.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0109 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0109 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -735,7 +735,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c12.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0112 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0112 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -772,7 +772,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c13.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0113 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0113 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -809,7 +809,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c14.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0114 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0114 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -846,7 +846,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c15.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0115 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0115 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -883,7 +883,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c16.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0116 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0116 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -920,7 +920,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c18.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0118 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0118 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -957,7 +957,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/comfort/c19.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0119 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20CW0119 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -994,7 +994,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m1.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0101 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0101 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -1031,7 +1031,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m2.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0102 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0102 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -1068,7 +1068,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m4.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0104 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0104 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -1105,7 +1105,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m6.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0106 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0106 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
@@ -1142,7 +1142,7 @@ include('headerWhite.php');
 						<div class="block2-pic hov-img0">
 							<img src="images/Comfort/Maternity/m8.jpg" alt="IMG-PRODUCT">
 
-					<a href="https://wa.me/919744187391?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0108 "
+					<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20MW0108 "
 							style="background-color: #075e54; color: white;" 
 							class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 								Contact Us
