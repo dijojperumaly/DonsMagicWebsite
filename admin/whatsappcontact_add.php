@@ -37,7 +37,7 @@ $housename="";
                             <span class="at-required-highlight"></span>
                         </label>
                         <div class="form-group">
-                            <input type="text" name="contact" id="contact" class="form-control" required>
+                            <input type="text" name="contact" id="contact" class="form-control" placeholder="+91 1234567890" required>
                         </div>  
                         <label for="type">Type &nbsp;
                             <span class="at-required-highlight"></span>
@@ -85,13 +85,22 @@ $housename="";
 					$('div[role="alert"]').attr("display:none");
 				}
 
+                $.validator.addMethod(
+                    "mobileValidation",
+                    function(value, element) {
+                        return !/^(\+\d{1,2})([\s.-]?)?\(?\d{10}$/.test(value) ? false : true;
+                    },
+                    "Contact number invalid"
+                );
+                
                 $("#form_save").validate({
 					rules: {
                         contact: {
 							required: true,
-                            number:true,
-                            minlength:13,
-                            maxlength:15,
+                            //number:true,
+                            mobileValidation: $("#contact").val(),
+                            //minlength:13,
+                            //maxlength:15,
                         },    
 						type: {
 							required: true,
@@ -104,11 +113,11 @@ $housename="";
 						contact: {
 							required: "Please enter contact",
                             number:"Number only",
-                            minlength:"invalid mobile number",
-                            minlength:"invalid mobile number",
+                            //minlength:"invalid mobile number",
+                            //minlength:"invalid mobile number",
 						},
 						type: {
-							required: "Please enter contact type",
+							required: "Please select contact type",
                         },                       				
 					},
 					errorPlacement: function(error, element) {

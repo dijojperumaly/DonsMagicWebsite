@@ -200,7 +200,11 @@
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
+<<<<<<< HEAD
 					<!--Free shipping on orders above ₹ 599 | All over Kerala.-->
+=======
+					<!-- Free shipping on orders above ₹ 599 | All over Kerala.-->
+>>>>>>> 07a905fdfb48fcade3d04ca9703a28c8c3b480bf
 					</div>
 				</li>
 
@@ -242,8 +246,8 @@
 							<li>
 								<a>COLLECTIONS</a>
 								<ul class="sub-menu-m">
-								<li><a href="outDoorCasual.php">OUTDOOR CASUAL</a></li>
-									<li><a href="ComfortAndHome.php">COMFORT WEARS & HOME WEARS</a></li>
+								<li><a href="collections.php?type=OW">OUTDOOR CASUAL</a></li>
+									<li><a href="collections.php?type=CW,MW">COMFORT WEARS & HOME WEARS</a></li>
 									<!-- <li><a href="BodyPositive.php">BODY POSITIVE COLLECTION</a></li> -->
 								</ul>
 								<span class="arrow-main-menu-m">

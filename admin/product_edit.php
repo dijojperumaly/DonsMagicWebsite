@@ -66,6 +66,31 @@ if(isset($_GET["id"])){
     <title>Donsmagic Admin Panel</title>
     <?php require_once("admin_links.php")?>
     <?php require_once("adminsession.php")?>
+    <style>
+		.holder {
+			height: 250px;
+			width: 250px;
+			border: 0px solid black;
+			display:none;
+		}
+
+		.holder img {
+			max-width: 250px;
+			max-height: 250px;
+			min-width: 250px;
+			min-height: 250px;
+		}
+
+		input[type="file"] {
+			margin-top: 5px;
+		}
+
+		.heading {
+			font-family: Montserrat;
+			font-size: 45px;
+			color: green;
+		}
+	</style> 
 </head>
 <body>
     <?php require_once("admin_header.php")?>
@@ -109,7 +134,18 @@ if(isset($_GET["id"])){
                                 $select_results->close();	
                                 ?>
                             </select>
-                        </div>                  
+                        </div>   
+                        <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="holder" id="imgholder" <?php if(trim($image_1)!=""){ echo "style='display:block;'";} ?>>						
+                                <img id="imgPreview" src="../images/products/<?php echo $image_1; ?>" alt="pic"/>
+						</div>	
+                        <div class="form-group">
+                            <input type="hidden" id="hdimagefile" name="hdimagefile" value="<?php echo $image_1; ?>">                            
+                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg">
+                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                        </div>                   
                         <label for="cname">Title &nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
@@ -167,15 +203,7 @@ if(isset($_GET["id"])){
                         <div class="form-group">
                             <textarea name="aboutproduct" id="aboutproduct" class="form-control" rows="7"><?php echo $aboutproduct; ?></textarea>
                         </div>                        
-                        <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
-                            <span class="at-required-highlight"></span>
-                        </label>
-                        <div class="form-group">
-                            <input type="hidden" id="hdimagefile" name="hdimagefile" value="<?php echo $image_1; ?>">
-                            <img src="../images/products/<?php echo $image_1; ?>" width="250px" /></br></br>
-                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg">
-                            <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>                        
+                                            
                         <div class="form-group" style="text-align:left;float:left; margin:4px;">
                             <input type="checkbox" class="form-control" name="featured" id="featured" value="1" <?php if($isfeatured=="YES"){ echo "checked";} ?> >                            
                         </div>
@@ -225,6 +253,28 @@ if(isset($_GET["id"])){
     <script>
 			$(document).ready(function() {
 
+                const photoInp = $("#imagefile");
+				let file;
+
+				photoInp.change(function (e) {
+				file = this.files[0];
+					if (file) {
+						let reader = new FileReader();
+						reader.onload = function (event) {
+							$("#imgPreview")
+								.attr("src", event.target.result);
+						};
+						reader.readAsDataURL(file);
+						$("#imgholder").css("display","block");
+					}
+					else{
+						$("#imgPreview")
+								.attr("src", "");
+						$("#imgholder").css("display","none");
+					}
+				});
+
+
                 function showChosen(){
 					$(".chosen-select").chosen({
 						width: "100%",
@@ -235,6 +285,9 @@ if(isset($_GET["id"])){
                 function resetForm() {
 					$('#form_save')[0].reset();
 					//$('#form_edit')[0].reset();
+                    $("#imgPreview")
+								.attr("src", "");
+						$("#imgholder").css("display","none");
 				}
 
 				function resetMessage() {
@@ -362,7 +415,7 @@ if(isset($_GET["id"])){
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								alert(response);												
+								//alert(response);												
 								try {
 									//var json = $.parseJSON(response);                                    
 									var json = JSON.parse(response);                                    

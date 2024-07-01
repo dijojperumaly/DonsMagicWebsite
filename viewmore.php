@@ -56,7 +56,7 @@ include('headerWhite.php');
     ?>
         <!-- left side -->
         <div class="img-card">
-            <img src="images/products/<?php echo $image_1; ?>" alt="" id="featured-image" style="margin-left:4px;">
+            <img src="images/products/<?php echo $image_1; ?>" alt="" id="featured-image">
             <!-- small img -->
             <!--<div class="small-Card">
                 <img src="images/products/240614231441000000304861.jpg" alt="" class="small-Img">
