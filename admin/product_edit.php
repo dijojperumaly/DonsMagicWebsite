@@ -135,10 +135,10 @@ if(isset($_GET["id"])){
                                 ?>
                             </select>
                         </div>   
-                        <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
+                        <label for="imgholder">Image&nbsp;(800x1000 px) (file size max:1MB)
                             <span class="at-required-highlight"></span>
                         </label>
-                        <div class="holder" id="imgholder" <?php if(trim($image_1)!=""){ echo "style='display:block;'";} ?>>						
+                        <div class="holder" id="imgholder" <?php if(trim($image_1)!=""){ echo "style='display:block;'";} ?>>
                                 <img id="imgPreview" src="../images/products/<?php echo $image_1; ?>" alt="pic"/>
 						</div>	
                         <div class="form-group">
