@@ -113,6 +113,7 @@ include('headerWhite.php');
             <div class="quantity">
                 <!--<input type="number" value="1" min="1">-->              
                 <button id="btnorder" onClick="callWhatsapp('<?php echo $product_code;?>',size.value)">Order Now</button>
+                <button id="btncart" onClick="" class="multiple">Add To Cart</button>
             </div>
 
             <div>

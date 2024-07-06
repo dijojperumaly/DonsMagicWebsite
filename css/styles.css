@@ -123,9 +123,24 @@ header {
   font-weight: 600;
 }
 
+.quantity .multiple {
+  background: #f3c90f;
+  border-radius: 4px;
+  padding: 10px 37px;
+  border: none;
+  color: rgb(20, 4, 4);
+  font-weight: 600;
+}
+
 .quantity button:hover {
   background: #ff4242;
   transition: ease-in 0.4s;
+}
+
+.quantity .multiple:hover {
+  background: #4253f3;
+  transition: ease-in 0.4s;
+  color: white;
 }
 
 .delivery {

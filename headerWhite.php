@@ -142,12 +142,16 @@
 								<a href="contact.php">CONTACT</a>
 							</li>
 							<li>
+							 	<a href="#"><img src="images/icons/cart.png" alt="user" width="25"></a>
+							</li>
+							<li>
 							 	<a><img src="images/icons/userb.png" alt="user" width="25"></a>
 								<ul class="sub-menu">
-								<li><a href="collections.php?type=OW">Profile</a></li>
-								<li><a href="collections.php?type=CW,MW">SignOut</a></li>									
+								<li><a href="profile.php">Profile</a></li>
+								<li><a href="signout.php">SignOut</a></li>									
 								</ul>	
 							</li>
+							
 						</ul>
 					</div>	
 
@@ -284,12 +288,16 @@
 								<a href="contact.php">CONTACT</a>
 							</li>
 							<li>
+							 	<a><img src="images/icons/cart.png" alt="user" width="25"></a>
+							</li>
+							<li>
 							 	<a><img src="images/icons/userb.png" alt="user" width="25"></a>
 								<ul class="sub-menu">
-								<li><a href="collections.php?type=OW">Profile</a></li>
-								<li><a href="collections.php?type=CW,MW">SignOut</a></li>									
+								<li><a href="collections.php">Profile</a></li>
+								<li><a href="collections.php">SignOut</a></li>									
 								</ul>	
 							</li>
+							
 
 			</ul>
 		</div>
