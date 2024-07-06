@@ -111,6 +111,13 @@
 							<li>
 								<a href="contact.php">CONTACT</a>
 							</li>
+							<li>
+							 	<a><img src="images/icons/userw.png" alt="user" width="25"></a>
+								<ul class="sub-menu">
+								<li><a href="collections.php?type=OW">Profile</a></li>
+								<li><a href="collections.php?type=CW,MW">SignOut</a></li>									
+								</ul>	
+							</li>
 						</ul>
 					</div>	
 
@@ -210,6 +217,13 @@
 
 							<li>
 								<a href="contact.php">CONTACT</a>
+							</li>
+							<li>
+							 	<a><img src="images/icons/userb.png" alt="user" width="25"></a>
+								<ul class="sub-menu">
+								<li><a href="collections.php?type=OW">Profile</a></li>
+								<li><a href="collections.php?type=CW,MW">SignOut</a></li>									
+								</ul>	
 							</li>
 
 			</ul>

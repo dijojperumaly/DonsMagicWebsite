@@ -141,6 +141,13 @@
 							<li>
 								<a href="contact.php">CONTACT</a>
 							</li>
+							<li>
+							 	<a><img src="images/icons/userb.png" alt="user" width="25"></a>
+								<ul class="sub-menu">
+								<li><a href="collections.php?type=OW">Profile</a></li>
+								<li><a href="collections.php?type=CW,MW">SignOut</a></li>									
+								</ul>	
+							</li>
 						</ul>
 					</div>	
 
@@ -200,11 +207,9 @@
 			<ul class="topbar-mobile">
 				<li>
 					<div class="left-top-bar">
-<<<<<<< HEAD
+
 					<!--Free shipping on orders above ₹ 599 | All over Kerala.-->
-=======
-					<!-- Free shipping on orders above ₹ 599 | All over Kerala.-->
->>>>>>> 07a905fdfb48fcade3d04ca9703a28c8c3b480bf
+
 					</div>
 				</li>
 
@@ -277,6 +282,13 @@
 
 							<li>
 								<a href="contact.php">CONTACT</a>
+							</li>
+							<li>
+							 	<a><img src="images/icons/userb.png" alt="user" width="25"></a>
+								<ul class="sub-menu">
+								<li><a href="collections.php?type=OW">Profile</a></li>
+								<li><a href="collections.php?type=CW,MW">SignOut</a></li>									
+								</ul>	
 							</li>
 
 			</ul>
