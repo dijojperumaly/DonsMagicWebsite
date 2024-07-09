@@ -202,6 +202,14 @@
         $('.js-panel-cart').removeClass('show-header-cart');
     });
 
+    $('.js-show-account').on('click',function(){
+        $('.js-panel-account').addClass('show-header-account');
+    });
+
+    $('.js-hide-account').on('click', function () {        
+        $('.js-panel-account').removeClass('show-header-account');
+    });
+
     /*==================================================================
     [ Cart ]*/
     $('.js-show-sidebar').on('click',function(){
