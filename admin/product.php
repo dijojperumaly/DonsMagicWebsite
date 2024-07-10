@@ -23,33 +23,44 @@ require_once("adminsession.php");
     
     <div class="col-lg-12 grid-margin stretch-card">
         <div class="card" style="overflow:scroll;">
+            
             <div class="card-body">
-            <h4 class="card-title">Product List</h4>
-            <!--<p class="card-description"> ADD <code></code>-->
-            <a href="product_add.php"><input type="button" name="btnproduct" id="btnproduct" value="New" class="btn btn-primary"></a>
-            </p>
-            <div class="table-responsive" id="table_div">
-                <table class="table table-striped">
-                <thead>
-                    <tr>
-                    <th></th>
-                    <th>Product</th>
-                    <th>Product Code</th>
-                    <th>Price</th>
-                    <th>Featured</th>
-                    <th>Order</th>
-                    <th>Status</th>
-                    <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                   
-                </tbody>
-                </table>
+                <div class="alert alert-dismissible" role="alert" style="display:none;">
+                    <strong>Warning!</strong>
+                    <p></p>
+                </div>
+                <h4 class="card-title">Product List</h4>
+                <!--<p class="card-description"> ADD <code></code>-->
+                <a href="product_add.php"><input type="button" name="btnproduct" id="btnproduct" value="New" class="btn btn-primary"></a>
+                </p>
+                <div class="table-responsive" id="table_div">
+                    <table class="table table-striped">
+                    <thead>
+                        <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Product Code</th>
+                        <th>Price</th>
+                        <th>Featured</th>
+                        <th>Order</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    
+                    </tbody>
+                    </table>
+                </div>
+                <br>
+                <div class="alert alert-dismissible" role="alert" style="display:none;">
+                    <strong>Warning!</strong>
+                    <p></p>
+                </div>
             </div>
-            </div>
+           
         </div>
-        </div>
+    </div>
 
     <?php require_once("admin_fooder.php")?> 
 
@@ -178,7 +189,7 @@ require_once("adminsession.php");
 										if (res_status == "success") {
 											ShowAlert("", "Successfully Deleted ", "success");
 											$(obj).closest('tr').remove();
-											all();
+											//all();
 											//tablePagination();
 
 										} else {
