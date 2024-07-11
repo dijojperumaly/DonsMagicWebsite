@@ -82,9 +82,11 @@ require_once("adminsession.php");
                                 // Parse the json result
                                 response = JSON.parse(response);
 
-                                var html = '<table class="table table-striped" id="tablepaging">';
+                                //var html = '<table class="table table-striped" id="tablepaging">';
+                                var html = '<table class="tableData" id="tablepaging">';
                
                                 html += "<thead><tr>" +
+                                    "<th><input type='checkbox' name='selectAll' id='selectAll' class='select-checkbox' onclick='selectAll(this)'></th>" +
                                     "<th>#</th>" +
                                     "<th>Product</th>" +
                                     "<th>Color/Label</th>" +
@@ -104,6 +106,7 @@ require_once("adminsession.php");
                                     $.each(response, function(key, value) {
                                         let doc_icon="";                                      
                                         html += "<tr>" +
+                                            "<td width='5%'><input type='checkbox' name='chkselect' id='chkselect' value='"+ value.id +"'></td>" +
                                             "<td width='15%'><img src='../images/products/" + value.image_1 + "' style='width:50px !important; height:auto !important;' /></td>" +
                                             "<td width='20%'><b>" + value.producttype + "</b><p><span style='font-size:12px;'>"+ value.title  +"</span></p>" + value.product_code + "</td>" +                                            
                                             "<td width='20%'>" +  value.color +"/"+ value.label + "</td>" +
@@ -119,6 +122,7 @@ require_once("adminsession.php");
                                             "</tr>";
                                     });
                                     html += "</tbody></table>";
+                                    html += '<input type="button" name="btndeleteall" id="btndeleteall" class="btn btn-danger" value="Delete" onclick="getSelected(this)">';
                                     //html += '</div>';
                                 } else {
                                     html += '<div class="alert alert-warning">';
@@ -142,12 +146,19 @@ require_once("adminsession.php");
                         //$('#tablepaging').DataTable();
                         //$('.dataTables_length').addClass('bs-select');
                         var table = $('#tablepaging').DataTable({
-                            rowReorder: true,
+                            rowReorder: false,
                             pageLength: 10,
                             sPaginationType: "first_last_numbers", //"full", //"simple_numbers" //"simple",	
                             stateSave: true,
-                            "bDestroy": true,
-                        });
+                            "bDestroy": true, 
+                            "order": [], //Initial no order.
+                            "aaSorting": [],
+                            columnDefs: [ {
+                                'targets': [0], /* column index [0,1,2,3]*/
+                                'orderable': false, /* true or false */
+                            }],                            
+                        });                     
+                        
                     }
 
             window.deleteItem=function (id, obj) {
@@ -168,7 +179,7 @@ require_once("adminsession.php");
 					},
 					callback: function(result) {
 						if (result) {
-
+                            //obj.
 							$.ajax({
 								type: "GET", //we are using POST method to submit the data to the server side
 								url: "product_delete.php?delid=" + id, // get the route value								
@@ -181,7 +192,7 @@ require_once("adminsession.php");
 								},
 								success: function(response) { //once the request successfully process to the server side it will return result here
 									//$this.attr('disabled', false).html($caption);
-									//alert(response);
+									alert(response);
 									try {
 										var json = $.parseJSON(response);
 										//var json = JSON.parse(response);
@@ -219,6 +230,26 @@ require_once("adminsession.php");
             all();
             tablePagination();
         });
+
+function getSelected(obj){
+    var pid="0";
+        $('input[name="chkselect"]:checked').each(function() {
+            pid+=","+this.value;
+        });	
+        //alert(pid);
+        deleteItem(pid,obj);
+}
+
+function selectAll(obj) {
+        //e.preventDefault();
+        var selectedIds = [];        
+        if(obj.checked){
+            $('#tablepaging').find('input:checkbox').prop('checked', true);
+        }else{
+            $('#tablepaging').find('input:checkbox').prop('checked', false);
+        }
+        
+    }
     </script>
 </body>
 </html>
