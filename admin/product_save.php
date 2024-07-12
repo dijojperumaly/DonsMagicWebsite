@@ -66,7 +66,7 @@ $con->begin_transaction();
 				}
 			}
 		}
-	}	
+	}		
 	$size=array();
 	if($status=="success"){		
 		$title=$_POST["title"];
@@ -80,6 +80,7 @@ $con->begin_transaction();
 		$size=isset($_POST["size"])?$_POST["size"]:array(null);		
 		$label=$_POST["label"];	
 		$color=$_POST["color"];	
+		$imagetitle=isset($_POST["imagetitle"])?$_POST["imagetitle"]:array();
 		$cid=0;
 		$stmt="";
 		$smt_code="";
@@ -98,46 +99,55 @@ $con->begin_transaction();
 				color,
 				createdby,
 				createdat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
-				foreach($files_name_arr as $fnamegallery){
-					$stmt->bind_param("issiiisisssis", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $fnamegallery, $orderno, $productstatus, $label, $color, $user_id, $present);		
-					$smt_code=$con->prepare("UPDATE tbl_product SET product_code=CONCAT((SELECT typecode FROM tbl_producttype WHERE producttype_id=$producttype),?) WHERE id=?");
-					if($stmt->execute()){	
-						$lastid=0;		
-						if($smt_code!=""){				
-							$lastid=$stmt->insert_id;
-							$procode=floor(((double) microtime() * 100000)).$lastid;
-							$smt_code->bind_param("si",$procode,$lastid);
-			
-							if($smt_code->execute()){
+				$i=0;
+			foreach($files_name_arr as $fnamegallery){
+				$img_title="";
+				if($imagetitle[$i]!="" && $imagetitle[$i]!=NULL){
+					$img_title=$imagetitle[$i];
+				}else{
+					$img_title=$title;
+				}
+				$i=$i+1;
+				$stmt->bind_param("issiiisisssis", $producttype, $img_title, $aboutproduct, $mrp, $offerprice, $featured, $fnamegallery, $orderno, $productstatus, $label, $color, $user_id, $present);		
+				$smt_code=$con->prepare("UPDATE tbl_product SET product_code=CONCAT((SELECT typecode FROM tbl_producttype WHERE producttype_id=$producttype),?) WHERE id=?");
+				if($stmt->execute()){	
+					$lastid=0;		
+					if($smt_code!=""){				
+						$lastid=$stmt->insert_id;
+						$procode=floor(((double) microtime() * 100000)).$lastid;
+						$smt_code->bind_param("si",$procode,$lastid);
+		
+						if($smt_code->execute()){
+							$status=[ 'status' => 'success'];
+							$con->commit();	
+						}else{
+							$status=[ 'status' => 'fail, Product code error' ];
+							$con->rollback();
+						}
+					}
+					if($id==0){
+						$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
+							size_id,
+							product_id,
+							createdby,
+							createdat
+						)VALUES(?, ?, ?, ?)");
+						
+						foreach($size as $sizevalue){
+							$stmt_size->bind_param("iiis",$sizevalue,$lastid,$user_id,$present);
+							if($stmt_size->execute()){
 								$status=[ 'status' => 'success'];
 								$con->commit();	
 							}else{
-								$status=[ 'status' => 'fail, Product code error' ];
+								$status=[ 'status' => 'fail, Product size error' ];
 								$con->rollback();
 							}
 						}
-						if($id==0){
-							$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
-								size_id,
-								product_id,
-								createdby,
-								createdat
-							)VALUES(?, ?, ?, ?)");
-							
-							foreach($size as $sizevalue){
-								$stmt_size->bind_param("iiis",$sizevalue,$lastid,$user_id,$present);
-								if($stmt_size->execute()){
-									$status=[ 'status' => 'success'];
-									$con->commit();	
-								}else{
-									$status=[ 'status' => 'fail, Product size error' ];
-									$con->rollback();
-								}
-							}
-							
-						}	
-					}
-				}			
+						
+					}	
+				}
+			}
+			$stmt->close();			
 		}
 		else{
 			
@@ -156,45 +166,9 @@ $con->begin_transaction();
 				color=?,
 				updatedby=?,
 				updatedat=? WHERE id=?");
-			$stmt->bind_param("issiiisisssisi", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $label, $color, $user_id, $present,$id);
-			
-		}
-		/*if($stmt->execute()){	
-			$lastid=0;		
-			if($smt_code!=""){				
-				$lastid=$stmt->insert_id;
-				$procode=floor(((double) microtime() * 100000)).$lastid;
-				$smt_code->bind_param("si",$procode,$lastid);
-
-				if($smt_code->execute()){
-					$status=[ 'status' => 'success'];
-					$con->commit();	
-				}else{
-					$status=[ 'status' => 'fail, Product code error' ];
-					$con->rollback();
-				}
-			}
-			if($id==0){
-				$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
-					size_id,
-					product_id,
-					createdby,
-					createdat
-				)VALUES(?, ?, ?, ?)");
-				
-				foreach($size as $sizevalue){
-					$stmt_size->bind_param("iiis",$sizevalue,$lastid,$user_id,$present);
-					if($stmt_size->execute()){
-						$status=[ 'status' => 'success'];
-						$con->commit();	
-					}else{
-						$status=[ 'status' => 'fail, Product size error' ];
-						$con->rollback();
-					}
-				}
-				
-			}
-			else{
+			$stmt->bind_param("issiiisisssisi", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $label, $color, $user_id, $present,$id);									
+							
+			if($stmt->execute()){	
 				$stmt_delete = $con->prepare("DELETE FROM tbl_availablesizes WHERE product_id=?");	
 				$stmt_delete->bind_param("i",$id);
 				if($stmt_delete->execute()){
@@ -220,14 +194,14 @@ $con->begin_transaction();
 					$status=[ 'status' => 'fail, Product size update error' ];
 					$con->rollback();
 				}
-			}				
+			}						
+			else{
+				$status=[ 'status' => 'fail' ];
+				$con->rollback();
+			}
+			$stmt->close();	
 		}
-		else{
-			$status=[ 'status' => 'fail' ];
-			$con->rollback();
-		}
-		*/
-		$stmt->close();	
+		
 	}	
 //}
 $con->close();

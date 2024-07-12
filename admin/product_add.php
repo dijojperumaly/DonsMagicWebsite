@@ -406,7 +406,9 @@
 						var form = "#form_save"; //defined the #form ID
 						var formData = $(form).serializeArray(); //serialize the form into array
 						var route = $(form).attr('action'); //get the route using attribute action
-						
+
+						$("#submit").prop('disabled', true).val("Processing...");
+
 						// Ajax config
 						var data = new FormData();
 
@@ -436,12 +438,13 @@
                             contentType: false,
 
 							beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
-								$this.attr('disabled', true).val("Processing...");
+								$("#submit").prop('disabled', true).val("Processing...");
+								//$this.attr('disabled', true).val("Processing...");
 								$(".se-pre-con").fadeIn("slow");
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
-								$this.attr('disabled', false).val($caption);
-								alert(response);												
+								$("#submit").attr('disabled', false).val($caption);
+								//alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);
@@ -467,11 +470,11 @@
 							},
 							complete: function(data) {
 								// Hide image container
-                                $this.attr('disabled', false).val($caption);
+                                $("#submit").prop('disabled', false).val($caption);
 								$(".se-pre-con").fadeOut("slow");
 							},
 							error: function(XMLHttpRequest, textStatus, errorThrown) {
-                                $this.attr('disabled', false).val($caption);
+                                $("#submit").prop('disabled', false).val($caption);
 								ShowAlert(textStatus, errorThrown, "danger");
 								$(".se-pre-con").fadeOut("slow");
 							}

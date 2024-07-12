@@ -391,12 +391,12 @@ if(isset($_GET["id"])){
 
 						//File data
 						var file_data = $('input[name="imagefile"]')[0].files;
-						data.append("imagefile", file_data[0]); 
+						//data.append("imagefile", file_data[0]); 
 
 						//multifile upload
-						/*for (var i = 0; i < file_data.length; i++) {
-						    data.append("banner[]", file_data[i]);
-						}*/
+						for (var i = 0; i < file_data.length; i++) {
+						    data.append("imagefile[]", file_data[i]);
+						}
 						formData = data;
 						// Ajax config
 

@@ -113,7 +113,7 @@
     z-index: 9999;
     background: url(../images/Preloader.gif) center no-repeat #fff; }
 
-    /* multiple image preview start */
+/* multiple image preview start */
     @media(min-width: 768px) {
       .img-div {
           position: relative;
