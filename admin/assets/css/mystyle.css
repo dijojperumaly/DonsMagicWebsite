@@ -144,7 +144,7 @@
       opacity: 1;
       display: block;
       min-width:  100%;
-      aspect-ratio:  3/2;
+      aspect-ratio:  2/3;
       transition: .5s ease;
       backface-visibility: hidden;
   }
