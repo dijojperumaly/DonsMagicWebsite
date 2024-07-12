@@ -417,12 +417,12 @@
 
 						//File data
 						var file_data = $('input[name="imagefile"]')[0].files;
-						data.append("imagefile", file_data[0]); 
+						//data.append("imagefile", file_data[0]); 
 
 						//multifile upload
-						/*for (var i = 0; i < file_data.length; i++) {
-						    data.append("banner[]", file_data[i]);
-						}*/
+						for (var i = 0; i < file_data.length; i++) {
+							data.append("imagefile[]", file_data[i]);
+						}
 						formData = data;
 						// Ajax config
 
@@ -441,7 +441,7 @@
 							},
 							success: function(response) { //once the request successfully process to the server side it will return result here
 								$this.attr('disabled', false).val($caption);
-								//alert(response);												
+								alert(response);												
 								try {
 									//var json = $.parseJSON(response);
 									var json = JSON.parse(response);

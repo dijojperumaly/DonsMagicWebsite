@@ -127,12 +127,12 @@
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m h-full">							
-						<div class="flex-c-m h-full p-r-15 bor6">
+						<div class="flex-c-m h-full p-r-1 bor6" style="">
 							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="2">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
 						</div> 
-						<div class="flex-c-m h-full p-r-15 bor6">
+						<div class="flex-c-m h-full p-r-1 bor6">
 							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 js-show-account" data-notify="1">
 								<i class="zmdi zmdi-account-circle"></i>
 							</div>

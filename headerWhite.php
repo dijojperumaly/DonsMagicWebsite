@@ -160,7 +160,7 @@
 						<!--<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i class="zmdi zmdi-search"></i>
 						</div>-->
-						<div class="flex-c-m h-full p-r-15 bor6">
+						<div class="flex-c-m h-full p-r-1 bor6">
 							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="2">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
@@ -168,7 +168,7 @@
 						<!--<a href="#" class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti" data-notify="0">
 							<i class="zmdi zmdi-favorite-outline"></i>
 						</a> -->
-						<div class="flex-c-m h-full p-r-5 bor6">
+						<div class="flex-c-m h-full p-r-1 bor6">
 							<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 js-show-account" data-notify="1">
 								<i class="zmdi zmdi-account-circle"></i>
 							</div>

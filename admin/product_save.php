@@ -18,7 +18,7 @@ $con->begin_transaction();
 //if (isset($_POST["submit"])) {
 
 	if (isset($_FILES["imagefile"]['name'])) {	
-		$fname = $_FILES['imagefile']['name'];
+		/*$fname = $_FILES['imagefile']['name'];
 		$ext = pathinfo($fname, PATHINFO_EXTENSION);
 		if (!in_array(strtolower($ext), $allowed_imagetype)) {
 			$status=[ 'status' => 'filetype_error' ];
@@ -37,6 +37,33 @@ $con->begin_transaction();
 			}
 			else {
 				$status=[ 'status' => 'fail' ];
+			}
+		}*/
+		$countfiles = count($_FILES['imagefile']['name']);
+		for($index = 0,$image_index=0;$index < $countfiles;$index++,$image_index++)
+		{			
+			$fname = $_FILES['imagefile']['name'][$index];
+			$ext = pathinfo($fname, PATHINFO_EXTENSION);
+			if (!in_array($ext, $allowed_imagetype)) {
+				$status=[ 'status' => 'filetype_error' ];
+			}else if($_FILES['imagefile']['size'][$index] > 1048576){
+				$status=[ 'status' => 'filesize_error' ];
+			}else{
+				$filename=date('ymdHisu').gettimeofday()["usec"].$image_index.".".$ext;
+				$files_name_arr[$index]=$filename;
+				//$filename = $_FILES["imagefile"]["name"];
+				$tempname = $_FILES["imagefile"]["tmp_name"][$index];	
+				//$folder = "./images/partsmodel/";
+				
+				// Now let's move the uploaded image into the folder: image
+				if (move_uploaded_file($tempname, $folder.$filename)) {
+					if($edit_filename!=""){
+						//if(unlink($folder.$edit_filename)){}
+					}
+				}
+				else {
+					$status=[ 'status' => 'fail' ];
+				}
 			}
 		}
 	}	
@@ -70,10 +97,47 @@ $con->begin_transaction();
 				label,
 				color,
 				createdby,
-				createdat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");		
-			$stmt->bind_param("issiiisisssis", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $label, $color, $user_id, $present);		
-
-			$smt_code=$con->prepare("UPDATE tbl_product SET product_code=CONCAT((SELECT typecode FROM tbl_producttype WHERE producttype_id=$producttype),?) WHERE id=?");
+				createdat) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
+				foreach($files_name_arr as $fnamegallery){
+					$stmt->bind_param("issiiisisssis", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $fnamegallery, $orderno, $productstatus, $label, $color, $user_id, $present);		
+					$smt_code=$con->prepare("UPDATE tbl_product SET product_code=CONCAT((SELECT typecode FROM tbl_producttype WHERE producttype_id=$producttype),?) WHERE id=?");
+					if($stmt->execute()){	
+						$lastid=0;		
+						if($smt_code!=""){				
+							$lastid=$stmt->insert_id;
+							$procode=floor(((double) microtime() * 100000)).$lastid;
+							$smt_code->bind_param("si",$procode,$lastid);
+			
+							if($smt_code->execute()){
+								$status=[ 'status' => 'success'];
+								$con->commit();	
+							}else{
+								$status=[ 'status' => 'fail, Product code error' ];
+								$con->rollback();
+							}
+						}
+						if($id==0){
+							$stmt_size = $con->prepare("INSERT INTO tbl_availablesizes(
+								size_id,
+								product_id,
+								createdby,
+								createdat
+							)VALUES(?, ?, ?, ?)");
+							
+							foreach($size as $sizevalue){
+								$stmt_size->bind_param("iiis",$sizevalue,$lastid,$user_id,$present);
+								if($stmt_size->execute()){
+									$status=[ 'status' => 'success'];
+									$con->commit();	
+								}else{
+									$status=[ 'status' => 'fail, Product size error' ];
+									$con->rollback();
+								}
+							}
+							
+						}	
+					}
+				}			
 		}
 		else{
 			
@@ -95,11 +159,11 @@ $con->begin_transaction();
 			$stmt->bind_param("issiiisisssisi", $producttype, $title, $aboutproduct, $mrp, $offerprice, $featured, $filename, $orderno, $productstatus, $label, $color, $user_id, $present,$id);
 			
 		}
-		if($stmt->execute()){	
+		/*if($stmt->execute()){	
 			$lastid=0;		
 			if($smt_code!=""){				
 				$lastid=$stmt->insert_id;
-				$procode=floor(((double) microtime() * 10000)).$lastid;
+				$procode=floor(((double) microtime() * 100000)).$lastid;
 				$smt_code->bind_param("si",$procode,$lastid);
 
 				if($smt_code->execute()){
@@ -162,7 +226,7 @@ $con->begin_transaction();
 			$status=[ 'status' => 'fail' ];
 			$con->rollback();
 		}
-		
+		*/
 		$stmt->close();	
 	}	
 //}
