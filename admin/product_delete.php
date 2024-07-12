@@ -1,7 +1,7 @@
 <?php
 include_once("adminsession.php");
 include_once("db_connection.php");
-//error_reporting(0);
+error_reporting(0);
 $status=array('status'=>'success');
 $folder = "../images/products/";
 //if (isset($_POST["submit"])) {

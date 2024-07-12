@@ -79,13 +79,18 @@
                         <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
                             <span class="at-required-highlight"></span>
                         </label>
-                        <div class="holder" id="imgholder">
+                        <!--<div class="holder" id="imgholder">
 							<img
 								id="imgPreview"
 								src="#" alt="pic" />
-						</div>	
+						</div>	-->
+						<div class="form-group">
+							<div id="image_preview" style="width:100%;">
+
+							</div>
+						</div>
                         <div class="form-group">
-                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg">
+                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg" multiple="multiple">
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>                   
                         <label for="cname">Title &nbsp;
@@ -196,7 +201,7 @@
                 const photoInp = $("#imagefile");
 				let file;
 
-				photoInp.change(function (e) {
+				/*photoInp.change(function (e) {
 				file = this.files[0];
 					if (file) {
 						let reader = new FileReader();
@@ -212,7 +217,96 @@
 								.attr("src", "");
 						$("#imgholder").css("display","none");
 					}
+				});*/
+
+	// Multiple images preview in browser start
+				$.validator.addMethod('maxSize', function (value, element, param) {
+					return this.optional(element) || (element.files[0].size <= param)
+				}, 'File size must be less than {0} KB');
+
+				$('#form-upload').validate({
+					/* maxSize value should be provided in kb e.g (1048576 * 1) for 1MB */
+					rules: {
+						"images[]": { required: true,  accept:"image/jpeg,image/png", maxSize: 1048576}
+					},
+					messages: {
+						"images[]": {
+							required: 'No file has been chosen yet.',
+							accept: 'Please upload .png or .jpg or .jpeg format',
+							maxSize: `Image size cannot be greater than {0} KB.`
+						}
+					},
+					onblur: "true",
+					onfocus: "true",
+					errorClass: "help-block",
+					errorElement: "strong",
+					highlight: function (element) {
+						$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+					},
+					unhighlight: function (element) {
+						$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+					},
+					errorPlacement: function (error, element) {
+						if (element.parent('input-group').length) {
+							error.insertAfter(element.parent())
+							return false
+						} else {
+							error.insertAfter(element)
+							return false
+						}
+					}
 				});
+
+				var fileArr = [];
+				$("#imagefile").change(function () {
+					// check if fileArr length is greater than 0
+					if (fileArr.length > 0) fileArr = [];
+
+					$('#image_preview').html("");
+					var total_file = document.getElementById("imagefile").files;
+
+					var i;
+					if (!total_file.length) return;
+					for (i = 0; i < total_file.length; i++) {
+						if (total_file[i].size > 1048576) {
+							//document.querySelector('#submit-btn').setAttribute('disabled', true);
+							return false;
+						} else {
+							fileArr.push(total_file[i]);
+							$('#image_preview').append("<div class='img-div' id='img-div" + i + "'>"+
+							"<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-responsive image img-thumbnail'>"+
+							"<input type='text' name='imagetitle[]' id='imagetitle' value='' class='form-control' placeholder='image title'/>"+
+							"<div class='middle'><button id='action-icon' value='img-div" + i + "' class='btn btn-danger' role='" + total_file[i].name + "'>"+
+							"<i class='fa fa-trash' aria-hidden='true'></i></i></button></div></div><div class='clear-fix'></div>");
+							//$('#submit-btn').prop('disabled', false);
+						}
+					}
+				});
+
+				$('body').on('click', '#action-icon', function (evt) {
+					var divName = this.value;
+					var fileName = $(this).attr('role');
+					var total_file = fileArr;
+
+					for (var i = 0; i < fileArr.length; i++) {
+						if (fileArr[i].name === fileName) {
+							fileArr.splice(i, 1);
+						}
+					}
+
+					document.getElementById('imagefile').files = FileListItem(fileArr);
+					$(`#${divName}`).remove();
+					evt.preventDefault();
+				})
+				function FileListItem(file) {
+					file = [].slice.call(Array.isArray(file) ? file : arguments)
+					for (var c, b = c = file.length, d = !0; b-- && d;) d = file[b] instanceof File
+					if (!d) throw new TypeError("expected argument to FileList is File or array of File objects")
+					for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(file[c])
+					return b.files
+				} 
+
+// Multiple images preview in browser end
 
                 function showChosen(){
 					$(".chosen-select").chosen({

@@ -52,6 +52,19 @@ require_once("adminsession.php");
                     </tbody>
                     </table>
                 </div>
+                <div id="table_div_status" style="display:none;">
+                    <select name="productstatus" id="productstatus" class="form-control" required="true" style="display:block; float:left;width:fit-content;margin:2px 6px 2px 20px;">                                
+                        <?php
+                        foreach($statusarray as $prostatus){                                       
+                        ?>
+                            <option value="<?php echo $prostatus; ?>"><?php echo $prostatus; ?></option>
+                        <?php
+                        }
+                        
+                        ?>
+                    </select>
+                    <input type="button" name="btnupdatestatus" id="btnupdatestatus" class="btn btn-info" value="Update Status" onclick="getStatus(productstatus.value,this)" style="display:block; float:left;width:fit-content;margin:0px 4px;">
+                </div>
                 <br>
                 <div class="alert alert-dismissible" role="alert" style="display:none;">
                     <strong>Warning!</strong>
@@ -122,14 +135,16 @@ require_once("adminsession.php");
                                             "</tr>";
                                     });
                                     html += "</tbody></table>";
-                                    html += '<input type="button" name="btndeleteall" id="btndeleteall" class="btn btn-danger" value="Delete" onclick="getSelected(this)">';
+                                    html += '<input type="button" name="btndeleteall" id="btndeleteall" class="btn btn-danger" value="Delete" onclick="getSelected(this)" style="float:left;margin:2px 6px;">';
+                                    let status_view=$("#table_div_status").html();
+                                    html +=status_view;
                                     //html += '</div>';
                                 } else {
                                     html += '<div class="alert alert-warning">';
                                     html += 'No records found!';
                                     html += '</div>';
                                 }
-
+                                
                                 $("#table_div").html(html);
                                 //$("#tablepaging").html(html);
                                 $(".se-pre-con").fadeOut("slow");
@@ -161,7 +176,8 @@ require_once("adminsession.php");
                         
                     }
 
-            window.deleteItem=function (id, obj) {
+            window.deleteItem=function (id, obj,delbtn=0) {
+                let caption=obj.value;
 				bootbox.confirm({
 					//title: "Delete",
 					onEscape: true,
@@ -179,7 +195,8 @@ require_once("adminsession.php");
 					},
 					callback: function(result) {
 						if (result) {
-                            //obj.
+                            obj.value="Processing...";
+                            obj.disabled=true;
 							$.ajax({
 								type: "GET", //we are using POST method to submit the data to the server side
 								url: "product_delete.php?delid=" + id, // get the route value								
@@ -192,7 +209,7 @@ require_once("adminsession.php");
 								},
 								success: function(response) { //once the request successfully process to the server side it will return result here
 									//$this.attr('disabled', false).html($caption);
-									alert(response);
+									//alert(response);
 									try {
 										var json = $.parseJSON(response);
 										//var json = JSON.parse(response);
@@ -200,14 +217,21 @@ require_once("adminsession.php");
 										if (res_status == "success") {
 											ShowAlert("", "Successfully Deleted ", "success");
 											$(obj).closest('tr').remove();
-											//all();
-											//tablePagination();
+                                            if(delbtn==1){
+                                                all();
+											    tablePagination();
+                                            }
+											
 
 										} else {
 											ShowPopUpAlert("", "Not saved! please enter correct data", "danger");
+                                            obj.value=caption;
+                                            obj.disabled=false;
 										}
 									} catch (e) {
 										ShowPopUpAlert("", "Not saved! please enter correct data/try after sometime", "danger");
+                                        obj.value=caption;
+                                        obj.disabled=false;
 									}
 
 									// Reset form
@@ -216,10 +240,14 @@ require_once("adminsession.php");
 								complete: function(data) {
 									// Hide image container
 									$(".se-pre-con").fadeOut("slow");
+                                    obj.value=caption;
+                                    obj.disabled=false;
 								},
 								error: function(XMLHttpRequest, textStatus, errorThrown) {
 									ShowPopUpAlert(textStatus, errorThrown, "danger");
 									$(".se-pre-con").fadeOut("slow");
+                                    obj.value=caption;
+                                    obj.disabled=false;
 								}
 							});
 						}
@@ -236,20 +264,101 @@ function getSelected(obj){
         $('input[name="chkselect"]:checked').each(function() {
             pid+=","+this.value;
         });	
-        //alert(pid);
-        deleteItem(pid,obj);
+        if(pid!="0"){
+            deleteItem(pid,obj,1);
+        }else{
+            bootbox.alert('Please select delete item!');
+        }
+        
 }
 
 function selectAll(obj) {
-        //e.preventDefault();
-        var selectedIds = [];        
-        if(obj.checked){
-            $('#tablepaging').find('input:checkbox').prop('checked', true);
-        }else{
-            $('#tablepaging').find('input:checkbox').prop('checked', false);
-        }
-        
+    //e.preventDefault();
+    var selectedIds = [];        
+    if(obj.checked){
+        $('#tablepaging').find('input:checkbox').prop('checked', true);
+    }else{
+        $('#tablepaging').find('input:checkbox').prop('checked', false);
     }
-    </script>
+    
+}
+function getStatus(statusvalue,obj){
+    var pid="0";
+    $('input[name="chkselect"]:checked').each(function() {
+        pid+=","+this.value;
+    });	
+    let productstatus=$("#productstatus").val();
+    if(pid!="0"){
+        //alert(productstatus+" "+pid);
+        bootbox.confirm({
+            //title: "Delete",
+            onEscape: true,
+            size: 'small',
+            message: 'Are you sure? do you want to update the product status!',
+            buttons: {
+                confirm: {
+                    label: 'Yes',
+                    className: 'btn-danger'
+                },
+                cancel: {
+                    label: 'No',
+                    className: 'btn-success'
+                }
+            },
+            callback: function(result) {                
+                if (result) {
+                    obj.value="Processing...";
+                    obj.disabled=true;
+                    $.ajax({
+                        type: "GET", //we are using POST method to submit the data to the server side
+                        url: "product_status_update.php?id=" + pid + "&productstatus="+productstatus, // get the route value								
+                        //data: JSON.stringify({delcid:id}), // our serialized array data for server side
+                        timeout: 100,
+                        async: false,
+                        beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
+                            //$this.attr('disabled', true).html("Processing...");
+                            $(".se-pre-con").fadeIn("slow");
+                        },
+                        success: function(response) { //once the request successfully process to the server side it will return result here
+                            //$this.attr('disabled', false).html($caption);
+                            //alert(response);
+                            try {
+                                var json = $.parseJSON(response);
+                                //var json = JSON.parse(response);
+                                var res_status = json["status"];
+                                if (res_status == "success") {
+                                    ShowAlert("", "Successfully Updated ", "success");
+                                    $(obj).closest('tr').remove();
+                                    all();
+                                    tablePagination();
+
+                                } else {
+                                    ShowPopUpAlert("", "Not saved! please enter correct data", "danger");
+                                }
+                            } catch (e) {
+                                ShowPopUpAlert("", "Not saved! please enter correct data/try after sometime", "danger");
+                            }
+
+                            // Reset form
+
+                        },
+                        complete: function(data) {
+                            // Hide image container
+                            $(".se-pre-con").fadeOut("slow");
+                        },
+                        error: function(XMLHttpRequest, textStatus, errorThrown) {
+                            ShowPopUpAlert(textStatus, errorThrown, "danger");
+                            $(".se-pre-con").fadeOut("slow");
+                        }
+                    });
+                }
+            }
+        });
+    }else{
+        bootbox.alert('Please select update item!');
+    }
+    
+}
+</script>
 </body>
 </html>
