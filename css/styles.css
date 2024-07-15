@@ -32,6 +32,15 @@ header {
 @media (min-width: 720px) {
   .img-card {
     width: 30%; } }
+@media (min-width: 920px) {
+  .img-card {
+    width: 35%; } }
+@media (min-width: 1000px) {
+  .img-card {
+    width: 38%; } }
+@media (min-width: 1200px) {
+  .img-card {
+    width: 40%; } }
 
 .img-card img {
   width: 100%;

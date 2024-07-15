@@ -77,7 +77,7 @@
                             </select>
                         </div>  
                         <label for="email">Image&nbsp;(800x1000 px) (file size max:1MB)
-                            <span class="at-required-highlight"></span>
+                            <br><span class="at-required-highlight" style="color:red;" id="filesizemessage"></span>
                         </label>
                         <!--<div class="holder" id="imgholder">
 							<img
@@ -90,9 +90,16 @@
 							</div>
 						</div>
                         <div class="form-group">
-                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg" multiple="multiple">
+                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg,image/jpg" multiple="multiple">
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
-                        </div>                   
+                        </div>  
+						<label for="cname"><u>Single/Multiple Item</u> &nbsp;
+                            <span class="at-required-highlight"></span>
+                        </label>
+                        <div class="form-group">
+                            <input type="radio" name="itemstyle" id="signle" value="1"> Single
+							<input type="radio" name="itemstyle" id="multiple" checked value="2"> Multiple
+                        </div>                 
                         <label for="cname">Title &nbsp;
                             <span class="at-required-highlight"></span>
                         </label>
@@ -227,7 +234,7 @@
 				$('#form-upload').validate({
 					/* maxSize value should be provided in kb e.g (1048576 * 1) for 1MB */
 					rules: {
-						"images[]": { required: true,  accept:"image/jpeg,image/png", maxSize: 1048576}
+						"images[]": { required: true,  accept:"image/jpeg,image/png,image/jpg", maxSize: 1048576}
 					},
 					messages: {
 						"images[]": {
@@ -260,17 +267,20 @@
 				var fileArr = [];
 				$("#imagefile").change(function () {
 					// check if fileArr length is greater than 0
+					$("#filesizemessage").html("");
 					if (fileArr.length > 0) fileArr = [];
 
 					$('#image_preview').html("");
 					var total_file = document.getElementById("imagefile").files;
 
 					var i;
+					let filemoresize="";
 					if (!total_file.length) return;
 					for (i = 0; i < total_file.length; i++) {
 						if (total_file[i].size > 1048576) {
-							//document.querySelector('#submit-btn').setAttribute('disabled', true);
-							return false;
+							//document.querySelector('#submit-btn').setAttribute('disabled', true);							
+							//return false;
+							filemoresize+= total_file[i].name + ", ";
 						} else {
 							fileArr.push(total_file[i]);
 							$('#image_preview').append("<div class='img-div' id='img-div" + i + "'>"+
@@ -280,8 +290,13 @@
 							"<i class='fa fa-trash' aria-hidden='true'></i></i></button></div></div><div class='clear-fix'></div>");
 							//$('#submit-btn').prop('disabled', false);
 						}
-					}
+					}					
+					document.getElementById('imagefile').files = FileListItem(fileArr);
+					if(filemoresize!=""){
+						$("#filesizemessage").html(filemoresize+ " these files size is more than 1MB ");
+					}					
 				});
+				
 
 				$('body').on('click', '#action-icon', function (evt) {
 					var divName = this.value;

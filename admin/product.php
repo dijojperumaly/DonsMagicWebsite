@@ -117,10 +117,21 @@ require_once("adminsession.php");
                                     //html += '<div class="list-group">';
                                     // Loop the parsed JSON
                                     $.each(response, function(key, value) {
-                                        let doc_icon="";                                      
+                                        let doc_icon="";    
+                                        let view_image="";
+                                        if(value.image_1!=""){
+                                            view_image=value.image_1;                                            
+                                        }else if(value.image_2!=""){
+                                            view_image=value.image_2; 
+                                        }else if(value.image_3!=""){
+                                            view_image=value.image_3; 
+                                        }else if(value.image_4!=""){
+                                            view_image=value.image_4; 
+                                        }
+                                        
                                         html += "<tr>" +
                                             "<td width='5%'><input type='checkbox' name='chkselect' id='chkselect' value='"+ value.id +"'></td>" +
-                                            "<td width='15%'><img src='../images/products/" + value.image_1 + "' style='width:50px !important; height:auto !important;' /></td>" +
+                                            "<td width='15%'><img src='../images/products/" + view_image + "' style='width:50px !important; height:auto !important;' /></td>" +
                                             "<td width='20%'><b>" + value.producttype + "</b><p><span style='font-size:12px;'>"+ value.title  +"</span></p>" + value.product_code + "</td>" +                                            
                                             "<td width='20%'>" +  value.color +"/"+ value.label + "</td>" +
                                             "<td width='15%'>Off: &#x20b9;" + value.offerprice + "<br><br><span style='font-size:12px;'>MRP: &#x20b9;"+ value.MRP  +"</span></td>" +

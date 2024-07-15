@@ -44,9 +44,7 @@ $folder = "../images/products/";
 			$status=['status'=>'fail'];
 		}
 		$stmt->close();
-	}
-	
-	
+	}		
 //}
 $con->close();
 echo json_encode($status);

@@ -12,7 +12,10 @@ include('header.php');
 					$sql_select = "SELECT   p.id, 
 					IFNULL(p.title,'')title, 
 					IFNULL(p.product_code,'')product_code, 			
-					p.image_1, 				
+					IFNULL(p.image_1,'') image_1,
+					IFNULL(p.image_2,'') image_2,
+					IFNULL(p.image_3,'') image_3,
+					IFNULL(p.image_4,'') image_4, 				
 					IFNULL(p.label,'') label,
 					IFNULL(p.color,'') color,
 					t.producttype_id,
@@ -27,18 +30,31 @@ include('header.php');
 					$step=0;                          
 					while($row_select=$select_results->fetch_array(MYSQLI_ASSOC)){    
 						$step=$step+1;
+						$view_image="";
 						if($step>2){
 							break;
 						}
 						$id=$row_select["id"];
 						$title=$row_select["title"];
-						$image_1=$row_select["image_1"];
+						$image_1=$row_product["image_1"];
+						$image_2=$row_product["image_2"];
+						$image_3=$row_product["image_3"];
+						$image_4=$row_product["image_4"];
 						$producttype=$row_select["producttype"];
 						$typecode=$row_select["typecode"];
+						if($image_1!=""){
+							$view_image=$image_1;                                            
+						}else if($image_2!=""){
+							$view_image=$image_2; 
+						}else if($image_3!=""){
+							$view_image=$image_3; 
+						}else if($image_4!=""){
+							$view_image=$image_4; 
+						}
 					?>
 					<div class="col-md-6 p-b-30 m-lr-auto">		
 						<div class="block1 wrap-pic-w">
-							<img src="images/products/<?php echo $image_1; ?>" alt="IMG-BANNER">
+							<img src="images/products/<?php echo $view_image; ?>" alt="IMG-BANNER">
 
 							<a href="collections.php?type=<?php echo $typecode; ?>" class="block1-txt ab-t-l s-full flex-col-l-sb p-lr-38 p-tb-34 trans-03 respon3">
 								<div class="block1-txt-child1 flex-col-l" >
@@ -346,6 +362,7 @@ include('header.php');
 			<div class="row isotope-grid">
 				
 				<?php 
+					$view_image="";
 					$sql_products = "SELECT   p.id, 
 					IFNULL(p.title,'')title, 
 					IFNULL(p.product_code,'')product_code, 
@@ -353,7 +370,10 @@ include('header.php');
 					p.MRP, 
 					IFNULL(p.offerprice,'') offerprice, 
 					CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
-					p.image_1, 
+					IFNULL(p.image_1,'') image_1,
+					IFNULL(p.image_2,'') image_2,
+					IFNULL(p.image_3,'') image_3,
+					IFNULL(p.image_4,'') image_4,
 					IFNULL(p.STATUS,'Active') status,
 					IFNULL(p.orderno,0) orderno,
 					IFNULL(p.label,'') label,
@@ -382,10 +402,23 @@ include('header.php');
 						$MRP=$row_product["MRP"];
 						$offerprice=$row_product["offerprice"];
 						$image_1=$row_product["image_1"];
+						$image_2=$row_product["image_2"];
+						$image_3=$row_product["image_3"];
+						$image_4=$row_product["image_4"];
 						$status=$row_product["status"];
 						$size=$row_product["size"];
 						$label=$row_product["label"];
 						$color=$row_product["color"];
+
+						if($image_1!=""){
+							$view_image=$image_1;                                            
+						}else if($image_2!=""){
+							$view_image=$image_2; 
+						}else if($image_3!=""){
+							$view_image=$image_3; 
+						}else if($image_4!=""){
+							$view_image=$image_4; 
+						}
 
 					?>
 					<div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item <?php echo $typecode; ?>">
@@ -393,7 +426,7 @@ include('header.php');
 						<div class="block2">
 							<div class="block2-pic hov-img0 <?php if(trim($label)!=""){ ?>label-new <?php }?>" data-label="<?php echo $label; ?>">
 								<a href="viewmore.php?id=<?php echo $id; ?>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
-									<img src="images/products/<?php echo $image_1; ?>" alt="IMG-PRODUCT">
+									<img src="images/products/<?php echo $view_image; ?>" alt="IMG-PRODUCT">
 								</a>
 								<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20<?php echo $product_code; ?> "
 								style="background-color: #075e54; color: white;" 

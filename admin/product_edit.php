@@ -11,6 +11,9 @@ $offerprice="";
 $isfeatured="";
 $orderno="";
 $image_1="";
+$image_2="";
+$image_3="";
+$image_4="";
 $status="";
 $size="";
 
@@ -25,7 +28,10 @@ if(isset($_GET["id"])){
         IFNULL(p.offerprice,'') offerprice, 
         CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
         IFNULL(p.orderno,0) orderno, 
-        p.image_1, 
+        p.image_1,
+        p.image_2,
+        p.image_3,
+        p.image_4,
         IFNULL(p.STATUS,'Active') status,
         IFNULL(p.orderno,0) orderno,
         IFNULL(p.label,'') label,
@@ -51,6 +57,9 @@ if(isset($_GET["id"])){
         $orderno=$row["orderno"];
         $status=$row["status"];     
         $image_1=$row["image_1"];
+        $image_2=$row["image_2"];
+        $image_3=$row["image_3"];
+        $image_4=$row["image_4"];
         $sizeid=$row["sizeid"];
         $label=$row["label"];
         $color=$row["color"];
@@ -135,15 +144,48 @@ if(isset($_GET["id"])){
                                 ?>
                             </select>
                         </div>   
-                        <label for="imgholder">Image&nbsp;(800x1000 px) (file size max:1MB)
+                        <label for="imgholder">Image&nbsp;(800x1000 px) (file size max:1MB) Max no of Images:4
                             <span class="at-required-highlight"></span>
                         </label>
-                        <div class="holder" id="imgholder" <?php if(trim($image_1)!=""){ echo "style='display:block;'";} ?>>
-                                <img id="imgPreview" src="../images/products/<?php echo $image_1; ?>" alt="pic"/>
+                        <div class="" id="imgholder" <?php if(trim($image_1)!=""){ echo "style='display:block; width:100%;'";} ?>> <!-- class="holder" -->
+                                <?php                                 
+                                    if($image_1!=""){
+                                        echo '<div class="img-div" id="img-editdiv1" >'.
+                                        '<img id="imgPreview" class="img-responsive image img-thumbnail" src="../images/products/'.$image_1.'" alt="pic" style="margin:2px;"/>'.
+                                        '<div class="middle"><button id="action-icon-edit" value="img-editdiv1" class="btn btn-danger" role="'. $image_1 .'" tag="1">'.
+							            '<i class="fa fa-trash" aria-hidden="true"></i></i></button></div></div><div class="clear-fix"></div>';
+                                    } 
+                                    if($image_2!=""){
+										echo '<div class="img-div" id="img-editdiv2">'.
+                                        '<img id="imgPreview" class="img-responsive image img-thumbnail" src="../images/products/'.$image_2.'" alt="pic" style="margin:2px;"/>'.
+										'<div class="middle"><button id="action-icon-edit" value="img-editdiv2" class="btn btn-danger" role="'. $image_2 .'" tag="2">'.
+							            '<i class="fa fa-trash" aria-hidden="true"></i></i></button></div></div><div class="clear-fix"></div>';
+                                    } 
+                                    if($image_3!=""){
+										echo '<div class="img-div" id="img-editdiv3">'.
+                                        '<img id="imgPreview" class="img-responsive image img-thumbnail" src="../images/products/'.$image_3.'" alt="pic" style="margin:2px;"/>'.
+										'<div class="middle"><button id="action-icon-edit" value="img-editdiv3" class="btn btn-danger" role="'. $image_3 .'" tag="3">'.
+							            '<i class="fa fa-trash" aria-hidden="true"></i></i></button></div></div><div class="clear-fix"></div>';
+                                    } 
+                                    if($image_4!=""){
+										echo '<div class="img-div" id="img-editdiv4">'.
+                                        '<img id="imgPreview" class="img-responsive image img-thumbnail" src="../images/products/'.$image_4.'" alt="pic" style="margin:2px;"/>'.
+										'<div class="middle"><button id="action-icon-edit" value="img-editdiv4" class="btn btn-danger" role="'. $image_4 .'" tag="4">'.
+							            '<i class="fa fa-trash" aria-hidden="true"></i></i></button></div></div><div class="clear-fix"></div>';
+                                    } 
+                                                                   
+                                ?>                                
 						</div>	
+						<p>
+                        <div class="form-group" style="clear:both;">
+							<div id="image_preview" style="width:100%;">
+
+							</div>
+						</div>
+						</p>
                         <div class="form-group">
                             <input type="hidden" id="hdimagefile" name="hdimagefile" value="<?php echo $image_1; ?>">                            
-                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg">
+                            <input type="file" class="form-control" name="imagefile" id="imagefile" accept="image/x-png,image/gif,image/jpeg,image/jpg" multiple="multiple">
                             <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
                         </div>                   
                         <label for="cname">Title &nbsp;
@@ -253,7 +295,7 @@ if(isset($_GET["id"])){
     <script>
 			$(document).ready(function() {
 
-                const photoInp = $("#imagefile");
+                /*const photoInp = $("#imagefile");
 				let file;
 
 				photoInp.change(function (e) {
@@ -273,7 +315,7 @@ if(isset($_GET["id"])){
 						$("#imgholder").css("display","none");
 					}
 				});
-
+*/
 
                 function showChosen(){
 					$(".chosen-select").chosen({
@@ -456,6 +498,167 @@ if(isset($_GET["id"])){
                         $(".se-pre-con").fadeOut("slow");
 					}
 				});
+
+// Multiple images preview in browser start
+				$.validator.addMethod('maxSize', function (value, element, param) {
+					return this.optional(element) || (element.files[0].size <= param)
+				}, 'File size must be less than {0} KB');
+
+				$('#form-upload').validate({
+					/* maxSize value should be provided in kb e.g (1048576 * 1) for 1MB */
+					rules: {
+						"images[]": { required: true,  accept:"image/jpeg,image/png,image/jpg", maxSize: 1048576}
+					},
+					messages: {
+						"images[]": {
+							required: 'No file has been chosen yet.',
+							accept: 'Please upload .png or .jpg or .jpeg format',
+							maxSize: `Image size cannot be greater than {0} KB.`
+						}
+					},
+					onblur: "true",
+					onfocus: "true",
+					errorClass: "help-block",
+					errorElement: "strong",
+					highlight: function (element) {
+						$(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+					},
+					unhighlight: function (element) {
+						$(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+					},
+					errorPlacement: function (error, element) {
+						if (element.parent('input-group').length) {
+							error.insertAfter(element.parent())
+							return false
+						} else {
+							error.insertAfter(element)
+							return false
+						}
+					}
+				});
+
+				var fileArr = [];
+				$("#imagefile").change(function () {
+					// check if fileArr length is greater than 0
+					$("#filesizemessage").html("");
+					if (fileArr.length > 0) fileArr = [];
+
+					$('#image_preview').html("");
+					var total_file = document.getElementById("imagefile").files;
+
+					var i;
+					let filemoresize="";
+					if (!total_file.length) return;
+					for (i = 0; i < total_file.length; i++) {
+						if (total_file[i].size > 1048576) {
+							//document.querySelector('#submit-btn').setAttribute('disabled', true);							
+							//return false;
+							filemoresize+= total_file[i].name + ", ";
+						} else {
+							fileArr.push(total_file[i]);
+							$('#image_preview').append("<div class='img-div' id='img-div" + i + "'>"+
+							"<img src='" + URL.createObjectURL(event.target.files[i]) + "' class='img-responsive image img-thumbnail'>"+							
+							"<div class='middle'><button id='action-icon' value='img-div" + i + "' class='btn btn-danger' role='" + total_file[i].name + "'>"+
+							"<i class='fa fa-trash' aria-hidden='true'></i></i></button></div></div><div class='clear-fix'></div>");
+							//$('#submit-btn').prop('disabled', false);
+						}
+					}					
+					document.getElementById('imagefile').files = FileListItem(fileArr);
+					if(filemoresize!=""){
+						$("#filesizemessage").html(filemoresize+ " these files size is more than 1MB ");
+					}					
+				});
+				
+				$('body').on('click', '#action-icon-edit', function (evt) {
+					var divName = this.value;
+					var fileName = $(this).attr('role');
+					var field = $(this).attr('tag');
+					var id = $('#hdid').val();
+					
+					bootbox.confirm({
+						//title: "Delete",
+						onEscape: true,
+						size: 'small',
+						message: 'Are you sure? do you want to delete!',
+						buttons: {
+							confirm: {
+								label: 'Yes',
+								className: 'btn-danger'
+							},
+							cancel: {
+								label: 'No',
+								className: 'btn-success'
+							}
+						},
+						callback: function(result) {
+							if (result) {								
+								$.ajax({
+									type: "GET", //we are using POST method to submit the data to the server side
+									url: "product_img_remove.php?delid=" + id+"&fileName="+fileName+"&field="+field, // get the route value								
+									//data: JSON.stringify({delcid:id}), // our serialized array data for server side
+									timeout: 100,
+									async: false,
+									beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
+										//$this.attr('disabled', true).html("Processing...");
+										$(".se-pre-con").fadeIn("slow");
+									},
+									success: function(response) { //once the request successfully process to the server side it will return result here
+										//$this.attr('disabled', false).html($caption);
+										//alert(response);
+										try {
+											var json = $.parseJSON(response);
+											//var json = JSON.parse(response);
+											var res_status = json["status"];
+											if (res_status == "success") {
+												//ShowAlert("", "Successfully Deleted ", "success");
+												$(`#${divName}`).remove();												
+											} else {
+												ShowPopUpAlert("", "Not saved! please enter correct data", "danger");												
+											}
+										} catch (e) {
+											ShowPopUpAlert("", "Not saved! please enter correct data/try after sometime", "danger");											
+										}
+									},
+									complete: function(data) {
+										// Hide image container
+										$(".se-pre-con").fadeOut("slow");										
+									},
+									error: function(XMLHttpRequest, textStatus, errorThrown) {
+										ShowPopUpAlert(textStatus, errorThrown, "danger");
+										$(".se-pre-con").fadeOut("slow");										
+									}
+								});
+							}
+						}
+					});
+									
+					evt.preventDefault();
+				})
+
+				$('body').on('click', '#action-icon', function (evt) {
+					var divName = this.value;
+					var fileName = $(this).attr('role');
+					var total_file = fileArr;
+
+					for (var i = 0; i < fileArr.length; i++) {
+						if (fileArr[i].name === fileName) {
+							fileArr.splice(i, 1);
+						}
+					}
+
+					document.getElementById('imagefile').files = FileListItem(fileArr);
+					$(`#${divName}`).remove();
+					evt.preventDefault();
+				})
+				function FileListItem(file) {
+					file = [].slice.call(Array.isArray(file) ? file : arguments)
+					for (var c, b = c = file.length, d = !0; b-- && d;) d = file[b] instanceof File
+					if (!d) throw new TypeError("expected argument to FileList is File or array of File objects")
+					for (b = (new ClipboardEvent("")).clipboardData || new DataTransfer; c--;) b.items.add(file[c])
+					return b.files
+				} 
+
+// Multiple images preview in browser end
             });
     </script>
 </body>

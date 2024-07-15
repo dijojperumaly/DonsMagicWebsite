@@ -18,7 +18,10 @@ include('headerWhite.php');
 					p.MRP, 
 					IFNULL(p.offerprice,'') offerprice, 
 					CASE WHEN IFNULL(p.isfeatured,0)=0 THEN 'NO' ELSE 'YES' END isfeatured , 
-					p.image_1, 
+					IFNULL(p.image_1,'') image_1,
+                    IFNULL(p.image_2,'') image_2,
+                    IFNULL(p.image_3,'') image_3,
+                    IFNULL(p.image_4,'') image_4,
 					IFNULL(p.STATUS,'Active') status,
 					IFNULL(p.orderno,0) orderno,
 					IFNULL(p.label,'') label,
@@ -49,21 +52,34 @@ include('headerWhite.php');
 						$MRP=$row_product["MRP"];
 						$offerprice=$row_product["offerprice"];
 						$image_1=$row_product["image_1"];
+                        $image_2=$row_product["image_2"];
+                        $image_3=$row_product["image_3"];
+                        $image_4=$row_product["image_4"];
 						$status=$row_product["status"];
 						$size=$row_product["size"];
 						$label=$row_product["label"];
 						$color=$row_product["color"];
+                        $view_image="";
+                        if($image_1!=""){
+							$view_image=$image_1;                                            
+						}else if($image_2!=""){
+							$view_image=$image_2; 
+						}else if($image_3!=""){
+							$view_image=$image_3; 
+						}else if($image_4!=""){
+							$view_image=$image_4; 
+						}
     ?>
         <!-- left side -->
         <div class="img-card">
-            <img src="images/products/<?php echo $image_1; ?>" alt="" id="featured-image">
+            <img src="images/products/<?php echo $view_image; ?>" alt="" id="featured-image">
             <!-- small img -->
-            <!--<div class="small-Card">
-                <img src="images/products/240614231441000000304861.jpg" alt="" class="small-Img">
-                <img src="img/small-img-2.png" alt="" class="small-Img">
-                <img src="img/small-img-3.png" alt="" class="small-Img">
-                <img src="img/image-1.png" alt="" class="small-Img"> 
-            </div> -->
+            <div class="small-Card">
+                <?php if($image_1!=""){ ?><img src="images/products/<?php echo $image_1; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
+                <?php if($image_2!=""){ ?><img src="images/products/<?php echo $image_2; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
+                <?php if($image_3!=""){ ?><img src="images/products/<?php echo $image_3; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
+                <?php if($image_4!=""){ ?><img src="images/products/<?php echo $image_4; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
+            </div> 
         </div>
         <!-- Right side -->
         <div class="product-info">
@@ -155,7 +171,11 @@ include('headerWhite.php');
 	include("footer.php");
 	?>
     <script>
+        function currentSlide(obj){
+            $("#featured-image").attr("src",obj.src);
+        }
         $(document).ready(function() {
+            
             window.callWhatsapp = function(code,size) {                 
                 window.open("https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20"+code+", size:"+size);
             }
