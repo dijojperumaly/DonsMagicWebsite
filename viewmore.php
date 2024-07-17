@@ -3,6 +3,11 @@ ob_start();
 include_once("admin/db_connection.php");
 include('headerWhite.php');
 ?>
+<style>
+.zoom {
+  display: inline-block;
+}
+</style>
     <div class="pagination">
         <!--<p>Home > Shop > Women > Jacket </p>-->
     </div>
@@ -72,13 +77,15 @@ include('headerWhite.php');
     ?>
         <!-- left side -->
         <div class="img-card">
-            <img src="images/products/<?php echo $view_image; ?>" alt="" id="featured-image">
+            <span class="zoom">
+                <img src="images/products/<?php echo $view_image; ?>" alt="" id="featured-image" class="zoom" >
+            </span>
             <!-- small img -->
-            <div class="small-Card">
-                <?php if($image_1!=""){ ?><img src="images/products/<?php echo $image_1; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
-                <?php if($image_2!=""){ ?><img src="images/products/<?php echo $image_2; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
-                <?php if($image_3!=""){ ?><img src="images/products/<?php echo $image_3; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
-                <?php if($image_4!=""){ ?><img src="images/products/<?php echo $image_4; ?>" onclick="currentSlide(this)" onmouseover="currentSlide(this)" alt="" class="small-Img"><?php } ?>
+            <div class="small-Card">                              
+                <?php if($image_1!=""){ ?><img src="images/products/<?php echo $image_1; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>                
+                <?php if($image_2!=""){ ?><img src="images/products/<?php echo $image_2; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>
+                <?php if($image_3!=""){ ?><img src="images/products/<?php echo $image_3; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>
+                <?php if($image_4!=""){ ?><img src="images/products/<?php echo $image_4; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>
             </div> 
         </div>
         <!-- Right side -->
@@ -170,12 +177,20 @@ include('headerWhite.php');
     <?php
 	include("footer.php");
 	?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"></script>
     <script>
         function currentSlide(obj){
-            $("#featured-image").attr("src",obj.src);
+            $("#featured-image").attr("src",obj.src);   
+            //$('.zoom').zoom();               
+            $('.zoom')
+                .zoom({
+                url: obj.src
+                })
+                .find('img').attr('src', obj.src);                
+                  
         }
         $(document).ready(function() {
-            
+            $('.zoom').zoom(); 
             window.callWhatsapp = function(code,size) {                 
                 window.open("https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20"+code+", size:"+size);
             }
