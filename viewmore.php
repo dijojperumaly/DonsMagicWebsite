@@ -4,6 +4,33 @@ include_once("admin/db_connection.php");
 include('headerWhite.php');
 ?>
 <style>
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+.product-page {
+  display: flex;
+}
+
+.img-display {
+  flex-grow: 1;
+  max-width: 372px;
+}
+
+.thumb {
+  opacity: .7;
+  margin: 0 .25rem .25rem 0;
+  width: 120px;
+  transition: opacity .25s ease-out;
+}
+
+.thumb:hover,
+.thumb.active {
+  opacity: 1;
+}
+
 .zoom {
   display: inline-block;
 }
@@ -77,9 +104,9 @@ include('headerWhite.php');
     ?>
         <!-- left side -->
         <div class="img-card">
-            <span class="zoom">
+            <!--<span class="zoom">-->
                 <img src="images/products/<?php echo $view_image; ?>" alt="" id="featured-image" class="zoom" >
-            </span>
+            <!--</span>-->
             <!-- small img -->
             <div class="small-Card">                              
                 <?php if($image_1!=""){ ?><img src="images/products/<?php echo $image_1; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>                
@@ -88,6 +115,30 @@ include('headerWhite.php');
                 <?php if($image_4!=""){ ?><img src="images/products/<?php echo $image_4; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>
             </div> 
         </div>
+        <section class="product-page">
+            <div class="thumbnails">
+                <div class="thumb active">
+                <a href="https://i8.amplience.net/i/jpl/jd_334285_a?qlt=92&w=750&h=531&v=1">
+                    <img src="https://i8.amplience.net/i/jpl/jd_334285_a?qlt=92&w=750&h=531&v=1" alt="thumb-air-force-right-side">
+                </a>
+                </div>
+                <div class="thumb">
+                <a href="https://i8.amplience.net/i/jpl/jd_334285_b?qlt=92&w=950&h=673&v=1">
+                    <img src="https://i8.amplience.net/i/jpl/jd_334285_b?qlt=92&w=950&h=673&v=1" alt="thumb-air-force-left-side">
+                </a>
+                </div>
+                <div class="thumb">
+                <a href="https://i8.amplience.net/i/jpl/jd_334285_e?qlt=92&w=950&h=673&v=1">
+                    <img src="https://i8.amplience.net/i/jpl/jd_334285_e?qlt=92&w=950&h=673&v=1" alt="thumb-air-force-bottom-side">
+                </a>
+                </div>
+            </div>
+            <div class="img-display">
+                <span class="zoom">
+                <img src="https://i8.amplience.net/i/jpl/jd_334285_a?qlt=92&w=750&h=531&v=1" alt="">
+                </span>
+            </div>
+            </section>
         <!-- Right side -->
         <div class="product-info">
             <h3><?php echo $producttype; echo trim($color)!=""?" (".$color.")":""; ?></h3>             										
@@ -180,17 +231,38 @@ include('headerWhite.php');
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"></script>
     <script>
         function currentSlide(obj){
+            /*alert(obj.src);
             $("#featured-image").attr("src",obj.src);   
-            //$('.zoom').zoom();               
-            $('.zoom')
+            $('.zoom').zoom();               
+          
+            /*$('.zoom')
                 .zoom({
-                url: obj.src
+                url: this.src
                 })
-                .find('img').attr('src', obj.src);                
-                  
+                .find('img').attr('src', obj.src);*/
+
+               /* $('#featured-image').imageZoom({
+                    zoom : 300
+                });  */
+
+                
         }
         $(document).ready(function() {
-            $('.zoom').zoom(); 
+            $(function() {
+                $('.zoom').zoom();
+                $('.thumb').on('click', 'a', function(e) {
+                    e.preventDefault();
+                    var thumb = $(e.delegateTarget);
+                    if (!thumb.hasClass('active')) {
+                    thumb.addClass('active').siblings().removeClass('active');
+                    $('.zoom')
+                        .zoom({
+                        url: this.href
+                        })
+                        .find('img').attr('src', this.href);
+                    }
+                });
+            });
             window.callWhatsapp = function(code,size) {                 
                 window.open("https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20"+code+", size:"+size);
             }
