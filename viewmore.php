@@ -103,42 +103,50 @@ img {
 						}
     ?>
         <!-- left side -->
-        <div class="img-card">
-            <!--<span class="zoom">-->
-                <img src="images/products/<?php echo $view_image; ?>" alt="" id="featured-image" class="zoom" >
-            <!--</span>-->
-            <!-- small img -->
+        <!--<div class="img-card">        
+                <img src="images/products/<?php echo $view_image; ?>" alt="" id="featured-image" class="zoom" > 
             <div class="small-Card">                              
-                <?php if($image_1!=""){ ?><img src="images/products/<?php echo $image_1; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>                
-                <?php if($image_2!=""){ ?><img src="images/products/<?php echo $image_2; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>
-                <?php if($image_3!=""){ ?><img src="images/products/<?php echo $image_3; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>
-                <?php if($image_4!=""){ ?><img src="images/products/<?php echo $image_4; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php } ?>
+                <?php //if($image_1!=""){ ?><img src="images/products/<?php //echo $image_1; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php //} ?>                
+                <?php //if($image_2!=""){ ?><img src="images/products/<?php //echo $image_2; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php //} ?>
+                <?php //if($image_3!=""){ ?><img src="images/products/<?php //echo $image_3; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php //} ?>
+                <?php //if($image_4!=""){ ?><img src="images/products/<?php //echo $image_4; ?>" onclick="currentSlide(this)"  alt="" class="small-Img"><?php //} ?>
             </div> 
-        </div>
-        <section class="product-page">
+        </div>-->
+        <section class="product-page" style="margin-left:6px;">
             <div class="thumbnails">
                 <div class="thumb active">
-                <a href="https://i8.amplience.net/i/jpl/jd_334285_a?qlt=92&w=750&h=531&v=1">
-                    <img src="https://i8.amplience.net/i/jpl/jd_334285_a?qlt=92&w=750&h=531&v=1" alt="thumb-air-force-right-side">
-                </a>
+                    <a href="images/products/<?php echo $view_image; ?>">
+                        <img src="images/products/<?php echo $view_image; ?>" alt="thumb-air-force-right-side">
+                    </a>
                 </div>
                 <div class="thumb">
-                <a href="https://i8.amplience.net/i/jpl/jd_334285_b?qlt=92&w=950&h=673&v=1">
-                    <img src="https://i8.amplience.net/i/jpl/jd_334285_b?qlt=92&w=950&h=673&v=1" alt="thumb-air-force-left-side">
-                </a>
+                    <?php if($image_2!=""){ ?>
+                        <a href="images/products/<?php echo $image_2; ?>">
+                            <img src="images/products/<?php echo $image_2; ?>" alt="thumb-air-force-left-side">
+                        </a>
+                    <?php }?>
                 </div>
                 <div class="thumb">
-                <a href="https://i8.amplience.net/i/jpl/jd_334285_e?qlt=92&w=950&h=673&v=1">
-                    <img src="https://i8.amplience.net/i/jpl/jd_334285_e?qlt=92&w=950&h=673&v=1" alt="thumb-air-force-bottom-side">
-                </a>
+                <?php if($image_3!=""){ ?>
+                    <a href="images/products/<?php echo $image_3; ?>">
+                        <img src="images/products/<?php echo $image_3; ?>" alt="thumb-air-force-bottom-side">
+                    </a>
+                <?php }?>
+                </div>
+                <div class="thumb">
+                <?php if($image_4!=""){ ?>
+                    <a href="images/products/<?php echo $image_4; ?>">
+                        <img src="images/products/<?php echo $image_4; ?>" alt="thumb-air-force-bottom-side">
+                    </a>
+                <?php }?>
                 </div>
             </div>
             <div class="img-display">
                 <span class="zoom">
-                <img src="https://i8.amplience.net/i/jpl/jd_334285_a?qlt=92&w=750&h=531&v=1" alt="">
+                    <img src="images/products/<?php echo $view_image; ?>" alt="">
                 </span>
             </div>
-            </section>
+        </section>
         <!-- Right side -->
         <div class="product-info">
             <h3><?php echo $producttype; echo trim($color)!=""?" (".$color.")":""; ?></h3>             										

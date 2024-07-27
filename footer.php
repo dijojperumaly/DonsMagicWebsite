@@ -315,7 +315,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	
 
 <!--===============================================================================================-->	
-	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="vendor/jquery/jquery-3.7.0.min.js"></script>
 <!--===============================================================================================-->
 	<script src="vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
@@ -415,6 +415,33 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 <!--	<script src="js/cart.js"></script>-->
-	
+
+<!-- ======= jquery validator start ====== -->
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+<script src="js/bootbox.min.js"></script>
+<!-- ======= jquery validator e ====== -->
+<script>
+    $(document).ready(function() {
+      $(".se-pre-con").fadeOut("slow");
+    });
+	function ShowAlert(msg_title, msg_body, msg_type) {
+		var AlertMsg = $('div[role="alert"]');
+		$(AlertMsg).find('strong').html(msg_title);
+		$(AlertMsg).find('p').html(msg_body + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>');
+		$(AlertMsg).removeAttr('class');
+		$(AlertMsg).addClass('alert alert-' + msg_type);
+		$(AlertMsg).show();
+	}
+
+	function ShowPopUpAlert(msg_title, msg_body, msg_type) {
+		var AlertMsg = $('div[role="popupalert"]');
+		$(AlertMsg).find('strong').html(msg_title);
+		$(AlertMsg).find('p').html(msg_body + '<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>');
+		$(AlertMsg).removeAttr('class');
+		$(AlertMsg).addClass('alert alert-' + msg_type);
+		$(AlertMsg).show();
+	}
+</script>
 </body>
 </html>
