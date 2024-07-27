@@ -1,0 +1,8 @@
+user: dijojperumaly -> manojfrancis
+personal  key/password: 
+Zy+ENsOakoChthXqLQXL3JbmZu8MVpojtfFcSJc34pk
+
+repository: https://github.com/dijojperumaly/DonsMagicWebsite.git
+
+
+git remote set-url origin https://Zy+ENsOakoChthXqLQXL3JbmZu8MVpojtfFcSJc34pk@github.com/dijojperumaly/DonsMagicWebsite.git
