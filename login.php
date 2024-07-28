@@ -1,6 +1,59 @@
 <?php 
+ob_start();
 include('headerWhite.php');
-?> 
+?>
+<?php
+include_once("admin/db_connection.php");
+$err_message="";
+if(isset($_POST['btnlogin'])){
+    $username = $_POST['txtloginuname'];
+	$pwd = md5($_POST['txtloginpassword']);
+    $name="";
+    $phone="";
+    $email="";
+    $password="";
+    $userid = 0;
+    $status = "";
+
+    $stmt = $con->prepare("SELECT userid, name, phone, email, password, status FROM tbl_useraccount WHERE (phone=? OR email=?) LIMIT 1");
+    $stmt->bind_param('ss', $username, $username);
+    $stmt->execute();
+    $stmt->bind_result($userid, $name, $phone,$email, $password, $status);
+    $stmt->store_result();
+    if($stmt->num_rows == 1)  //To check if the row exists
+    {
+        if($stmt->fetch()) //fetching the contents of the row
+        {
+            if ($status != USER_ACTIVE) {
+            $err_message= "YOUR account has been DEACTIVATED.";
+                
+            } else {
+                if(($username===$phone||$username===$email)&&$pwd===$password){
+                    session_start();
+                    $_SESSION['user_id'] = $userid;
+                    $_SESSION['user_name'] = $name;
+                    $_SESSION['phone'] = $phone;
+                    $_SESSION['email'] = $email;
+                    
+                    $err_message= 'Success!';
+                    header("location:./index.php");
+                }else{
+                    $err_message= "incorrect password!";
+                }
+            }
+        }else{
+            $err_message= "invalid username/password!";
+        }
+        
+    }
+    else {
+        $err_message= "invalid email/phone number!";
+    }
+    $stmt->close();
+}
+
+$con->close();
+?>
 
 	<!-- Title page -->
 	<!--<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('images/bg-02.jpg');">
@@ -40,15 +93,15 @@ include('headerWhite.php');
                                         <div class="form-group">
                                             <input class="form-control" type="password" name="txtpassword" id="txtpassword" placeholder="password*">
                                         </div>
-
+                                        <div class="alert alert-dismissible" role="alert" style="display:none;">
+                                            <strong>Warning!</strong>
+                                            <p></p>
+                                        </div>
                                         <div class="form-group">
                                             <input class="btn btn-success" type="button" name="btnsignup" id="btnsignup" value="Sign Up" style="cursor:pointer;">
                                         </div>
                                     </form>	
-                                    <div class="alert alert-dismissible" role="alert" style="display:none;">
-                                        <strong>Warning!</strong>
-                                        <p></p>
-                                    </div>								
+                                    								
 								</div>
 							</div>
 						</div>
@@ -92,15 +145,16 @@ include('headerWhite.php');
                                         You have an Account Please Sign In
                                     </p>
                                     <div class="p-t-55">
-                                        <form method="post" name="form_login" id="form_login" action="useraccount_save.php">
+                                        <form method="post" name="form_login" id="form_login" action="">
                                             <div class="form-group">
-                                                <input class="form-control" type="text" name="txtloginuname" id="txtloginuname" placeholder="email*">
+                                                <input class="form-control" type="text" name="txtloginuname" id="txtloginuname" placeholder="email/phone*">
                                             </div>
                                             <div class="form-group">
                                                 <input class="form-control" type="password" name="txtloginpassword" id="txtloginpassword" placeholder="password*">
+                                                <p style="color:red;"><?php echo $err_message; ?></p>
                                             </div>
                                             <div class="form-group">
-                                                <input class="btn btn-primary" type="Submit" name="btnlogin" id="btnlogin" value="Sign In" style="cursor:pointer;">
+                                                <input class="btn btn-primary" type="submit" name="btnlogin" id="btnlogin" value="Sign In" style="cursor:pointer;">
                                             </div>
                                         </form>
                                     </div>
@@ -214,7 +268,7 @@ $(document).ready(function() {
                 },
                 success: function(response) { //once the request successfully process to the server side it will return result here
                     $("#btnsignup").attr('disabled', false).val($caption);
-                    //alert(response);												
+                    alert(response);												
                     try {
                         //var json = $.parseJSON(response);
                         var json = JSON.parse(response);
