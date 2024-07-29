@@ -502,7 +502,7 @@ if(isset($_SESSION['user_id'])){
 						</a>
 						<?php
 						}
-						?>-
+						?>
 					</div>
 				</div>
 			</div>
