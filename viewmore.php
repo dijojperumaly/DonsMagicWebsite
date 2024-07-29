@@ -22,7 +22,7 @@ img {
 .thumb {
   opacity: .7;
   margin: 0 .25rem .25rem 0;
-  width: 120px;
+  width: 80px;
   transition: opacity .25s ease-out;
 }
 
@@ -236,7 +236,7 @@ img {
     <?php
 	include("footer.php");
 	?>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-zoom/1.7.21/jquery.zoom.min.js"></script>
+    
     <script>
         function currentSlide(obj){
             /*alert(obj.src);

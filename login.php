@@ -1,8 +1,10 @@
 <?php 
 ob_start();
 include('headerWhite.php');
+
 ?>
 <?php
+ob_start();
 include_once("admin/db_connection.php");
 $err_message="";
 if(isset($_POST['btnlogin'])){
@@ -29,14 +31,23 @@ if(isset($_POST['btnlogin'])){
                 
             } else {
                 if(($username===$phone||$username===$email)&&$pwd===$password){
-                    session_start();
+                    if(!isset($_SESSION)) 
+                    { 
+                        session_start(); 
+                    } 
+
                     $_SESSION['user_id'] = $userid;
                     $_SESSION['user_name'] = $name;
                     $_SESSION['phone'] = $phone;
                     $_SESSION['email'] = $email;
                     
                     $err_message= 'Success!';
-                    header("location:./index.php");
+                    if(isset($_SESSION["lasturl"])){
+                        header("location:".$_SESSION["lasturl"]);                        
+                    }else{
+                        header("location:./index.php");                        
+                    }
+                    
                 }else{
                     $err_message= "incorrect password!";
                 }

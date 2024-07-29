@@ -976,7 +976,8 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   z-index: 1100;
   width: 390px;
   max-width: calc(100% - 30px);
-  height: 100vh;
+  /*height: 100vh; */
+  height: fit-content;
   top: 0;
   right: -400px;
   background-color: #fff;

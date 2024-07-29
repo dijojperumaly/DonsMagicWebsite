@@ -1,5 +1,6 @@
 <?php 
 ob_start();
+
 include_once("admin/db_connection.php");
 include('header.php');
 ?>

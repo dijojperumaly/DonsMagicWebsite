@@ -420,6 +420,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 <script type="text/javascript" src="js/jquery.validate.js"></script>
 <script type="text/javascript" src="js/jquery.validate.min.js"></script>
 <script src="js/bootbox.min.js"></script>
+<script src="js/jquery.zoom.min.js"></script>
 <!-- ======= jquery validator e ====== -->
 <script>
     $(document).ready(function() {
