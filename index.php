@@ -485,11 +485,13 @@ include('header.php');
 									</a>									
 								</div>								
 							</div>
-							<button class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+							<button class="btn border border-secondary rounded-pill px-3 text-primary btnaddtocart" 
+								value="<?php echo $id; ?>" id="btnaddtocart" name="btnaddtocart">
+								<i class="fa fa-shopping-bag me-2 text-primary"></i> 
+									Add to cart
+								</button>
 							<!--<button class="button-24" role="button">Buy Now</button>-->
-							<!-- HTML !-->
-								
-
+							<!-- HTML !-->							
 
 						</div>
 					</div>
@@ -517,4 +519,66 @@ include('header.php');
 	
 	<?php
 include("footer.php");
+
 	?>
+	<script>
+		$(document).ready(function() {
+			$(".btnaddtocart").on("click",function(){
+				alert(this.value);
+				let id=this.value;
+				/*let dataPost={
+					"id":id
+					};
+				let jsonData = JSON.stringify(dataPost);*/
+				$.ajax({
+					type: "GET", //we are using POST method to submit the data to the server side
+					url: "addtocart.php?id="+id, // get the route value	
+					//dataType:"json",				
+					//data:dataPost,// our serialized json data for server side    				
+					timeout: 1000,
+					async: false,
+					processData: false,
+					contentType: false,
+				
+					beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
+						//this.attr('disabled', true).val("Processing...");
+						$(".se-pre-con").fadeIn("slow");
+					},
+					success: function(response) { //once the request successfully process to the server side it will return result here
+						//$this.attr('disabled', false).val($caption);
+						alert(response);												
+						try {
+							//var json = $.parseJSON(response);
+							var json = JSON.parse(response);
+							if (json["status"] == "success") {
+								//resetForm();
+								//all();
+								alert("ok");
+								ShowAlert("", "Successfully Saved", "success");
+							}else if(json["status"] == "filetype_error") {
+								ShowAlert("", "Not saved! invalid file type", "danger");
+							}else if(json["status"] == "filesize_error") {
+								ShowAlert("", "Not saved! file size exceed", "danger");
+							}
+							else {
+								ShowAlert("", "Not saved! please enter correct data", "danger");
+							}
+						} catch (e) {                                    
+							ShowAlert("", "Not saved! please enter correct data", "danger");
+						}
+						// Reset form
+					},
+					complete: function(data) {
+						// Hide image container
+						//this.attr('disabled', false).val($caption);
+						$(".se-pre-con").fadeOut("slow");
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown) {
+						//this.attr('disabled', false).val($caption);
+						ShowAlert(textStatus, errorThrown, "danger");
+						$(".se-pre-con").fadeOut("slow");
+					}
+				});
+			});
+		});
+	</script>
