@@ -545,7 +545,7 @@ if(isset($_SESSION['user_id'])){
 					<!--<div class="header-cart-total w-full p-tb-40">
 						Total: $75.00
 					</div>-->
-
+					<div class="header-cart-buttons flex-w w-full">
 					<?php 
 						if(!isset($_SESSION["user_id"])){						
 						?>
@@ -564,6 +564,7 @@ if(isset($_SESSION['user_id'])){
 						<?php
 						}
 						?>
+					</div>
 				</div>
 			</div>
 		</div>

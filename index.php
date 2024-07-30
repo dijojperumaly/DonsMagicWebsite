@@ -429,10 +429,15 @@ include('header.php');
 								<a href="viewmore.php?id=<?php echo $id; ?>" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
 									<img src="images/products/<?php echo $view_image; ?>" alt="IMG-PRODUCT">
 								</a>
-								<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20<?php echo $product_code; ?> "
+								<!--<a href="https://wa.me/918921911289?text=Hi%20There!%20I%20am%20interested%20in%20your%20product%20ID%20<?php //echo $product_code; ?> "
 								style="background-color: #075e54; color: white;" 
 								class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04" target="_blank">
 									Contact Us
+								</a>-->
+								<a href="viewmore.php?id=<?php echo $id; ?>"
+								style="background-color: #075e54; color: white;" 
+								class="block2-btn flex-c-m stext-103 cl2 size-104 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+									View
 								</a>
 							</div>
 							<div class="block2-txt flex-w flex-t p-t-14">
@@ -477,9 +482,15 @@ include('header.php');
 									<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
 										<img class="icon-heart1 dis-block trans-04" src="images/icons/icon-heart-01.png" alt="ICON">
 										<img class="icon-heart2 dis-block trans-04 ab-t-l" src="images/icons/icon-heart-02.png" alt="ICON">
-									</a>
-								</div>
+									</a>									
+								</div>								
 							</div>
+							<button class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+							<!--<button class="button-24" role="button">Buy Now</button>-->
+							<!-- HTML !-->
+								
+
+
 						</div>
 					</div>
 					<?php
