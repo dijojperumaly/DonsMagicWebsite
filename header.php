@@ -151,8 +151,8 @@ if(isset($_SESSION['user_id'])){
 
 					<!-- Icon header -->
 					<div class="wrap-icon-header flex-w flex-r-m h-full">							
-						<div class="flex-c-m h-full p-r-1 bor6" style="">
-							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="<?php echo count($_SESSION['cart']); ?>">
+						<div class="flex-c-m h-full p-r-1 bor6 mycartcountdiv" id="mycartcountdiv">
+							<div class="icon-header-item cl0 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" onclick="show_cartsidebar()" id="mycartdiv"  data-notify="<?php echo count($_SESSION['cart']); ?>">
 								<i class="zmdi zmdi-shopping-cart"></i>							
 							</div>
 							
@@ -185,8 +185,8 @@ if(isset($_SESSION['user_id'])){
 
 			
 			<div class="wrap-icon-header flex-w flex-r-m h-full m-r-15">
-				<div class="flex-c-m h-full p-r-5">
-					<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" data-notify="<?php echo count($_SESSION['cart']); ?>">
+				<div class="flex-c-m h-full p-r-5" id="mycartcountmobilediv">
+					<div class="icon-header-item cl2 hov-cl1 trans-04 p-lr-11 icon-header-noti js-show-cart" onclick="show_cartsidebar()" data-notify="<?php echo count($_SESSION['cart']); ?>">
 						<i class="zmdi zmdi-shopping-cart"></i>
 					</div>
 				</div>

@@ -519,12 +519,18 @@ include('header.php');
 	
 	<?php
 	include("footer.php");	
+// 	unset($_SESSION['cart']);
 	?>
 	<script>
+		function show_cartsidebar(){
+			$('.js-panel-cart').addClass('show-header-cart');
+		}
+		
 		$(document).ready(function() {
 			$(".btnaddtocart").on("click",function(){				
 				let id=this.value;
-				let type_code=$(this).attr("tag");		
+				let type_code=$(this).attr("tag");	
+				var objcart=$(this);
 				$.ajax({
 					type: "GET", //we are using POST method to submit the data to the server side
 					url: "addtocart.php?id="+id, // get the route value	
@@ -536,36 +542,49 @@ include('header.php');
 					contentType: false,
 				
 					beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
-						//this.attr('disabled', true).val("Processing...");
-						$(".se-pre-con").fadeIn("slow");
+						objcart.attr("disabled", true).val("Processing...");
+						//$(".se-pre-con").fadeIn("slow");
 					},
 					success: function(response) { //once the request successfully process to the server side it will return result here
-						//$this.attr('disabled', false).val($caption);						
-						var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+						objcart.attr("disabled", false).val("Add to cart");					
+						//var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
 													
 						try {
 							var json = $.parseJSON(response);
 							//var json = JSON.parse(response);							
 							if (json["status"] == "success") {								
-								swal(type_code, json["message"], "success");					
-								//ShowAlert("", "Successfully Saved", "success");
+								swal(type_code, json["message"], "success");
+								//alert(location.href);				
+								//ShowAlert("", "Successfully Saved", "success");\s								
+								//$('#mycartcountdiv').attr("data-notify", "100");
+								
+								$.get(location.href, function(data){ 
+									$('#mycartcountdiv').empty().append( $(data).find('#mycartcountdiv').children() );
+									return false;
+								});
+								$.get(location.href, function(data){ 
+									$('#mycartcountmobilediv').empty().append( $(data).find('#mycartcountmobilediv').children() );
+									return false;
+								});
+								
 							}else{
 								swal(type_code, json["message"], "error");
 							}
 						} catch (e) {                                    
-							ShowAlert("", "Not saved! please enter correct data", "danger");
+							//ShowAlert("", "Not saved! please enter correct data", "danger");
+							swal(type_code, "error", "error");
 						}
 						// Reset form
 					},
 					complete: function(data) {
 						// Hide image container
-						//this.attr('disabled', false).val($caption);
-						$(".se-pre-con").fadeOut("slow");
+						objcart.attr("disabled", false).val("Add to cart");	
+						//$(".se-pre-con").fadeOut("slow");
 					},
 					error: function(XMLHttpRequest, textStatus, errorThrown) {
-						//this.attr('disabled', false).val($caption);
-						ShowAlert(textStatus, errorThrown, "danger");
-						$(".se-pre-con").fadeOut("slow");
+						objcart.attr("disabled", false).val("Add to cart");	
+						//ShowAlert(textStatus, errorThrown, "danger");
+						//$(".se-pre-con").fadeOut("slow");
 					}
 				});
 			});
