@@ -451,7 +451,7 @@ include('header.php');
 										Product ID : <?php echo $product_code; ?>
 									</span>
 
-									<span class="stext-105 cl3">									
+									<span class="stext-105 cl3">					
 									 <?php 
 									 if($status!=$statusarray["SOLDOUT"]){
 										if($offerprice!="" && $offerprice>0){
@@ -486,7 +486,7 @@ include('header.php');
 								</div>								
 							</div>
 							<button class="btn border border-secondary rounded-pill px-3 text-primary btnaddtocart" 
-								value="<?php echo $id; ?>" id="btnaddtocart" name="btnaddtocart">
+								value="<?php echo $id; ?>" id="btnaddtocart" name="btnaddtocart" tag="<?php echo $producttype."(".$product_code.")"; ?>">
 								<i class="fa fa-shopping-bag me-2 text-primary"></i> 
 									Add to cart
 								</button>
@@ -518,18 +518,13 @@ include('header.php');
 	<!-- Footer -->
 	
 	<?php
-include("footer.php");
-
+	include("footer.php");	
 	?>
 	<script>
 		$(document).ready(function() {
-			$(".btnaddtocart").on("click",function(){
-				alert(this.value);
+			$(".btnaddtocart").on("click",function(){				
 				let id=this.value;
-				/*let dataPost={
-					"id":id
-					};
-				let jsonData = JSON.stringify(dataPost);*/
+				let type_code=$(this).attr("tag");		
 				$.ajax({
 					type: "GET", //we are using POST method to submit the data to the server side
 					url: "addtocart.php?id="+id, // get the route value	
@@ -545,23 +540,17 @@ include("footer.php");
 						$(".se-pre-con").fadeIn("slow");
 					},
 					success: function(response) { //once the request successfully process to the server side it will return result here
-						//$this.attr('disabled', false).val($caption);
-						alert(response);												
+						//$this.attr('disabled', false).val($caption);						
+						var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+													
 						try {
-							//var json = $.parseJSON(response);
-							var json = JSON.parse(response);
-							if (json["status"] == "success") {
-								//resetForm();
-								//all();
-								alert("ok");
-								ShowAlert("", "Successfully Saved", "success");
-							}else if(json["status"] == "filetype_error") {
-								ShowAlert("", "Not saved! invalid file type", "danger");
-							}else if(json["status"] == "filesize_error") {
-								ShowAlert("", "Not saved! file size exceed", "danger");
-							}
-							else {
-								ShowAlert("", "Not saved! please enter correct data", "danger");
+							var json = $.parseJSON(response);
+							//var json = JSON.parse(response);							
+							if (json["status"] == "success") {								
+								swal(type_code, json["message"], "success");					
+								//ShowAlert("", "Successfully Saved", "success");
+							}else{
+								swal(type_code, json["message"], "error");
 							}
 						} catch (e) {                                    
 							ShowAlert("", "Not saved! please enter correct data", "danger");
