@@ -10,7 +10,6 @@ if(basename(parse_url($_SERVER['SCRIPT_NAME'], PHP_URL_PATH))!="login.php"){
 	$_SESSION["lasturl"]=$_SERVER['REQUEST_URI'];
 }
 
-
 $account_username="";
 $account_phone="";
 $account_email="";
