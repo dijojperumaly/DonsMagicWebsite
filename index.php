@@ -453,17 +453,24 @@ include('header.php');
 
 									<span class="stext-105 cl3">					
 									 <?php 
+									 $lastprice=$MRP;
+									 $stack_status=1;
 									 if($status!=$statusarray["SOLDOUT"]){
 										if($offerprice!="" && $offerprice>0){
 											echo "<s>₹ $MRP</s> &nbsp; ₹ $offerprice/-";
+											$lastprice=$offerprice;
 										}else{
 											echo "₹ $MRP/-";
+											$lastprice=$MRP;
 										}
 									}else{
+										$stack_status=0;
 										if($offerprice!="" && $offerprice>0){
 											echo "<s>₹ $offerprice</s>/-";
+											$lastprice=$offerprice;
 										}else{
 											echo "<s>₹ $MRP</s>/-";
+											$lastprice=$MRP;
 										}
 										echo '<span class="soldout">'.$statusarray["SOLDOUT"].'</span>';
 									}
@@ -485,7 +492,7 @@ include('header.php');
 									</a>									
 								</div>								
 							</div>
-							<button class="btn border border-secondary rounded-pill px-3 text-primary btnaddtocart" 
+							<button class="btn border border-secondary rounded-pill px-3 text-primary btnaddtocart" onclick="addtocart(this,<?php echo $id; ?>,'<?php echo $producttype; ?>','<?php echo $product_code; ?>',<?php echo $lastprice; ?>,<?php echo $stack_status; ?>)"
 								value="<?php echo $id; ?>" id="btnaddtocart" name="btnaddtocart" tag="<?php echo $producttype."(".$product_code.")"; ?>">
 								<i class="fa fa-shopping-bag me-2 text-primary"></i> 
 									Add to cart
@@ -527,68 +534,75 @@ include('header.php');
 		}
 		
 		$(document).ready(function() {
-			$(".btnaddtocart").on("click",function(){				
-				let id=this.value;
-				var caption=$(this).html();
-				let type_code=$(this).attr("tag");	
-				var objcart=$(this);
+			//$(".btnaddtocart").on("click",function(){		
+				window.addtocart=function (objcart,id,type_code,product_code,price,stock){		
+				//let id=objcart.value;
+				//alert(objcart);
+				var caption=$(objcart).html();
+				//let type_code=objcart.attr("tag");	
+				//var objcart=$(this);
 				//alert(id);
-				$.ajax({
-					type: "GET", //we are using POST method to submit the data to the server side
-					url: "addtocart.php?id="+id, // get the route value	
-					//dataType:"json",				
-					//data:dataPost,// our serialized json data for server side    				
-					timeout: 1000,
-					async: false,
-					processData: false,
-					contentType: false,
-				
-					beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
-						objcart.attr("disabled", true).html("Processing...");
-						//$(".se-pre-con").fadeIn("slow");
-					},
-					success: function(response) { //once the request successfully process to the server side it will return result here
-						//objcart.attr("disabled", false).html(caption);					
-						//var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-													
-						try {
-							var json = $.parseJSON(response);
-							//var json = JSON.parse(response);							
-							if (json["status"] == "success") {								
-								swal(type_code, json["message"], "success");
-								//alert(location.href);				
-								//ShowAlert("", "Successfully Saved", "success");\s								
-								//$('#mycartcountdiv').attr("data-notify", "100");
-								
-								$.get(location.href, function(data){ 
-									$('#mycartcountdiv').empty().append( $(data).find('#mycartcountdiv').children() );
-									return false;
-								});
-								$.get(location.href, function(data){ 
-									$('#mycartcountmobilediv').empty().append( $(data).find('#mycartcountmobilediv').children() );
-									return false;
-								});
-								
-							}else{
-								swal(type_code, json["message"], "error");
+				if(parseInt(stock)>0){
+					$.ajax({
+						type: "GET", //we are using POST method to submit the data to the server side
+						url: "addtocart.php?id="+id+"&type="+type_code+"&product_code="+product_code+"&price="+price, // get the route value	
+						//dataType:"json",				
+						//data:dataPost,// our serialized json data for server side    				
+						timeout: 1000,
+						async: false,
+						processData: false,
+						contentType: false,
+					
+						beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
+							$(objcart).attr("disabled", true).html("Processing...");
+							//$(".se-pre-con").fadeIn("slow");
+						},
+						success: function(response) { //once the request successfully process to the server side it will return result here
+							//objcart.attr("disabled", false).html(caption);					
+							//var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+														
+							try {
+								var json = $.parseJSON(response);
+								//var json = JSON.parse(response);							
+								if (json["status"] == "success") {								
+									swal(type_code, json["message"], "success");
+									//alert(location.href);				
+									//ShowAlert("", "Successfully Saved", "success");\s								
+									//$('#mycartcountdiv').attr("data-notify", "100");
+									
+									$.get(location.href, function(data){ 
+										$('#mycartcountdiv').empty().append( $(data).find('#mycartcountdiv').children() );
+										return false;
+									});
+									$.get(location.href, function(data){ 
+										$('#mycartcountmobilediv').empty().append( $(data).find('#mycartcountmobilediv').children() );
+										return false;
+									});
+									
+								}else{
+									swal(type_code, json["message"], "error");
+								}
+							} catch (e) {                                    
+								//ShowAlert("", "Not saved! please enter correct data", "danger");
+								swal(type_code, "error", "error");
 							}
-						} catch (e) {                                    
-							//ShowAlert("", "Not saved! please enter correct data", "danger");
-							swal(type_code, "error", "error");
+							// Reset form
+						},
+						complete: function(data) {
+							// Hide image container
+							$(objcart).attr("disabled", false).html(caption);	
+							//$(".se-pre-con").fadeOut("slow");
+						},
+						error: function(XMLHttpRequest, textStatus, errorThrown) {
+							$(objcart).attr("disabled", false).html(caption);	
+							//ShowAlert(textStatus, errorThrown, "danger");
+							//$(".se-pre-con").fadeOut("slow");
 						}
-						// Reset form
-					},
-					complete: function(data) {
-						// Hide image container
-						objcart.attr("disabled", false).html(caption);	
-						//$(".se-pre-con").fadeOut("slow");
-					},
-					error: function(XMLHttpRequest, textStatus, errorThrown) {
-						objcart.attr("disabled", false).html(caption);	
-						//ShowAlert(textStatus, errorThrown, "danger");
-						//$(".se-pre-con").fadeOut("slow");
-					}
-				});
-			});
+					});
+				}else{
+					swal(type_code, json["message"], "Sold Out");
+				}
+			}
+			//);
 		});
 	</script>
