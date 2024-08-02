@@ -526,7 +526,9 @@ include('header.php');
 	
 	<?php
 	include("footer.php");	
-// 	unset($_SESSION['cart']);
+//	unset($_SESSION['cart']);
+	//print_r($_SESSION['cart']);
+	 
 	?>
 	<script>
 		function show_cartsidebar(){
@@ -535,17 +537,17 @@ include('header.php');
 		
 		$(document).ready(function() {
 			//$(".btnaddtocart").on("click",function(){		
-				window.addtocart=function (objcart,id,type_code,product_code,price,stock){		
+				window.addtocart=function (objcart,id,type,product_code,price,stock){		
 				//let id=objcart.value;
 				//alert(objcart);
 				var caption=$(objcart).html();
-				//let type_code=objcart.attr("tag");	
+				//let type=objcart.attr("tag");	
 				//var objcart=$(this);
 				//alert(id);
 				if(parseInt(stock)>0){
 					$.ajax({
 						type: "GET", //we are using POST method to submit the data to the server side
-						url: "addtocart.php?id="+id+"&type="+type_code+"&product_code="+product_code+"&price="+price, // get the route value	
+						url: "addtocart.php?id="+id+"&type="+type+"&product_code="+product_code+"&price="+price, // get the route value	
 						//dataType:"json",				
 						//data:dataPost,// our serialized json data for server side    				
 						timeout: 1000,
@@ -560,12 +562,13 @@ include('header.php');
 						success: function(response) { //once the request successfully process to the server side it will return result here
 							//objcart.attr("disabled", false).html(caption);					
 							//var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-														
+							//alert(response);
 							try {
 								var json = $.parseJSON(response);
-								//var json = JSON.parse(response);							
+								//var json = JSON.parse(response);		
+											
 								if (json["status"] == "success") {								
-									swal(type_code, json["message"], "success");
+									swal(type, json["message"], "success");
 									//alert(location.href);				
 									//ShowAlert("", "Successfully Saved", "success");\s								
 									//$('#mycartcountdiv').attr("data-notify", "100");
@@ -580,11 +583,11 @@ include('header.php');
 									});
 									
 								}else{
-									swal(type_code, json["message"], "error");
+									swal(type, json["message"], "error");
 								}
 							} catch (e) {                                    
 								//ShowAlert("", "Not saved! please enter correct data", "danger");
-								swal(type_code, "error", "error");
+								swal(type, "error", e);
 							}
 							// Reset form
 						},
@@ -600,7 +603,7 @@ include('header.php');
 						}
 					});
 				}else{
-					swal(type_code, json["message"], "Sold Out");
+					swal(type, json["message"], "Sold Out");
 				}
 			}
 			//);
