@@ -581,6 +581,11 @@ include('header.php');
 										$('#mycartcountmobilediv').empty().append( $(data).find('#mycartcountmobilediv').children() );
 										return false;
 									});
+									$.get(location.href, function(data){ 
+										$('#mycartitemdiv').empty().append( $(data).find('#mycartitemdiv').children() );
+										return false;
+									});
+									
 									
 								}else{
 									swal(type, json["message"], "error");
