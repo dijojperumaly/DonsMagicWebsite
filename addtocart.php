@@ -15,11 +15,13 @@ if(isset($_GET['id'])){
         $type=$_GET['type'];
         $product_code=$_GET['product_code'];
         $price=$_GET['price'];        
+        $image=$_GET['image'];  
         $newdata =  array (
             'id' => $id,
             'type' => $type,
             'product_code' => $product_code,
-            'price' => $price
+            'price' => $price,
+            'image' => $image
         );
         array_push($_SESSION['cart'], $newdata);    
         $status=[ 'status' => 'success',"message" => "Item added to cart "];

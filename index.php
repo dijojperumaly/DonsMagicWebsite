@@ -492,7 +492,7 @@ include('header.php');
 									</a>									
 								</div>								
 							</div>
-							<button class="btn border border-secondary rounded-pill px-3 text-primary btnaddtocart" onclick="addtocart(this,<?php echo $id; ?>,'<?php echo $producttype; ?>','<?php echo $product_code; ?>',<?php echo $lastprice; ?>,<?php echo $stack_status; ?>)"
+							<button class="btn border border-secondary rounded-pill px-3 text-primary btnaddtocart" onclick="addtocart(this,<?php echo $id; ?>,'<?php echo $producttype; ?>','<?php echo $product_code; ?>',<?php echo $lastprice; ?>,<?php echo $stack_status; ?>,'<?php echo $view_image; ?>')"
 								value="<?php echo $id; ?>" id="btnaddtocart" name="btnaddtocart" tag="<?php echo $producttype."(".$product_code.")"; ?>">
 								<i class="fa fa-shopping-bag me-2 text-primary"></i> 
 									Add to cart
@@ -537,7 +537,7 @@ include('header.php');
 		
 		$(document).ready(function() {
 			//$(".btnaddtocart").on("click",function(){		
-				window.addtocart=function (objcart,id,type,product_code,price,stock){		
+				window.addtocart=function (objcart,id,type,product_code,price,stock,image){		
 				//let id=objcart.value;
 				//alert(objcart);
 				var caption=$(objcart).html();
@@ -547,7 +547,7 @@ include('header.php');
 				if(parseInt(stock)>0){
 					$.ajax({
 						type: "GET", //we are using POST method to submit the data to the server side
-						url: "addtocart.php?id="+id+"&type="+type+"&product_code="+product_code+"&price="+price, // get the route value	
+						url: "addtocart.php?id="+id+"&type="+type+"&product_code="+product_code+"&price="+price+"&image="+image, // get the route value	
 						//dataType:"json",				
 						//data:dataPost,// our serialized json data for server side    				
 						timeout: 1000,
