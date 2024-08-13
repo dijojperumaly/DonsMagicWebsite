@@ -34,17 +34,88 @@ include('headerWhite.php');
 									<th class="column-4">Quantity</th>
 									<th class="column-5">Total</th>
 								</tr>
+								<?php								
+								$pids=0;
+								$selPrice=0;
+								$totalSelPrice=0;
+									foreach($_SESSION['cart'] as $cartarray){
+										$pids.=','. $cartarray["id"];
+									}									
+									$view_image="";
+									$sql_products = "SELECT   p.id, 
+										IFNULL(p.title,'')title, 
+										IFNULL(p.product_code,'')product_code, 
+										IFNULL(p.aboutproduct,'') aboutproduct, 
+										p.MRP, 
+										IFNULL(p.offerprice,'') offerprice, 								
+										IFNULL(p.image_1,'') image_1,
+										IFNULL(p.image_2,'') image_2,
+										IFNULL(p.image_3,'') image_3,
+										IFNULL(p.image_4,'') image_4,
+										IFNULL(p.STATUS,'Active') status,
+										IFNULL(p.label,'') label,
+										IFNULL(p.color,'') color,
+										t.producttype_id,
+										t.producttype,
+										t.typecode,
+										GROUP_CONCAT(s.size  ORDER BY s.orderno ASC) size
+										FROM tbl_product p LEFT JOIN tbl_producttype t ON t.producttype_id=p.producttype_id
+										LEFT JOIN tbl_availablesizes a On a.product_id=p.id
+										LEFT JOIN tbl_size s ON a.size_id=s.size_id
+										WHERE IFNULL(p.isdeleted,0)=0  AND IFNULL(p.STATUS,'Active')!='".$statusarray["DRAFT"]."' 
+										AND p.id IN(".$pids.")
+										GROUP BY p.id 
+										ORDER BY IFNULL(p.orderno,0) ASC,p.id DESC";     
+									//echo $sql_products;                   
+									$product_results = $con->query($sql_products);                                
+									while($row_product=$product_results->fetch_array(MYSQLI_ASSOC)){    
+										$typeid=$row_product["producttype_id"];
+										$producttype=$row_product["producttype"];
+										$typecode=$row_product["typecode"];
+
+										$id=$row_product["id"];
+										$title=$row_product["title"];
+										$product_code=$row_product["product_code"];
+										$aboutproduct=$row_product["aboutproduct"];
+										$MRP=$row_product["MRP"];
+										$offerprice=$row_product["offerprice"];
+										$image_1=$row_product["image_1"];
+										$image_2=$row_product["image_2"];
+										$image_3=$row_product["image_3"];
+										$image_4=$row_product["image_4"];
+										$status=$row_product["status"];
+										$size=$row_product["size"];
+										$label=$row_product["label"];
+										$color=$row_product["color"];
+
+										if($image_1!=""){
+											$view_image=$image_1;                                            
+										}else if($image_2!=""){
+											$view_image=$image_2; 
+										}else if($image_3!=""){
+											$view_image=$image_3; 
+										}else if($image_4!=""){
+											$view_image=$image_4; 
+										}
+
+										if($offerprice!="" && $offerprice!=0){
+											$selPrice=$offerprice;
+										}else{
+											$selPrice=$MRP;
+										}
+										$totalSelPrice=$totalSelPrice+$selPrice;
+									?>
 
 								<tr class="table_row">
 									<td class="column-1">
-										<div class="how-itemcart1">
-											<img src="images/item-cart-04.jpg" alt="IMG">
+										<div class="how-itemcart1" onclick="deleteCartItem(this,<?php echo $id; ?>)">
+											<img src="images/products/<?php echo $view_image; ?>" alt="IMG">
 										</div>
 									</td>
-									<td class="column-2">Fresh Strawberries</td>
-									<td class="column-3">$ 36.00</td>
-									<td class="column-4">
-										<div class="wrap-num-product flex-w m-l-auto m-r-0">
+									<td class="column-2"><?php echo $producttype; ?></td>
+									<td class="column-3"><span>&#8377;</span> <?php echo $selPrice; ?></td>
+									<td class="column-4">1
+										<!--<div class="wrap-num-product flex-w m-l-auto m-r-0">
 											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-minus"></i>
 											</div>
@@ -54,12 +125,14 @@ include('headerWhite.php');
 											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
 												<i class="fs-16 zmdi zmdi-plus"></i>
 											</div>
-										</div>
+										</div>-->
 									</td>
-									<td class="column-5">$ 36.00</td>
+									<td class="column-5"><span>&#8377;</span> <?php echo $selPrice; ?></td>
 								</tr>
-
-								<tr class="table_row">
+								<?php
+									}
+								?>
+								<!--<tr class="table_row">
 									<td class="column-1">
 										<div class="how-itemcart1">
 											<img src="images/item-cart-05.jpg" alt="IMG">
@@ -81,7 +154,7 @@ include('headerWhite.php');
 										</div>
 									</td>
 									<td class="column-5">$ 16.00</td>
-								</tr>
+								</tr>-->
 							</table>
 						</div>
 
@@ -116,7 +189,7 @@ include('headerWhite.php');
 
 							<div class="size-209">
 								<span class="mtext-110 cl2">
-									$79.65
+								<span>&#8377;</span> <?php echo $totalSelPrice; ?>
 								</span>
 							</div>
 						</div>
@@ -174,7 +247,7 @@ include('headerWhite.php');
 
 							<div class="size-209 p-t-1">
 								<span class="mtext-110 cl2">
-									$79.65
+									<span>&#8377;</span><?php echo $totalSelPrice; ?>
 								</span>
 							</div>
 						</div>
@@ -187,7 +260,77 @@ include('headerWhite.php');
 			</div>
 		</div>
 	</form>
-		
+	
+
+	<?php
+	include('footer.php');
+	?>
+
+	<script>
+		function deleteCartItem(obj,id=0){
+			alert(id);
+			$.ajax({
+				type: "GET", //we are using POST method to submit the data to the server side
+				url: "shoping-cart_delete.php?id="+id, // get the route value	
+				//dataType:"json",				
+				//data:dataPost,// our serialized json data for server side    				
+				timeout: 1000,
+				async: false,
+				processData: false,
+				contentType: false,
+			
+				beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
+					//$(obj).attr("disabled", true).html("Processing...");
+					//$(".se-pre-con").fadeIn("slow");
+				},
+				success: function(response) { //once the request successfully process to the server side it will return result here
+					//objcart.attr("disabled", false).html(caption);					
+					//var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+					alert(response);
+					try {
+						var json = $.parseJSON(response);
+						//var json = JSON.parse(response);		
+									
+						if (json["status"] == "success") {								
+							//swal(type, json["message"], "success");
+							$(obj).parent().parent().remove();
+							
+							/*$.get(location.href, function(data){ 
+								$('#mycartcountdiv').empty().append( $(data).find('#mycartcountdiv').children() );
+								return false;
+							});
+							$.get(location.href, function(data){ 
+								$('#mycartcountmobilediv').empty().append( $(data).find('#mycartcountmobilediv').children() );
+								return false;
+							});
+							$.get(location.href, function(data){ 
+								$('#mycartitemdiv').empty().append( $(data).find('#mycartitemdiv').children() );
+								return false;
+							});*/							
+							
+						}else{
+							//swal(type, json["message"], "error");
+						}
+					} catch (e) {                                    
+						//ShowAlert("", "Not saved! please enter correct data", "danger");
+						//swal(type, "error", e);
+					}
+					// Reset form
+				},
+				complete: function(data) {
+					// Hide image container
+					//$(objcart).attr("disabled", false).html(caption);	
+					//$(".se-pre-con").fadeOut("slow");
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					//$(objcart).attr("disabled", false).html(caption);	
+					//ShowAlert(textStatus, errorThrown, "danger");
+					//$(".se-pre-con").fadeOut("slow");
+				}
+			});						
+			
+		}
+	</script>
 	<script>
 		$(".js-select2").each(function(){
 			$(this).select2({
@@ -210,8 +353,5 @@ include('headerWhite.php');
 				ps.update();
 			})
 		});
+		
 	</script>
-
-	<?php
-	include('footer.php');
-	?>

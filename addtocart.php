@@ -10,7 +10,7 @@ if(!isset($_SESSION['cart'])){
 }
 if(isset($_GET['id'])){    
     //if(!in_array($_GET['id'], $_SESSION['cart']["id"])){
-    if(array_search($_GET['id'], array_column($_SESSION['cart'], 'id')) === false) {
+    if(array_search($_GET['id'], array_column($_SESSION['cart'], 'id')) == false) {
         $id=$_GET['id'];
         $type=$_GET['type'];
         $product_code=$_GET['product_code'];
