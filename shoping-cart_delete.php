@@ -17,7 +17,7 @@ if(isset($_GET['id'])){
                 $flag=1;               
         }
     }
-    if($flag==1)
+    if($flag==1){
         $status=['status' => 'success',"message" => "Item removed from cart "];
     }else{
         $status=[ 'status' => 'exist',"message" => "This item does't exists in cart "];
