@@ -8,23 +8,20 @@ if(!isset($_SESSION))
 if(!isset($_SESSION['cart'])){
     $_SESSION['cart'] = array();
 }
+$flag=0;
 if(isset($_GET['id'])){    
-    //if(!in_array($_GET['id'], $_SESSION['cart']["id"])){
-    if(array_search($_GET['id'], array_column($_SESSION['cart'], 'id')) == true) {
-        $id=$_GET['id'];
-        $i=0;
-        foreach ($_SESSION['cart']  as $subArray) {
-            if ($subArray["id"] == $id) {
-                 unset($_SESSION['cart'][$i]);
-            }
-            $i=$i+1;
+    $id=$_GET['id'];
+    foreach ($_SESSION['cart']  as $index=>$subArray) {
+        if ($subArray["id"] == $id) {
+                unset($_SESSION['cart'][$index]);
+                $flag=1;               
         }
-        $status=[ 'status' => 'success',"message" => "Item removed from cart "];
     }
-    else{
-        $status=[ 'status' => 'exist',"message" => "This item does't exists in cart " . $_GET['id'] ];
+    if($flag==1)
+        $status=['status' => 'success',"message" => "Item removed from cart "];
+    }else{
+        $status=[ 'status' => 'exist',"message" => "This item does't exists in cart "];
     }
 }
-print_r($_SESSION['cart'] );
 echo json_encode($status);
 ?>
