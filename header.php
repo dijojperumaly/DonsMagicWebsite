@@ -10,7 +10,6 @@ if(basename(parse_url($_SERVER['SCRIPT_NAME'], PHP_URL_PATH))!="login.php"){
 	$_SESSION["lasturl"]=$_SERVER['REQUEST_URI'];
 }
 
-
 $account_username="";
 $account_phone="";
 $account_email="";
@@ -433,9 +432,33 @@ if(isset($_SESSION['user_id'])){
 				</div>
 			</div>
 			
-			<div class="header-cart-content flex-w js-pscroll">
+			<div class="header-cart-content flex-w js-pscroll mycartitemdiv" id="mycartitemdiv">
 				<ul class="header-cart-wrapitem w-full">
+					<?php 
+					$carttotal=0;
+					foreach($_SESSION['cart'] as $cartitem){
+						$carttotal+=$cartitem["price"];
+					?>
 					<li class="header-cart-item flex-w flex-t m-b-12">
+						<div class="header-cart-item-img">
+							<img src="images/products/<?php echo $cartitem["image"]; ?>" alt="IMG">
+						</div>
+
+						<div class="header-cart-item-txt p-t-8">
+							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+								<?php echo $cartitem["type"]; ?>
+							</a>
+
+							<span class="header-cart-item-info">
+								<?php echo "Rs:". $cartitem["price"]; ?>
+							</span>
+						</div>
+					</li>
+					<?php	
+						}					
+					?>
+
+					<!--<li class="header-cart-item flex-w flex-t m-b-12">
 						<div class="header-cart-item-img">
 							<img src="images/item-cart-01.jpg" alt="IMG">
 						</div>
@@ -449,52 +472,21 @@ if(isset($_SESSION['user_id'])){
 								1 x $19.00
 							</span>
 						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-02.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Converse All Star
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $39.00
-							</span>
-						</div>
-					</li>
-
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
-							<img src="images/item-cart-03.jpg" alt="IMG">
-						</div>
-
-						<div class="header-cart-item-txt p-t-8">
-							<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
-								Nixon Porter Leather
-							</a>
-
-							<span class="header-cart-item-info">
-								1 x $17.00
-							</span>
-						</div>
-					</li>
+					</li>-->
+					
 				</ul>
 				
 				<div class="w-full">
 					<div class="header-cart-total w-full p-tb-40">
-						Total: $75.00
+						Total: <?php echo $carttotal; ?>
 					</div>
 
 					<div class="header-cart-buttons flex-w w-full">
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
 							View Cart
 						</a>
 
-						<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						<a href="shoping-cart.php" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
 							Check Out
 						</a>
 					</div>
