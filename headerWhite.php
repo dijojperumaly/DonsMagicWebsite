@@ -117,7 +117,8 @@ if(isset($_SESSION['user_id'])){
 					<!-- Logo desktop -->		
 					
 					<a href="." class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
-						DONS MAGIC
+						<img src="images/donslogo_black.jpg" alt="IMG-LOGO">
+						<!--DONS MAGIC-->
 					</a>
 
 					<!-- Menu desktop -->
@@ -202,11 +203,12 @@ if(isset($_SESSION['user_id'])){
 		</div>
 
 		<!-- Header Mobile -->
-		<div class="wrap-header-mobile">
+		<div class="wrap-header-mobile" style="height:80px;padding:5px 15px;"> 
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-			<a href="." class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
-						DONS MAGIC
+				<a href="." class="logo" style="font-family: 'Gugi'; color: Black; font-size: 24px;">
+					<img src="images/donslogo_black.jpg" alt="IMG-LOGO">
+						<!--DONS MAGIC-->
 					</a>
 			</div>
 
