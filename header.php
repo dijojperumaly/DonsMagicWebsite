@@ -88,7 +88,7 @@ if(isset($_SESSION['user_id'])){
 					
 					<!-- Logo desktop -->		
 					<a href="." class="logo" style="font-family: 'Gugi'; color: White; font-size: 24px;">
-					<img src="images/donslogo.png" alt="IMG-LOGO">
+						<img src="images/donslogo.png" alt="IMG-LOGO">
 						<!--DONS MAGIC						-->
 					</a>
 
