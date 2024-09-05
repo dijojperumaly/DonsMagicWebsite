@@ -184,7 +184,7 @@ if(isset($_SESSION['user_id'])){
 						<!--<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 js-show-modal-search">
 							<i class="zmdi zmdi-search"></i>
 						</div>-->
-						<div class="flex-c-m h-full p-r-1 bor6">
+						<div class="flex-c-m h-full p-r-1 bor6 mycartcountdiv" id="mycartcountdiv">
 							<div class="icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 icon-header-noti js-show-cart" data-notify="<?php echo count($_SESSION['cart']); ?>">
 								<i class="zmdi zmdi-shopping-cart"></i>
 							</div>
@@ -213,7 +213,7 @@ if(isset($_SESSION['user_id'])){
 			</div>
 
 			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15" id="mycartcountmobilediv">
 				<!--<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 js-show-modal-search">
 					<i class="zmdi zmdi-search"></i>
 				</div>-->
@@ -378,8 +378,8 @@ if(isset($_SESSION['user_id'])){
 					foreach($_SESSION['cart'] as $cartitem){
 						$carttotal+=$cartitem["price"];
 					?>
-					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
+					<li class="header-cart-item flex-w flex-t m-b-12" >
+						<div class="header-cart-item-img" onclick="deleteCartItem(this,<?php echo $cartitem["id"]; ?>)">
 							<img src="images/products/<?php echo $cartitem["image"]; ?>" alt="IMG">
 						</div>
 

@@ -3,6 +3,25 @@ ob_start();
 include_once("admin/db_connection.php");
 include('headerWhite.php');
 ?>
+<style>
+.dropdown{
+    height: 45px;
+	width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: left;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 0px;
+    position: relative;
+	color: #555;
+	padding:10px;	
+}
+</style>
 
 	<!-- breadcrumb -->
 	<div class="container">
@@ -108,7 +127,7 @@ include('headerWhite.php');
 
 								<tr class="table_row">
 									<td class="column-1">
-										<div class="how-itemcart1" onclick="deleteCartItem(this,<?php echo $id; ?>)">
+										<div class="how-itemcart1" onclick="deleteCartItem_CartView(this,<?php echo $id; ?>)">
 											<img src="images/products/<?php echo $view_image; ?>" alt="IMG">
 										</div>
 									</td>
@@ -212,7 +231,8 @@ include('headerWhite.php');
 									</span>
 
 									<div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-										<select class="js-select2" name="time">
+										<!--<select class="js-select2" name="time">-->
+										<select class="dropdown" name="time">
 											<option>Select a country...</option>
 											<option>USA</option>
 											<option>UK</option>
@@ -267,8 +287,8 @@ include('headerWhite.php');
 	?>
 
 	<script>
-		function deleteCartItem(obj,id=0){
-			alert(id);
+		function deleteCartItem_CartView(obj,id=0){
+			//alert(id);
 			$.ajax({
 				type: "GET", //we are using POST method to submit the data to the server side
 				url: "shoping-cart_delete.php?id="+id, // get the route value	
@@ -286,16 +306,16 @@ include('headerWhite.php');
 				success: function(response) { //once the request successfully process to the server side it will return result here
 					//objcart.attr("disabled", false).html(caption);					
 					//var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
-					alert(response);
+					//alert(response);
 					try {
 						var json = $.parseJSON(response);
 						//var json = JSON.parse(response);		
 									
 						if (json["status"] == "success") {								
 							//swal(type, json["message"], "success");
-							$(obj).parent().parent().remove();
-							
-							/*$.get(location.href, function(data){ 
+							$(obj).parent().parent().remove();	
+
+							$.get(location.href, function(data){ 								
 								$('#mycartcountdiv').empty().append( $(data).find('#mycartcountdiv').children() );
 								return false;
 							});
@@ -306,8 +326,7 @@ include('headerWhite.php');
 							$.get(location.href, function(data){ 
 								$('#mycartitemdiv').empty().append( $(data).find('#mycartitemdiv').children() );
 								return false;
-							});*/							
-							
+							});								
 						}else{
 							//swal(type, json["message"], "error");
 						}
@@ -355,3 +374,92 @@ include('headerWhite.php');
 		});
 		
 	</script>
+
+Agra
+Aligarh
+Allahabad
+Ambedkar Nagar
+Amethi
+Amroha
+Auraiya
+Azamgarh
+Baghpat
+Bahraich
+Ballia
+Balrampur
+Banda
+Bara Banki
+Bareilly
+Basti
+Bhadohi
+Bijnor
+Budaun
+Bulandshahr
+Chandauli
+Chitrakoot
+Deoria
+Etah
+Etawah
+Faizabad
+Farrukhabad
+Fatehpur
+Firozabad
+Gautam Buddha Nagar
+Ghaziabad
+Ghazipur
+Gonda
+Gorakhpur
+Hamirpur
+Hapur
+Hardoi
+Hathras
+Jalaun
+Jaunpur
+Jhansi
+Kannauj
+Kanpur Dehat
+Kanpur Nagar
+Kasganj
+Kaushambi
+Kheri
+Kushinagar
+Lalitpur
+Lucknow
+Mahoba
+Mahrajganj
+Mainpuri
+Mathura
+Mau
+Meerut
+Mirzapur
+Moradabad
+Muzaffarnagar
+Pilibhit
+Pratapgarh
+Rae Bareli
+Rampur
+Saharanpur
+Sambhal
+Sant Kabir Nagar
+Shahjahanpur
+Shamli
+Shrawasti
+Siddharthnagar
+Sitapur
+Sonbhadra
+Sultanpur
+Unnao
+Varanasi
+Almora
+Bageshwar
+Chamoli
+Champawat
+Dehradun
+Garhwal
+Hardwar
+Nainital
+Pithoragarh
+Rudraprayag
+Tehri Garhwal
+Udham Singh Nagar
+Uttarkashi

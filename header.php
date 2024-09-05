@@ -26,7 +26,7 @@ if(isset($_SESSION['user_id'])){
 	<title>Dons Magic</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="popupStyle/popupstyle.css">
+	<!--<link rel="stylesheet" href="popupStyle/popupstyle.css">-->
 <!--===============================================================================================-->
 	<!--<link href='https://fonts.googleapis.com/css?family=Gugi' rel='stylesheet'> -->
 <!--===============================================================================================-->	
@@ -440,7 +440,7 @@ if(isset($_SESSION['user_id'])){
 						$carttotal+=$cartitem["price"];
 					?>
 					<li class="header-cart-item flex-w flex-t m-b-12">
-						<div class="header-cart-item-img">
+						<div class="header-cart-item-img" onclick="deleteCartItem(this,<?php echo $cartitem["id"]; ?>)">
 							<img src="images/products/<?php echo $cartitem["image"]; ?>" alt="IMG">
 						</div>
 

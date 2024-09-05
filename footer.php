@@ -444,5 +444,71 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 		$(AlertMsg).show();
 	}
 </script>
+<script>
+		function deleteCartItem(obj,id=0){
+			//alert(id);
+			$.ajax({
+				type: "GET", //we are using POST method to submit the data to the server side
+				url: "shoping-cart_delete.php?id="+id, // get the route value	
+				//dataType:"json",				
+				//data:dataPost,// our serialized json data for server side    				
+				timeout: 1000,
+				async: false,
+				processData: false,
+				contentType: false,
+			
+				beforeSend: function() { //We add this before send to disable the button once we submit it so that we prevent the multiple click
+					//$(obj).attr("disabled", true).html("Processing...");
+					//$(".se-pre-con").fadeIn("slow");
+				},
+				success: function(response) { //once the request successfully process to the server side it will return result here
+					//objcart.attr("disabled", false).html(caption);					
+					//var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+					//alert(response);
+					try {
+						var json = $.parseJSON(response);
+						//var json = JSON.parse(response);		
+									
+						if (json["status"] == "success") {								
+							//swal(type, json["message"], "success");
+							//$(obj).parent().parent().remove();
+							$(obj).parent().remove();
+							
+							$.get(location.href, function(data){ 
+								$('#mycartcountdiv').empty().append( $(data).find('#mycartcountdiv').children() );
+								return false;
+							});
+							$.get(location.href, function(data){ 
+								$('#mycartcountmobilediv').empty().append( $(data).find('#mycartcountmobilediv').children() );
+								return false;
+							});
+							$.get(location.href, function(data){ 
+								$('#mycartitemdiv').empty().append( $(data).find('#mycartitemdiv').children() );
+								return false;
+							});							
+							
+						}else{
+							//swal(type, json["message"], "error");
+						}
+					} catch (e) {                                    
+						//ShowAlert("", "Not saved! please enter correct data", "danger");
+						//swal(type, "error", e);
+					}
+					// Reset form
+				},
+				complete: function(data) {
+					// Hide image container
+					//$(objcart).attr("disabled", false).html(caption);	
+					//$(".se-pre-con").fadeOut("slow");
+				},
+				error: function(XMLHttpRequest, textStatus, errorThrown) {
+					//$(objcart).attr("disabled", false).html(caption);	
+					//ShowAlert(textStatus, errorThrown, "danger");
+					//$(".se-pre-con").fadeOut("slow");
+				}
+			});						
+			
+		}
+	</script>
 </body>
 </html>
